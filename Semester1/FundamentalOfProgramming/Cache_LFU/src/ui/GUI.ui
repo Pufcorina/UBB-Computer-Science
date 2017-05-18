@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>836</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Students Management</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../resources/icon.ico</normaloff>../../resources/icon.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">selection-background-color: rgb(255, 237, 205);
+background-color: rgb(255, 237, 205);</string>
+  </property>
+  <widget class="QPushButton" name="addButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>470</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 0);</string>
+   </property>
+   <property name="text">
+    <string>Add student</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="findButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>252</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 0);</string>
+   </property>
+   <property name="text">
+    <string>Find student by id</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 0);</string>
+   </property>
+   <property name="text">
+    <string>Show all students</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>540</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 126, 114);</string>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="logo_label">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>0</y>
+     <width>271</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../resources/logo_UBB_ro.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="add_id_label">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>301</y>
+     <width>24</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ID:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name_label">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>353</y>
+     <width>109</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Student name:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="group_label">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>404</y>
+     <width>50</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Group:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="find_id_label">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>171</y>
+     <width>24</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ID:</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="add_id_textEdit">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>301</y>
+     <width>224</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="name_textEdit">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>353</y>
+     <width>224</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="group_textEdit">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>404</y>
+     <width>224</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="find_id_textEdit">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>171</y>
+     <width>224</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="msg_label">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>30</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Just learning things :)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>111</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../resources/feather-pen-L7zQ7S-clipart.ico</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="students_listWidget">
+   <property name="geometry">
+    <rect>
+     <x>375</x>
+     <y>111</y>
+     <width>431</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <zorder>addButton</zorder>
+  <zorder>findButton</zorder>
+  <zorder>showButton</zorder>
+  <zorder>exitButton</zorder>
+  <zorder>logo_label</zorder>
+  <zorder>add_id_label</zorder>
+  <zorder>name_label</zorder>
+  <zorder>group_label</zorder>
+  <zorder>find_id_label</zorder>
+  <zorder>find_id_textEdit</zorder>
+  <zorder>add_id_textEdit</zorder>
+  <zorder>name_textEdit</zorder>
+  <zorder>group_textEdit</zorder>
+  <zorder>msg_label</zorder>
+  <zorder>label</zorder>
+  <zorder>students_listWidget</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

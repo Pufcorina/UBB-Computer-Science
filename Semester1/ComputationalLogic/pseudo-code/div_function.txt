@@ -1,0 +1,57 @@
+"""
+    Function which divide two numbers
+
+    :param number1: first number given by the user
+    :param number2: second number given by the user ( one digit )
+    :param baseNumber: the base given by the user
+
+    :return: a number which is the result of division of the two numbers
+"""
+
+function divNumbers(number1, number2, baseNumber)
+begin
+    a := length of number1
+    b := number1[:]
+    coma := 0
+    carry := 0
+    rez := []
+    if ( length of number2 > 1) then
+        j := length of number2 - 1
+        while number2[j] = 0 or number2[j] = ',':
+            j := j - 1
+        imp := integer(number2[j])
+    else:
+        imp := integer(number2[length of number2 - 1])
+    i := 0
+	
+    while i < a do
+      begin
+    	if ( the value of b[i] = ',' ) then
+	   i := i + 1
+	   rez.append(',')
+           coma := 1
+           continue
+        aux := carry * integer(baseNumber) + integer(b[i])
+        if ( aux > imp) then
+            rez.append(aux // imp)
+            carry := aux % imp
+        else
+            rez.append(0)
+            carry := aux
+	i := i + 1
+      end
+
+    if ( coma = 0 ) then
+        rez.append(',')
+
+    i := 0
+	
+    while i < 3 do
+      begin
+        aux := carry * integer(baseNumber)
+        rez.append(aux // imp)
+        carry := aux % imp
+	i := i + 1
+      end
+    return rez
+end

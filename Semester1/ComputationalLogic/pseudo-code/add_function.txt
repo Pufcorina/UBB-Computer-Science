@@ -1,0 +1,43 @@
+"""
+    Function which add two numbers
+
+    :param number1: first number given by the user
+    :param number2: second number given by the user
+    :param baseNumber: the base given by the user
+
+    :return: a number which is the sum of the two numbers
+"""
+
+"""
+Example: [1, 2, 3, ',', 5] - number1
+	 [0, 2, 5, ',', 0] - number2
+	 [1, 4, 8, ',', 5] - result in base 10 ( if addition is performed in base 10 )
+"""
+
+function addNumbers(number1, number2, baseNumber)
+begin
+	carry := 0
+    	a := length of number1
+    	i := a - 1
+	
+	while i > -1 do
+	  begin
+	    if ( the value of number1[i] = ',' ) then
+		i := i - 1
+		continue
+	    the value of number1[i] := integer(the value of number1[i]) + integer(the value of number2[i]) + carry
+	    if ( the value of number1[i] >= integer(baseNumber) ) then
+		the value of number1[i] := integer(the value of number1[i]) - integer(baseNumber)
+		carry := 1
+	    else:
+		carry := 0
+	    i := i - 1 
+          end
+	
+
+	if ( the value of carry = 1 ) then
+	   number1[1:] := number1[0:] (we are shifting the list to the right with a position)
+           the value of number1[0] := carry
+    
+    	return number1
+end

@@ -1,0 +1,42 @@
+"""
+    Function which multiply two numbers
+
+    :param number1: first number given by the user
+    :param number: second number given by the user ( one digit )
+    :param baseNumber: the base given by the user
+
+    :return: a number which is the product of the two numbers
+"""
+
+function multiplyNumbers(number1, number, baseNumber)
+begin
+    carry := 0
+    if ( length of number > 1 ) then
+        j := length of number - 1
+	while the value of number[j] = 0 or the value of number[j] = ',' ) do
+	 begin
+	    j := j - 1
+	 end
+	the value of number2 = integer(number[j])
+    else
+        the value of number2 = integer(number[length of number - 1])
+    b := length of number1
+    aux = number1[:] ( a copy of the list number1 )
+    i := a - 1
+	
+    while i > -1 do
+     begin
+	if ( the value of number1[i] = ',' ) then
+	   i := i - 1
+	   continue
+        remainder := (integer(aux[i]) * number2 + carry) // integer(baseNumber)
+        quotient := (integer(aux[i]) * number2 + carry) % integer(baseNumber)
+        the value of aux[i] := quotient
+        the value of carry := remainder
+	i := i - 1
+     end
+    if ( the value of carry <> 0 ):
+        aux[1:] := aux[0:]
+        the value of aux[0] := carry
+    return aux
+end
