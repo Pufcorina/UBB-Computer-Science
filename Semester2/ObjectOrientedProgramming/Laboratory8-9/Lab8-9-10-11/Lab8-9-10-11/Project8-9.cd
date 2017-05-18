@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Console" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCGAAAAAAAIAAAAAgAgIYAAAQAkCAAAAQAEAAACAEAA=</HashCode>
+      <FileName>Console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAQAkAAAAAAEAgEAgAAAAAAAAAAIAAAAGAAA=</HashCode>
+      <FileName>Controller.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSVWatchList" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAEAAAAgAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>CSVWatchList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileRepository" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAgAgAAAAAAAAAwAIAAAAA=</HashCode>
+      <FileName>FileRepository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HTMLWatchList" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIACAAAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HTMLWatchList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemoryRepository" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIAAAAAAEAAAAAAgAgEAAAAAAAAAAAAogAABGAAA=</HashCode>
+      <FileName>MemoryRepository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Movie" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAwAAAEEIAAAAAAEgCAAIAACAAAGAAAAQAAAA=</HashCode>
+      <FileName>Movie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repository" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAIAAAAEAAACAAAAgEAgAAAAAAAAAAIAAAAGAAA=</HashCode>
+      <FileName>Repository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RepositoryException" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAIAAAAAAAAACAAAAAAAAAAACA=</HashCode>
+      <FileName>RepositoryException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DuplicateMovieException" Collapsed="true">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RepositoryException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileException" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>RepositoryException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Validator" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAgAAAAAAEAAA=</HashCode>
+      <FileName>Validator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieException" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAEAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchList" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAIAABAAACAQARAAgAQgAQABEAAAAAACAhAmAAA=</HashCode>
+      <FileName>WatchList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
