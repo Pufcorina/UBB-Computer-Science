@@ -1,0 +1,99 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>watchlist.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "WatchList.h"
+
+
+
+WatchList::WatchList()
+<span style = "background-color:#dfd">{
+	this-&gt;movieList = std::vector&lt;Movie&gt;();
+	this-&gt;currentPos = 0;
+	this-&gt;maximumPos = 0;
+	this-&gt;suggestions = std::vector&lt;Movie&gt;();
+	this-&gt;type = "";
+}</span>
+
+/*WatchList::WatchList(std::string type)
+{
+	this-&gt;movieList = std::vector&lt;Movie&gt;();
+	this-&gt;currentPos = 0;
+	this-&gt;maximumPos = 0;
+	this-&gt;suggestions = std::vector&lt;Movie&gt;();
+	this-&gt;type = type;
+}*/
+
+
+WatchList::~WatchList()
+<span style = "background-color:#fdd">{
+}</span>
+
+void WatchList::add()
+<span style = "background-color:#dfd">{
+	this-&gt;movieList.push_back(this-&gt;suggestions[this-&gt;currentPos]);
+	this-&gt;suggestions.erase(this-&gt;suggestions.begin() + this-&gt;currentPos);
+	this-&gt;maximumPos--;
+}</span>
+
+int WatchList::del(std::string title)
+<span style = "background-color:#dfd">{
+	int pos = getPosition(title);</span>
+
+<span style = "background-color:#dfd">	if (pos == -1)
+		return 0;
+	this-&gt;movieList.erase(this-&gt;movieList.begin() + pos);
+	return 1;
+}</span>
+
+void WatchList::getSuggestions(std::vector&lt;Movie&gt; repo, std::string genre)
+<span style = "background-color:#dfd">{
+	if (genre == "")
+		this-&gt;suggestions = repo;
+	else</span>
+	{
+<span style = "background-color:#dfd">		std::vector&lt;Movie&gt; suggestion = std::vector&lt;Movie&gt;();
+		for (auto i : repo)
+			if (i.getGenre() == genre)
+				suggestion.push_back(i);
+		this-&gt;suggestions = suggestion;
+	}
+	this-&gt;currentPos = 0;
+	this-&gt;maximumPos = suggestions.size();
+}</span>
+
+int WatchList::getPosition(std::string title)
+<span style = "background-color:#dfd">{
+	int counter = 0;
+	for (auto i : this-&gt;movieList)</span>
+	{
+<span style = "background-color:#dfd">		if (i.getTitle() == title)
+			return counter;
+		counter++;
+	}
+	return -1;
+}</span>
+
+Movie WatchList::getCurrentMovie()
+<span style = "background-color:#dfd">{
+	if (this-&gt;currentPos == this-&gt;maximumPos)</span>
+<span style = "background-color:#fdd">		this-&gt;currentPos = 0;</span>
+<span style = "background-color:#dfd">	return this-&gt;suggestions[this-&gt;currentPos];
+}</span>
+
+void WatchList::nextPos()
+<span style = "background-color:#dfd">{
+	if (this-&gt;currentPos == this-&gt;maximumPos)
+		this-&gt;currentPos = 0;
+	else
+		this-&gt;currentPos++;
+}</span></pre>
+	</body>
+</html>

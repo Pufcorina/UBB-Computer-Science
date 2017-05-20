@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>movie.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "Movie.h"
+
+Movie::Movie()
+<span style = "background-color:#dfd">{
+	this-&gt;title = "";
+	this-&gt;genre = "";
+	this-&gt;year = 2017;
+	this-&gt;likes = 0;
+	this-&gt;trailer = "www";
+}</span>
+
+Movie::Movie(const std::string&amp; title, const std::string&amp; genre, const int&amp; year, const int&amp; likes, const std::string&amp; trailer)
+<span style = "background-color:#dfd">{
+	this-&gt;title = title;
+	this-&gt;genre = genre;
+	this-&gt;year = year;
+	this-&gt;likes = likes;
+	this-&gt;trailer = trailer;
+}</span>
+
+Movie::Movie(const Movie&amp; movie)
+<span style = "background-color:#dfd">{
+	this-&gt;title = movie.getTitle();
+	this-&gt;genre = movie.getGenre();
+	this-&gt;year = movie.getYear();
+	this-&gt;likes = movie.getLikes();
+	this-&gt;trailer = movie.getTrailer();
+}</span>
+
+
+Movie::~Movie()
+<span style = "background-color:#dfd">{
+}</span>
+
+void Movie::incLikes()
+<span style = "background-color:#dfd">{
+	this-&gt;likes++;
+}</span>
+
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Movie&amp; movie)
+<span style = "background-color:#dfd">{
+	os &lt;&lt; movie.getTitle() &lt;&lt; "," &lt;&lt; movie.getGenre() &lt;&lt; "," &lt;&lt; movie.getYear() &lt;&lt; "," &lt;&lt; movie.getLikes() &lt;&lt; "," &lt;&lt; movie.getTrailer();
+	return os;
+}</span></pre>
+	</body>
+</html>

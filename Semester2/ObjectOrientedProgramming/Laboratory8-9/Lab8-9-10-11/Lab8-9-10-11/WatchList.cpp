@@ -29,7 +29,6 @@ void WatchList::add()
 {
 	this->movieList.push_back(this->suggestions[this->currentPos]);
 	this->suggestions.erase(this->suggestions.begin() + this->currentPos);
-	this->currentPos--;
 	this->maximumPos--;
 }
 

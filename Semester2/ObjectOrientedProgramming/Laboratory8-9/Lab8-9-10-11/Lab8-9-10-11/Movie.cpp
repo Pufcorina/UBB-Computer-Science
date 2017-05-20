@@ -42,12 +42,3 @@ std::ostream& operator<<(std::ostream& os, const Movie& movie)
 	os << movie.getTitle() << "," << movie.getGenre() << "," << movie.getYear() << "," << movie.getLikes() << "," << movie.getTrailer();
 	return os;
 }
-
-void Movie::str()
-{
-	std::cout << "Title: " << this->getTitle()
-		<< ", Genre: " << this->getGenre()
-		<< ", Year: " << this->getYear()
-		<< ", No. of likes: " << this->getLikes()
-		<< ", Trailer link: " << this->getTrailer() << "\n";
-}

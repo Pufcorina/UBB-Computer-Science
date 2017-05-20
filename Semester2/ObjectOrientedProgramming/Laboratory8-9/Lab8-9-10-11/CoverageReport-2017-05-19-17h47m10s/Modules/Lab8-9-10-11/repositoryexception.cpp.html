@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>repositoryexception.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "RepositoryException.h"
+
+<span style = "background-color:#dfd">FileException::FileException(const std::string &amp; msg) : message(msg)
+{
+}</span>
+
+const char * FileException::what()
+<span style = "background-color:#dfd">{
+	return message.c_str();
+}</span>
+
+<span style = "background-color:#dfd">RepositoryException::RepositoryException() : exception{}, message{ "" }
+{
+}</span>
+
+<span style = "background-color:#dfd">RepositoryException::RepositoryException(const std::string &amp; msg) : message{ msg }
+{
+}</span>
+
+const char * RepositoryException::what()
+<span style = "background-color:#dfd">{
+	return this-&gt;message.c_str();
+}</span>
+
+const char * DuplicateMovieException::what()
+<span style = "background-color:#dfd">{
+	return "	There is another movie with the same title, genre and year!";
+}</span></pre>
+	</body>
+</html>

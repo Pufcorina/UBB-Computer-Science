@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>validator.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "Validator.h"
+
+
+
+Validator::Validator()
+<span style = "background-color:#dfd">{
+}</span>
+
+
+Validator::~Validator()
+<span style = "background-color:#dfd">{
+}</span>
+
+void Validator::validate_movie(const Movie&amp; movie)
+<span style = "background-color:#dfd">{
+	std::vector&lt;std::string&gt; errors;
+	if (movie.getTitle().size() &lt; 1)
+		errors.push_back("	The title name cannot be less than 1 characters!\n");
+	if (!isupper(movie.getGenre()[0]))
+		errors.push_back(std::string("	The name of the genre must start with a capital letter!\n"));
+	if (movie.getYear() &lt; 1889 || movie.getYear() &gt; 2100)
+		errors.push_back(std::string("	Year has to be an integer greater than 1889 and smaller than 2100!\n"));</span>
+
+	// search for "www" or "http" at the beginning of the source string
+<span style = "background-color:#dfd">	int posWww = movie.getTrailer().find("www");
+	int posHttp = movie.getTrailer().find("http");
+	if (posWww != 0 &amp;&amp; posHttp != 0)
+		errors.push_back("	The youtube source must start with one of the following strings: \"www\" or \"http\"\n");</span>
+
+<span style = "background-color:#dfd">	if (errors.size() &gt; 0)
+		throw MovieException(errors);
+}</span>
+
+
+MovieException::MovieException(std::vector&lt;std::string&gt; _errors)
+<span style = "background-color:#dfd">{
+	this-&gt;errors = _errors;
+}</span>
+
+std::vector&lt;std::string&gt; MovieException::getErrors() const
+<span style = "background-color:#dfd">{
+	return this-&gt;errors;
+}</span></pre>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>controller.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include "Repository.h"
+#include "WatchList.h"
+
+class Controller
+{
+private:
+	Repository *repo;
+public:
+	Controller();
+<span style = "background-color:#dfd">	Controller(Repository* repo) { this-&gt;repo = repo; }</span>
+	~Controller();
+
+	void add(const std::string&amp; title, const std::string genre, const int&amp; year, const int&amp; likes, std::string trailer);
+<span style = "background-color:#dfd">	int del(const std::string&amp; title) { return this-&gt;repo-&gt;del(title); }</span>
+	int update(const std::string&amp; title, const std::string genre, const int&amp; year, const int&amp; likes, std::string trailer);
+<span style = "background-color:#dfd">	void incLikes(std::string title) { this-&gt;repo-&gt;incLikes(title); }
+	void saveToFile() { this-&gt;repo-&gt;saveToFile(); }</span>
+
+<span style = "background-color:#dfd">	int getLength() { return this-&gt;repo-&gt;getLength(); }
+	int getPosition(const std::string&amp; title) { return this-&gt;repo-&gt;getPosition(title); }
+	std::vector&lt;Movie&gt; getItems() { return this-&gt;repo-&gt;getItems(); }</span>
+	
+};
+</pre>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+Body style: Sedan --  Engine type: Electric  -- Fuel type: gasoline --  Autonomy: 10 --  Engine price: 11000.000000 --  Car price11000.100000
+Body style: Sedan --  Engine type: Electric  -- Fuel type: gasoline --  Autonomy: 12 --  Engine price: 11000.000000 --  Car price11000.120000
+Body style: Sedan --  Engine type: Electric  -- Fuel type: diesel --  Autonomy: 13 --  Engine price: 11000.000000 --  Car price11000.130000
+Body style: Sedan --  Engine type: Electric  -- Fuel type: diesel --  Autonomy: 14 --  Engine price: 11000.000000 --  Car price11000.140000
+Body style: Sedan --  Engine type: Turbo  -- Fuel type: gasoline --  Engine price: 11000.000000 --  Car price11001.000000
+Body style: Sedan --  Engine type: Turbo  -- Fuel type: diesel --  Engine price: 11000.000000 --  Car price11001.500000
+Body style: Convertible --  Engine type: Electric  -- Fuel type: gasoline --  Autonomy: 10 --  Engine price: 12000.000000 --  Car price12000.100000
+Body style: Convertible --  Engine type: Electric  -- Fuel type: gasoline --  Autonomy: 12 --  Engine price: 12000.000000 --  Car price12000.120000
+Body style: Convertible --  Engine type: Electric  -- Fuel type: diesel --  Autonomy: 13 --  Engine price: 12000.000000 --  Car price12000.130000
+Body style: Convertible --  Engine type: Electric  -- Fuel type: diesel --  Autonomy: 14 --  Engine price: 12000.000000 --  Car price12000.140000
+Body style: Convertible --  Engine type: Turbo  -- Fuel type: gasoline --  Engine price: 12000.000000 --  Car price12001.000000
+Body style: Convertible --  Engine type: Turbo  -- Fuel type: diesel --  Engine price: 12000.000000 --  Car price12001.500000

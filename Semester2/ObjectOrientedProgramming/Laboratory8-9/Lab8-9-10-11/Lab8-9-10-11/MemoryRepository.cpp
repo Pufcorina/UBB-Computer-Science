@@ -62,3 +62,6 @@ int MemoryRepository::getPosition(const std::string& title)
 	}
 	return -1;
 }
+
+void MemoryRepository::saveToFile()
+{}

@@ -16,6 +16,7 @@ public:
 
 class DuplicateMovieException : public RepositoryException
 {
+public:
 	const char* what();
 };
 

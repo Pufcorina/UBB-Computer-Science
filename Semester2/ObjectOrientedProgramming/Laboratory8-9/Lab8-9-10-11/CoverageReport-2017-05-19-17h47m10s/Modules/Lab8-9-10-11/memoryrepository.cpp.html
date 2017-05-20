@@ -1,0 +1,80 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>memoryrepository.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "MemoryRepository.h"
+#include "RepositoryException.h"
+
+MemoryRepository::MemoryRepository()
+<span style = "background-color:#dfd">{
+	this-&gt;items = std::vector&lt;Movie&gt;();
+	this-&gt;validator_class = Validator();
+}</span>
+
+
+MemoryRepository::~MemoryRepository()
+<span style = "background-color:#dfd">{
+}</span>
+
+MemoryRepository&amp; MemoryRepository::operator=(const MemoryRepository&amp; other)
+<span style = "background-color:#dfd">{
+	if (this == &amp;other) return *this;
+	this-&gt;items = other.items;
+	return *this;
+}</span>
+
+void MemoryRepository::add(const Movie&amp; movie)
+<span style = "background-color:#dfd">{
+	validator_class.validate_movie(movie);
+	if (getPosition(movie.getTitle()) != -1)
+		throw DuplicateMovieException();
+	this-&gt;items.push_back(movie);
+}</span>
+
+int MemoryRepository::del(const std::string&amp; title)
+<span style = "background-color:#dfd">{
+	int pos = getPosition(title);
+	if (pos == -1)</span>
+	{
+<span style = "background-color:#dfd">		std::cout &lt;&lt; "	No such movie\n";
+		return 0;</span>
+	}
+<span style = "background-color:#dfd">	this-&gt;items.erase(this-&gt;items.begin() + pos);
+	return 1;
+}</span>
+
+int MemoryRepository::update(const Movie&amp; movie)
+<span style = "background-color:#dfd">{
+	int pos = getPosition(movie.getTitle());
+	if (pos == -1)</span>
+	{
+<span style = "background-color:#dfd">		std::cout &lt;&lt; "	No such movie\n";
+		return 0;</span>
+	}
+<span style = "background-color:#dfd">	this-&gt;items[pos] = movie;
+	return 1;
+}</span>
+
+int MemoryRepository::getPosition(const std::string&amp; title)
+<span style = "background-color:#dfd">{
+	int counter = 0;
+	for (auto i : this-&gt;items)</span>
+	{
+<span style = "background-color:#dfd">		if (i.getTitle() == title)
+			return counter;
+		counter++;
+	}
+	return -1;
+}</span>
+
+void MemoryRepository::saveToFile()
+<span style = "background-color:#dfd">{}</span></pre>
+	</body>
+</html>

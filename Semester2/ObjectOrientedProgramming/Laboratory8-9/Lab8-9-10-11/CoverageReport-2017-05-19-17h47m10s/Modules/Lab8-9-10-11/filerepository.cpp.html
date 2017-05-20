@@ -1,0 +1,76 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>filerepository.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "FileRepository.h"
+#include "util.h"
+#include "RepositoryException.h"
+
+
+
+FileRepository::FileRepository()
+<span style = "background-color:#dfd">{
+}</span>
+
+<span style = "background-color:#dfd">FileRepository::FileRepository(const FileRepository &amp;other) : MemoryRepository(other)
+{
+	this-&gt;filename = other.filename;
+	loadFromFile();</span>
+<span style = "background-color:#fdd">}</span>
+
+FileRepository::~FileRepository()
+<span style = "background-color:#dfd">{
+}</span>
+
+
+void FileRepository::loadFromFile()
+<span style = "background-color:#dfd">{
+	std::ifstream f(this-&gt;filename);</span>
+
+<span style = "background-color:#dfd">	if (!f.is_open())
+		throw FileException("	The file could not be opened!\n");</span>
+
+<span style = "background-color:#dfd">	std::string temp;</span>
+	std::string* args;
+
+<span style = "background-color:#dfd">	while (!f.eof())</span>
+	{
+<span style = "background-color:#dfd">		std::getline(f, temp);
+		if (f.eof() || temp == "")</span>
+		{
+<span style = "background-color:#dfd">			f.close();
+			break;</span>
+		}
+
+<span style = "background-color:#dfd">		args = splitString(temp);
+		add(Movie{ args[0], args[1], stoi(args[2]), stoi(args[3]), args[4] });
+	}
+	f.close();
+}</span>
+
+void FileRepository::saveToFile()
+<span style = "background-color:#dfd">{
+	std::ofstream f(this-&gt;filename);
+	for (auto i : this-&gt;items)
+		f &lt;&lt; i &lt;&lt; "\n";
+	f.close();
+}</span>
+
+FileRepository&amp; FileRepository::operator=(const FileRepository&amp; other)
+<span style = "background-color:#dfd">{
+	if (this == &amp;other)
+		return *this;
+	MemoryRepository::operator=(other);
+	this-&gt;filename = other.filename;</span>
+
+<span style = "background-color:#dfd">	return *this;
+}</span></pre>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>watchlist.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include "Movie.h"
+#include &lt;vector&gt;
+
+class WatchList
+{
+protected:
+	std::vector&lt;Movie&gt; movieList;
+	std::vector&lt;Movie&gt; suggestions;
+	int currentPos, maximumPos;
+	std::string type;
+
+public:
+	WatchList();
+	//WatchList(std::string type);
+	~WatchList();
+
+	void add();
+	int del(std::string title);
+
+	void getSuggestions(std::vector&lt;Movie&gt; repo, std::string genre);
+<span style = "background-color:#dfd">	std::vector&lt;Movie&gt; getList() { return this-&gt;movieList; }</span>
+	int getPosition(std::string title);
+	Movie getCurrentMovie();
+<span style = "background-color:#dfd">	int getMaximumPos() const { return this-&gt;maximumPos; }</span>
+	std::string getType() const { return this-&gt;type; }
+
+	void setCurrentPos(int value) { this-&gt;currentPos += value; }
+	void nextPos();
+
+	virtual void saveToFile() = 0;
+	virtual void openInApp() = 0;
+};
+</pre>
+	</body>
+</html>

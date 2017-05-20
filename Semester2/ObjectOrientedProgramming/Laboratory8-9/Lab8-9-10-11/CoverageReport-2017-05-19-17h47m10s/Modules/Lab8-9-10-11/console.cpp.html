@@ -1,0 +1,408 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>console.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "Console.h"
+#include &lt;Windows.h&gt;
+#include &lt;conio.h&gt;
+#include "RepositoryException.h"
+
+Console::Console()
+<span style = "background-color:#fdd">{
+}</span>
+
+Console::~Console()
+<span style = "background-color:#fdd">{
+}</span>
+
+Console::Console(Controller ctrl, WatchList* watchlist)
+<span style = "background-color:#fdd">{
+	this-&gt;ctrl = ctrl;
+	this-&gt;watchlist = watchlist;
+}</span>
+
+void Console::runApplication()
+<span style = "background-color:#fdd">{</span>
+
+<span style = "background-color:#fdd">	this-&gt;ctrl.saveToFile();
+	this-&gt;watchlist-&gt;saveToFile();
+	while (true)</span>
+	{
+<span style = "background-color:#fdd">		printMenuApplication();
+		std::string command;
+		std::getline(std::cin, command);
+		if (command == "exit")
+			break;</span>
+
+<span style = "background-color:#fdd">		if (command == "admin")</span>
+		{
+<span style = "background-color:#fdd">			system("cls");
+			std::cout &lt;&lt; "\n	Now you are in Admin mode\n";
+			Sleep(2000);
+			runAdminMode();
+			system("cls");
+			std::cout &lt;&lt; "\n	You are no more in Admin mode! ^_^\n";
+			Sleep(2000);
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "user")</span>
+		{
+			{
+<span style = "background-color:#fdd">				system("cls");
+				std::cout &lt;&lt; "\n	Now you are in User mode\n";
+				Sleep(2000);
+				runUserMode();
+				system("cls");
+				std::cout &lt;&lt; "\n	You are no more in User mode! ^_^\n";
+				Sleep(2000);
+				continue;</span>
+			}
+		}
+<span style = "background-color:#fdd">		std::cout &lt;&lt; "	Invalid mode!\n";
+		Sleep(2000);
+	}
+	this-&gt;ctrl.saveToFile();
+	this-&gt;watchlist-&gt;saveToFile();
+}</span>
+
+void Console::runAdminMode()
+<span style = "background-color:#fdd">{
+	while (true)</span>
+	{
+<span style = "background-color:#fdd">		printMenuAdmin();
+		std::string command;
+		std::getline(std::cin, command);
+		if (command == "exit")
+			break;
+		if (command == "add")</span>
+		{
+<span style = "background-color:#fdd">			consoleAdd();
+			Sleep(2000);
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "delete")</span>
+		{
+<span style = "background-color:#fdd">			consoleDelete();
+			Sleep(2000);
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "update")</span>
+		{
+<span style = "background-color:#fdd">			consoleUpdate();
+			Sleep(2000);
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "list")</span>
+		{
+<span style = "background-color:#fdd">			consoleList();</span>
+
+<span style = "background-color:#fdd">			Sleep(10000);
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		std::cout &lt;&lt; "	Invalid command!\n\n";
+		Sleep(2000);
+	}
+}</span>
+
+void Console::runUserMode()
+<span style = "background-color:#fdd">{
+	while (true)</span>
+	{
+<span style = "background-color:#fdd">		printMenuUser();
+		std::string command;
+		std::getline(std::cin, command);
+		if (command == "exit")
+			break;
+		if (command == "watch")</span>
+		{
+<span style = "background-color:#fdd">			consoleUserWatch();
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "show")</span>
+		{
+<span style = "background-color:#fdd">			consoleUserShow();
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "delete")</span>
+		{
+<span style = "background-color:#fdd">			consoleUserDelete();
+			continue;</span>
+		}
+
+<span style = "background-color:#fdd">		if (command == "save")</span>
+		{
+<span style = "background-color:#fdd">			consoleUserSave();
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		if (command == "open")</span>
+		{
+<span style = "background-color:#fdd">			consoleUserOpen();
+			continue;</span>
+		}
+<span style = "background-color:#fdd">		std::cout &lt;&lt; "	Invalid command!\n\n";
+		Sleep(2000);
+	}
+}</span>
+
+void Console::printMenuApplication()
+<span style = "background-color:#fdd">{
+	system("cls");
+	std::cout &lt;&lt; "\n	Please select your mode from: admin / user\n";
+	std::cout &lt;&lt; "	For exit type: exit\n\n";
+	std::cout &lt;&lt; "		You are: ";
+}</span>
+
+void Console::printMenuAdmin()
+<span style = "background-color:#fdd">{
+	system("cls");
+	std::cout &lt;&lt; "\n	add - Add a movie\n";
+	std::cout &lt;&lt; "	delete - Delete a movie\n";
+	std::cout &lt;&lt; "	update - Update a movie\n";
+	std::cout &lt;&lt; "	list - List all movies\n";
+	std::cout &lt;&lt; "	For exit type: exit\n\n";</span>
+
+<span style = "background-color:#fdd">	std::cout &lt;&lt; "		Your command: ";
+}</span>
+
+void Console::printMenuUser()
+<span style = "background-color:#fdd">{
+	system("cls");
+	std::cout &lt;&lt; "\n	watch - See the movies by genre\n";
+	std::cout &lt;&lt; "	delete - Delete Movie from the WatchList by title\n";
+	std::cout &lt;&lt; "	show - See the WatchList\n";
+	std::cout &lt;&lt; "	open - Display WatchList\n";
+	std::cout &lt;&lt; "	For exit type: exit\n\n";
+	std::cout &lt;&lt; "		Your command: ";
+}</span>
+
+void Console::printWatchMenu(const Movie&amp; m)
+<span style = "background-color:#fdd">{
+	system("cls");</span>
+
+<span style = "background-color:#fdd">	std::cout &lt;&lt; "\n	Movie with title: " &lt;&lt; m.getTitle() &lt;&lt; "\n";
+	std::cout &lt;&lt; "\n	You can: \n";
+	std::cout &lt;&lt; "		next - go to the next element\n";
+	std::cout &lt;&lt; "		add - add to the WatchList\n";
+	std::cout &lt;&lt; "		For exit type: exit\n\n";
+	std::cout &lt;&lt; "			Your command: ";
+}</span>
+
+void Console::consoleAdd()
+<span style = "background-color:#fdd">{
+	std::string title, genre, year, nbLikes, trailer;
+	std::cout &lt;&lt; "	Insert title: ";
+	std::getline(std::cin, title);
+	std::cout &lt;&lt; "	Insert genre: ";
+	std::getline(std::cin, genre);
+	std::cout &lt;&lt; "	Insert year: ";
+	std::getline(std::cin, year);
+	std::cout &lt;&lt; "	Insert number of likes: ";
+	std::getline(std::cin, nbLikes);
+	std::cout &lt;&lt; "	Insert trailer link: ";
+	std::getline(std::cin, trailer);</span>
+
+<span style = "background-color:#fdd">	try</span>
+	{
+<span style = "background-color:#fdd">		this-&gt;ctrl.add(title, genre, stoi(year), stoi(nbLikes), trailer);
+	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#fdd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}</span>
+	catch (RepositoryException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (FileException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (std::invalid_argument e)
+<span style = "background-color:#fdd">	{
+		std::cout &lt;&lt; "Insert numbers\n";
+	}
+}</span>
+
+void Console::consoleDelete()
+<span style = "background-color:#fdd">{
+	std::string title;
+	std::cout &lt;&lt; "	Insert title: ";
+	std::getline(std::cin, title);</span>
+
+<span style = "background-color:#fdd">	try</span>
+	{
+<span style = "background-color:#fdd">		this-&gt;ctrl.del(title);
+	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#fdd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}</span>
+	catch (RepositoryException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (DuplicateMovieException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (FileException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (std::invalid_argument e)
+<span style = "background-color:#fdd">	{
+		std::cout &lt;&lt; "Insert numbers\n";
+	}
+}</span>
+
+void Console::consoleUpdate()
+<span style = "background-color:#fdd">{
+	std::string title, genre, year, nbLikes, trailer;
+	std::cout &lt;&lt; "	Insert title: ";
+	std::getline(std::cin, title);
+	std::cout &lt;&lt; "	Insert genre: ";
+	std::getline(std::cin, genre);
+	std::cout &lt;&lt; "	Insert year: ";
+	std::getline(std::cin, year);
+	std::cout &lt;&lt; "	Insert number of likes: ";
+	std::getline(std::cin, nbLikes);
+	std::cout &lt;&lt; "	Insert trailer link: ";
+	std::getline(std::cin, trailer);</span>
+
+<span style = "background-color:#fdd">	try</span>
+	{
+<span style = "background-color:#fdd">		this-&gt;ctrl.update(title, genre, stoi(year), stoi(nbLikes), trailer);
+	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#fdd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}</span>
+	catch (RepositoryException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (FileException&amp; e)
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+	catch (std::invalid_argument e)
+<span style = "background-color:#fdd">	{
+		std::cout &lt;&lt; "Insert numbers\n";
+	}
+}</span>
+
+void Console::consoleList()
+<span style = "background-color:#fdd">{
+	for (auto i : this-&gt;ctrl.getItems())
+		std::cout &lt;&lt; "  Movie with title: " &lt;&lt; i.getTitle() &lt;&lt; " genre: " &lt;&lt; i.getGenre() &lt;&lt; " from year: " &lt;&lt; i.getYear() &lt;&lt; " which has: " &lt;&lt; i.getLikes() &lt;&lt; " likes and has the trailer: " &lt;&lt; i.getTrailer() &lt;&lt; "\n";
+}</span>
+
+
+void Console::consoleUserWatch()
+<span style = "background-color:#fdd">{
+	std::cout &lt;&lt; "	Please insert the genre (type \"all\" for all sugestions): ";
+	std::string genre;
+	std::getline(std::cin, genre);</span>
+
+<span style = "background-color:#fdd">	std::vector&lt;Movie&gt; suggestions;</span>
+
+<span style = "background-color:#fdd">	this-&gt;watchlist-&gt;getSuggestions(this-&gt;ctrl.getItems(), genre);</span>
+
+<span style = "background-color:#fdd">	if (this-&gt;watchlist-&gt;getMaximumPos() == 0)
+		std::cout &lt;&lt; "	No suggestions for this genre, sorry!\n";
+	else
+		while (1)</span>
+		{
+<span style = "background-color:#fdd">			if (this-&gt;watchlist-&gt;getMaximumPos() == 0)
+				break;
+			Movie m = this-&gt;watchlist-&gt;getCurrentMovie();
+			printWatchMenu(m);</span>
+
+<span style = "background-color:#fdd">			std::string command;
+			std::getline(std::cin, command);</span>
+
+<span style = "background-color:#fdd">			if (command == "exit")
+				break;</span>
+
+<span style = "background-color:#fdd">			if (command == "add")</span>
+			{
+<span style = "background-color:#fdd">				this-&gt;watchlist-&gt;add();
+				continue;</span>
+			}
+
+<span style = "background-color:#fdd">			if (command == "next")</span>
+			{
+<span style = "background-color:#fdd">				this-&gt;watchlist-&gt;nextPos();
+				continue;</span>
+			}
+
+<span style = "background-color:#fdd">			std::cout &lt;&lt; "	Invalid command!\n\n";
+			Sleep(2000);</span>
+
+<span style = "background-color:#fdd">		}</span>
+
+<span style = "background-color:#fdd">	if (suggestions.size() == 0)</span>
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; "	That's all for now!\n";
+		Sleep(3000);</span>
+	}
+<span style = "background-color:#fdd">}</span>
+
+void Console::consoleUserShow()
+<span style = "background-color:#fdd">{
+	if (this-&gt;watchlist-&gt;getList().size() == 0)
+		std::cout &lt;&lt; "\n	No movie in your WatchList!\n";
+	else
+		for (auto m : this-&gt;watchlist-&gt;getList())
+			std::cout &lt;&lt; "Movie with title: " &lt;&lt; m.getTitle() &lt;&lt; " genre: " &lt;&lt; m.getGenre() &lt;&lt; " from year: " &lt;&lt; m.getYear() &lt;&lt; " which has: " &lt;&lt; m.getLikes() &lt;&lt; " likes and has the trailer: " &lt;&lt; m.getTrailer() &lt;&lt; "\n";
+	Sleep(5000);
+}</span>
+
+void Console::consoleUserDelete()
+<span style = "background-color:#fdd">{
+	std::cout &lt;&lt; "Input title: ";
+	std::string title;
+	std::getline(std::cin, title);
+	if (this-&gt;watchlist-&gt;del(title) == 0)</span>
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; "	Inexistent movie!\n";
+		Sleep(2000);</span>
+	}
+<span style = "background-color:#fdd">	else</span>
+	{
+<span style = "background-color:#fdd">		std::cout &lt;&lt; "	Like the movie? (yes / no): ";
+		std::string liked;</span>
+
+		do
+		{
+<span style = "background-color:#fdd">			std::getline(std::cin, liked);
+			if (liked != "yes" &amp;&amp; liked != "no")
+				std::cout &lt;&lt; "	Invalid option\n";
+		} while (liked != "yes" &amp;&amp; liked != "no");</span>
+
+<span style = "background-color:#fdd">		if (liked == "yes")
+			this-&gt;ctrl.incLikes(title);
+	}
+}</span>
+
+void Console::consoleUserSave()
+<span style = "background-color:#fdd">{
+	this-&gt;watchlist-&gt;saveToFile();
+}</span>
+
+void Console::consoleUserOpen()
+<span style = "background-color:#fdd">{
+	this-&gt;watchlist-&gt;openInApp();
+}</span></pre>
+	</body>
+</html>

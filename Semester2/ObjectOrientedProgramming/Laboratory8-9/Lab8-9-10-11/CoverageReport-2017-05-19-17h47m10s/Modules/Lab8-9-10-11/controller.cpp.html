@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>controller.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "Controller.h"
+
+
+
+Controller::Controller()
+<span style = "background-color:#dfd">{
+}</span>
+
+
+Controller::~Controller()
+<span style = "background-color:#dfd">{
+}</span>
+
+void Controller::add(const std::string&amp; title, const std::string genre, const int&amp; year, const int&amp; likes, std::string trailer)
+<span style = "background-color:#dfd">{
+	this-&gt;repo-&gt;add(Movie{ title, genre, year, likes, trailer });
+}</span>
+
+int Controller::update(const std::string&amp; title, const std::string genre, const int&amp; year, const int&amp; likes, std::string trailer)
+<span style = "background-color:#dfd">{
+	return this-&gt;repo-&gt;update(Movie{ title, genre, year, likes, trailer });
+}</span></pre>
+	</body>
+</html>

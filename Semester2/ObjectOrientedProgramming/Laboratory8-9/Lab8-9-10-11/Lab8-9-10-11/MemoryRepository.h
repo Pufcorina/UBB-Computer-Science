@@ -23,6 +23,6 @@ public:
 	int update(const Movie& mov);
 	int getPosition(const std::string& name);
 	void incLikes(std::string title) { this->items[getPosition(title)].incLikes(); }
-
+	void saveToFile();
 };
 

@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>memoryrepository.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include "Repository.h"
+
+class MemoryRepository :
+	public Repository
+{
+protected:
+	std::vector&lt;Movie&gt; items;
+	Validator validator_class;
+
+public:
+	MemoryRepository();
+	~MemoryRepository();
+
+<span style = "background-color:#dfd">	MemoryRepository(const MemoryRepository&amp; other) { this-&gt;items = other.items; }</span>
+	MemoryRepository&amp; operator=(const MemoryRepository&amp; other);
+
+<span style = "background-color:#dfd">	std::vector&lt;Movie&gt; getItems() { return this-&gt;items; }
+	int getLength() { return this-&gt;items.size(); }</span>
+
+	void add(const Movie&amp; mov);
+	int del(const std::string&amp; name);
+	int update(const Movie&amp; mov);
+	int getPosition(const std::string&amp; name);
+<span style = "background-color:#dfd">	void incLikes(std::string title) { this-&gt;items[getPosition(title)].incLikes(); }</span>
+	void saveToFile();
+};
+</pre>
+	</body>
+</html>

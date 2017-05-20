@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>util.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "util.h"
+#include &lt;sstream&gt;
+#include &lt;algorithm&gt;
+
+std::string* splitString(std::string temp)
+<span style = "background-color:#dfd">{
+	std::string* args = new std::string[5];
+	std::istringstream ss(temp);
+	std::string token;
+	int i = 0;</span>
+
+<span style = "background-color:#dfd">	while (std::getline(ss, token, ','))
+		args[i++] = token;</span>
+
+<span style = "background-color:#dfd">	return args;
+}</span></pre>
+	</body>
+</html>

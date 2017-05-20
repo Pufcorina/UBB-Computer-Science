@@ -54,9 +54,6 @@ public:
 	// Return: entity in CSV style for file output
 	friend std::ostream& operator<<(std::ostream& os, const Movie& movie);
 
-	// Function that prints the content of the movie to the screen
-	void str();
-
 	// Function that increments the likes for the movie
 	void incLikes();
 };

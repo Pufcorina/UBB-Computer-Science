@@ -11,6 +11,7 @@ FileRepository::FileRepository()
 FileRepository::FileRepository(const FileRepository &other) : MemoryRepository(other)
 {
 	this->filename = other.filename;
+	loadFromFile();
 }
 
 FileRepository::~FileRepository()

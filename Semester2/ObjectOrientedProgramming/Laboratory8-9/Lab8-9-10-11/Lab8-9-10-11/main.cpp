@@ -2,12 +2,15 @@
 #include "CSVWatchList.h"
 #include "HTMLWatchList.h"
 #include "FileRepository.h"
-
+#include "Tests.h"
 #include <Windows.h>
 #include <conio.h>
 
 int main()
 {
+	/*Tests t;
+	t.TestAll();*/
+
 	std::string type = "";
 	while (1)
 	{
@@ -42,4 +45,5 @@ int main()
 			delete admin_repo;
 		}
 	}
+	Sleep(2000);
 }

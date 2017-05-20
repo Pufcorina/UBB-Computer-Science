@@ -19,13 +19,13 @@ void Validator::validate_movie(const Movie& movie)
 	if (!isupper(movie.getGenre()[0]))
 		errors.push_back(std::string("	The name of the genre must start with a capital letter!\n"));
 	if (movie.getYear() < 1889 || movie.getYear() > 2100)
-		errors.push_back(std::string("Year has to be an integer greater than 1889 and smaller than 2100!\n"));
+		errors.push_back(std::string("	Year has to be an integer greater than 1889 and smaller than 2100!\n"));
 
 	// search for "www" or "http" at the beginning of the source string
 	int posWww = movie.getTrailer().find("www");
 	int posHttp = movie.getTrailer().find("http");
 	if (posWww != 0 && posHttp != 0)
-		errors.push_back("	The youtube source must start with one of the following strings: \"www\" or \"http\"");
+		errors.push_back("	The youtube source must start with one of the following strings: \"www\" or \"http\"\n");
 
 	if (errors.size() > 0)
 		throw MovieException(errors);

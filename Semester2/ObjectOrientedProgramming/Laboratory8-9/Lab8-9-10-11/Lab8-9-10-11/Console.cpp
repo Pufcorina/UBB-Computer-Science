@@ -235,14 +235,18 @@ void Console::consoleDelete()
 		for (auto s : e.getErrors())
 			std::cout << s;
 	}
-	/*catch (RepositoryException& e)
+	catch (RepositoryException& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	catch (DuplicateMovieException& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	catch (FileException& e)
 	{
 		std::cout << e.what() << '\n';
-	}*/
+	}
 	catch (std::invalid_argument e)
 	{
 		std::cout << "Insert numbers\n";
@@ -272,14 +276,14 @@ void Console::consoleUpdate()
 		for (auto s : e.getErrors())
 			std::cout << s;
 	}
-	/*catch (RepositoryException& e)
+	catch (RepositoryException& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	catch (FileException& e)
 	{
 		std::cout << e.what() << '\n';
-	}*/
+	}
 	catch (std::invalid_argument e)
 	{
 		std::cout << "Insert numbers\n";

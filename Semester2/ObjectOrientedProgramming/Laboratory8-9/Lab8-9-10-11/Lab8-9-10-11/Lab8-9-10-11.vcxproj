@@ -155,6 +155,7 @@
     <ClInclude Include="Movie.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="RepositoryException.h" />
+    <ClInclude Include="Tests.h" />
     <ClInclude Include="util.h" />
     <ClInclude Include="Validator.h" />
     <ClInclude Include="WatchList.h" />
@@ -170,12 +171,12 @@
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="RepositoryException.cpp" />
+    <ClCompile Include="Tests.cpp" />
     <ClCompile Include="util.cpp" />
     <ClCompile Include="Validator.cpp" />
     <ClCompile Include="WatchList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Project8-9.cd" />
     <None Include="Resources\movie_database.csv" />
     <None Include="Resources\watchlist.csv" />
     <None Include="Resources\watchlist.html" />

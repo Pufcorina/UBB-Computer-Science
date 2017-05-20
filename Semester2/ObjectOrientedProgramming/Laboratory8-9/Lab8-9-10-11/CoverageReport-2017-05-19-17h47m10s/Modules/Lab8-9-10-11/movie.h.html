@@ -1,0 +1,73 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>movie.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+class Movie
+{
+private:
+	std::string title;
+	std::string genre;
+	std::string trailer;
+	int year;
+	int likes;
+
+public:
+	Movie();
+
+	// Movie constructor with parameters
+	Movie(const std::string&amp; title, const std::string&amp; genre, const int&amp; year, const int&amp; likes, const std::string&amp; trailer);
+	
+	//Movie copy constructor
+	Movie(const Movie&amp; movie);
+
+	//Movie destructor
+	~Movie();
+
+	//Movie title getter
+	//Input: None
+	//Return: title - string
+<span style = "background-color:#dfd">	std::string getTitle() const { return this-&gt;title; }</span>
+
+	//Movie genre getter
+	//Input: None
+	//Return: genre - string
+<span style = "background-color:#dfd">	std::string getGenre() const { return this-&gt;genre; }</span>
+
+	//Movie trailer getter
+	//Input: None
+	//Return: trailer - string
+<span style = "background-color:#dfd">	std::string getTrailer() const { return this-&gt;trailer; }</span>
+
+	//Movie year getter
+	//Input: None
+	//Return: year - int
+<span style = "background-color:#dfd">	int getYear() const { return this-&gt;year; }</span>
+
+	//Movie likes getter
+	//Input: None
+	//Return: likes - int
+<span style = "background-color:#dfd">	int getLikes() const { return this-&gt;likes; }</span>
+
+	// &lt;&lt; operator overload
+	// Input: None
+	// Return: entity in CSV style for file output
+	friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Movie&amp; movie);
+
+	// Function that increments the likes for the movie
+	void incLikes();
+};
+</pre>
+	</body>
+</html>

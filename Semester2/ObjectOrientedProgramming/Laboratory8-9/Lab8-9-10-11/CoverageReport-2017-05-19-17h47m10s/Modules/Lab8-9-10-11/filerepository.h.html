@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>filerepository.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include "MemoryRepository.h"
+
+class FileRepository :
+	public MemoryRepository
+{
+private:
+	std::string filename;
+	void loadFromFile();
+
+public:
+	FileRepository();
+<span style = "background-color:#dfd">	FileRepository(const std::string&amp; filename) : MemoryRepository() { this-&gt;filename = filename; loadFromFile(); }</span>
+	FileRepository(const FileRepository&amp; other);
+	~FileRepository();
+
+
+	FileRepository&amp; operator=(const FileRepository&amp; other);
+	void saveToFile() override;
+};
+</pre>
+	</body>
+</html>

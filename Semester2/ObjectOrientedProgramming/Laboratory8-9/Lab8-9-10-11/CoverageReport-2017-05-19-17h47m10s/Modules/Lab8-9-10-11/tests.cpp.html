@@ -1,0 +1,257 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>tests.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "Tests.h"
+#include "Console.h"
+#include "FileRepository.h"
+#include "CSVWatchList.h"
+#include "HTMLWatchList.h"
+#include &lt;assert.h&gt;
+#include "RepositoryException.h"
+
+Tests::Tests()
+<span style = "background-color:#dfd">{
+}</span>
+
+
+Tests::~Tests()
+<span style = "background-color:#dfd">{
+}</span>
+
+void Tests::TestAll()
+<span style = "background-color:#dfd">{
+	try</span>
+	{
+
+<span style = "background-color:#dfd">		testFileRepository();</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (FileException&amp; e)
+	{
+<span style = "background-color:#dfd">		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+
+<span style = "background-color:#dfd">	testCSVWatchList();</span>
+
+<span style = "background-color:#dfd">	testHTMLWatchList();</span>
+	
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		testController();</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (RepositoryException e)
+<span style = "background-color:#dfd">	{
+		std::cout &lt;&lt; e.what() &lt;&lt; "\n";
+	}</span>
+
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		testMemoryRepository();</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (RepositoryException e)
+<span style = "background-color:#dfd">	{
+		std::cout &lt;&lt; e.what() &lt;&lt; "\n";
+	}
+	testMovie();
+	testRepository();
+	testRepositoryException();
+	testUtil();
+	testValidator();
+	testWatchList();</span>
+	
+<span style = "background-color:#dfd">}</span>
+
+
+void Tests::testController()
+<span style = "background-color:#dfd">{
+	Controller c = Controller();
+	MemoryRepository* admin_repo = new FileRepository( "movie.csv" );
+	MemoryRepository a;
+	MemoryRepository b;
+	b = a;
+	a.saveToFile();</span>
+
+<span style = "background-color:#dfd">	FileRepository admin_repo1 = FileRepository("movie.csv");
+	FileRepository admin_repo2;
+	admin_repo2 = admin_repo1;
+	admin_repo1 = admin_repo1;</span>
+
+<span style = "background-color:#dfd">	admin_repo-&gt;saveToFile();</span>
+
+
+<span style = "background-color:#dfd">	Controller admin_ctrl = Controller(admin_repo);</span>
+
+<span style = "background-color:#dfd">	admin_ctrl.add("The Other Boleyn Girls", "Drama", 2008, 878, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	int res = admin_ctrl.update("The Other Boleyn Girls", "Drama", 2008, 87, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	admin_ctrl.incLikes("The Other Boleyn Girls");
+	res = admin_ctrl.getLength();
+	res = admin_ctrl.getPosition("The Other Boleyn Girls");
+	admin_ctrl.saveToFile();
+	std::vector&lt;Movie&gt; it = admin_ctrl.getItems();
+	res = admin_ctrl.del("The Other Boleyn Girls");
+	admin_ctrl.saveToFile();
+	throw RepositoryException();</span>
+<span style = "background-color:#fdd">}</span>
+
+void Tests::testCSVWatchList()
+<span style = "background-color:#dfd">{</span>
+
+<span style = "background-color:#dfd">}</span>
+
+void Tests::testFileRepository()
+<span style = "background-color:#dfd">{
+	FileRepository r;
+	FileRepository r2 = r;</span>
+<span style = "background-color:#fdd">}</span>
+
+void Tests::testHTMLWatchList()
+<span style = "background-color:#dfd">{
+	WatchList* w = new HTMLWatchList();
+	std::vector&lt;Movie&gt; a = w-&gt;getList();
+	int r = w-&gt;getMaximumPos();
+	w-&gt;nextPos();
+	int pos = w-&gt;getPosition("aaa");
+	Repository* repo = new FileRepository();</span>
+
+<span style = "background-color:#dfd">	Movie m1 = Movie("The Other Boleyn Girl", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	repo-&gt;add(m1);
+	Movie m2 = Movie("The Other Boleyn Girls", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	repo-&gt;add(m2);
+	w-&gt;getSuggestions(repo-&gt;getItems(), "");
+	w-&gt;getSuggestions(repo-&gt;getItems(), "Drama");
+	Movie m = w-&gt;getCurrentMovie();
+	w-&gt;nextPos();
+	m = w-&gt;getCurrentMovie();</span>
+
+<span style = "background-color:#dfd">	w-&gt;getSuggestions(repo-&gt;getItems(), "Drama");
+	w-&gt;add();
+	w-&gt;add();
+	w-&gt;getPosition("The Other Boleyn Girls");
+	w-&gt;del("a");</span>
+
+<span style = "background-color:#dfd">	w-&gt;del("The Other Boleyn Girl");</span>
+
+<span style = "background-color:#dfd">}</span>
+
+void Tests::testMemoryRepository()
+<span style = "background-color:#dfd">{
+	Repository* repo = new FileRepository();</span>
+
+<span style = "background-color:#dfd">	Movie m1 = Movie("The Other Boleyn Girl", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	repo-&gt;add(m1);
+	int res = repo-&gt;getPosition("The Other Boleyn Girl");
+	assert(res != -1);
+	res = repo-&gt;getPosition("The Other Boleyn Girsl");
+	m1 = Movie("The Other Boleyn Girl", "Drama", 2008, 878, "https://www.youtube.com/watch?v=NX0LoorqtRM");</span>
+
+<span style = "background-color:#dfd">	repo-&gt;update(m1);</span>
+	
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		Movie m2 = Movie("The Other Boleyn Girl", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+		repo-&gt;add(m2);</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (DuplicateMovieException e)
+<span style = "background-color:#dfd">	{
+		std::cout &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+
+
+<span style = "background-color:#dfd">	Movie m3 = Movie("The Other Boleyn Girls", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	repo-&gt;update(m3);</span>
+
+<span style = "background-color:#dfd">	std::vector&lt;Movie&gt; movies = repo-&gt;getItems();
+	assert(movies.size() == 1);</span>
+
+<span style = "background-color:#dfd">	assert(movies[0].getLikes() == 878);</span>
+
+<span style = "background-color:#dfd">	repo-&gt;del("The Other Boleyn Girl");
+	repo-&gt;del("The Other Boleyn Girls");</span>
+
+<span style = "background-color:#dfd">	std::vector&lt;Movie&gt; new_movies = repo-&gt;getItems();
+	assert(new_movies.size() == 0);</span>
+
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		Movie m01 = Movie("", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+		repo-&gt;add(m01);</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#dfd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}</span>
+
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		Movie m02 = Movie("The Other Boleyn Girl", "drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+		repo-&gt;add(m02);</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#dfd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}</span>
+
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		Movie m03 = Movie("The Other Boleyn Girl", "Drama", 20, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM");
+		repo-&gt;add(m03);</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#dfd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}</span>
+
+<span style = "background-color:#dfd">	try</span>
+	{
+<span style = "background-color:#dfd">		Movie m04 = Movie("The Other Boleyn Girl", "Drama", 2008, 87802, "ahttps://www.youtube.com/watch?v=NX0LoorqtRM");
+		repo-&gt;add(m04);</span>
+<span style = "background-color:#fdd">	}</span>
+	catch (MovieException&amp; e)
+	{
+<span style = "background-color:#dfd">		for (auto s : e.getErrors())
+			std::cout &lt;&lt; s;
+	}
+	repo-&gt;del("The Other Boleyn Girl");
+	throw RepositoryException("aaa");</span>
+<span style = "background-color:#fdd">}</span>
+
+void Tests::testMovie()
+<span style = "background-color:#dfd">{
+	Movie m1 = Movie();
+	Movie m{ "The Other Boleyn Girl", "Drama", 2008, 87802, "https://www.youtube.com/watch?v=NX0LoorqtRM" };
+	assert(m.getGenre() == "Drama");
+	assert(m.getLikes() == 87802);
+	assert(m.getTitle() == "The Other Boleyn Girl");
+	assert(m.getTrailer() == "https://www.youtube.com/watch?v=NX0LoorqtRM");
+	assert(m.getYear() == 2008);
+	Movie m3 = Movie(m);
+	m.incLikes();
+	assert(m.getLikes() == 87803);
+}</span>
+
+void Tests::testRepository()
+<span style = "background-color:#dfd">{}</span>
+
+void Tests::testRepositoryException()
+<span style = "background-color:#dfd">{}</span>
+
+void Tests::testUtil()
+<span style = "background-color:#dfd">{}</span>
+
+void Tests::testValidator()
+<span style = "background-color:#dfd">{}</span>
+
+void Tests::testWatchList()
+<span style = "background-color:#dfd">{}</span></pre>
+	</body>
+</html>

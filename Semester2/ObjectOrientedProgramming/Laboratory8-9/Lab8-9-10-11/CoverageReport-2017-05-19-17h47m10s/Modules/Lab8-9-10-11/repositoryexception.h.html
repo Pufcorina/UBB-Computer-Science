@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>repositoryexception.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include &lt;exception&gt;
+#include &lt;string&gt;
+
+class RepositoryException : public std::exception
+{
+protected:
+	std::string message;
+
+public:
+	RepositoryException();
+	RepositoryException(const std::string&amp; msg);
+<span style = "background-color:#dfd">	virtual ~RepositoryException() {}</span>
+	virtual const char* what();
+};
+
+class DuplicateMovieException : public RepositoryException
+{
+public:
+	const char* what();
+};
+
+class FileException : public std::exception
+{
+protected:
+	std::string message;
+
+public:
+	FileException(const std::string&amp; msg);
+	virtual const char* what();
+};</pre>
+	</body>
+</html>

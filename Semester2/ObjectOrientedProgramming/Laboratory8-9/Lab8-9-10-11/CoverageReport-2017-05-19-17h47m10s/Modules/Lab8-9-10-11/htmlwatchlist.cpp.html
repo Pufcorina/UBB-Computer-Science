@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>htmlwatchlist.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "HTMLWatchList.h"
+#include &lt;Windows.h&gt;
+#include &lt;shellapi.h&gt;
+
+
+HTMLWatchList::HTMLWatchList()
+<span style = "background-color:#dfd">{
+}</span>
+
+
+HTMLWatchList::~HTMLWatchList()
+<span style = "background-color:#fdd">{
+}</span>
+
+void HTMLWatchList::saveToFile()
+<span style = "background-color:#fdd">{
+	std::ofstream f("Resources/watchlist.html");</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;!DOCTYPE html&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;html&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;head&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;title&gt;Movie Playlist&lt;/title&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;/head&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;body&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;table border=\"1\"&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;tr&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;td&gt;Title&lt;/td&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;td&gt;Genre&lt;/td&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;td&gt;Year&lt;/td&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;td&gt;Likes&lt;/td&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;td&gt;Trailer&lt;/td&gt;" &lt;&lt; "\n";
+	f &lt;&lt; "&lt;/tr&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">	for (auto i : this-&gt;movieList)</span>
+	{
+<span style = "background-color:#fdd">		f &lt;&lt; "&lt;tr&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">		f &lt;&lt; "&lt;td&gt;" &lt;&lt; i.getTitle() &lt;&lt; "&lt;/td&gt;" &lt;&lt; "\n";
+		f &lt;&lt; "&lt;td&gt;" &lt;&lt; i.getGenre() &lt;&lt; "&lt;/td&gt;" &lt;&lt; "\n";
+		f &lt;&lt; "&lt;td&gt;" &lt;&lt; i.getYear() &lt;&lt; "&lt;/td&gt;" &lt;&lt; "\n";
+		f &lt;&lt; "&lt;td&gt;" &lt;&lt; i.getLikes() &lt;&lt; "&lt;/td&gt;" &lt;&lt; "\n";
+		f &lt;&lt; "&lt;td&gt;&lt;a href =" &lt;&lt; i.getTrailer() &lt;&lt; "&gt;Link&lt;/a&gt;&lt;/td&gt;";</span>
+
+<span style = "background-color:#fdd">		f &lt;&lt; "&lt;/tr&gt;" &lt;&lt; "\n";
+	}</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;/table&gt;" &lt;&lt; "\n";</span>
+
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;/body&gt;" &lt;&lt; "\n";</span>
+	
+<span style = "background-color:#fdd">	f &lt;&lt; "&lt;/html&gt;" &lt;&lt; "\n";
+	f.close();</span>
+
+<span style = "background-color:#fdd">}</span>
+
+void HTMLWatchList::openInApp()
+<span style = "background-color:#fdd">{
+	ShellExecuteA(NULL, NULL, "chrome.exe", "Resources/watchlist.html", NULL, SW_SHOWMAXIMIZED);
+	system("PAUSE");
+}</span></pre>
+	</body>
+</html>
