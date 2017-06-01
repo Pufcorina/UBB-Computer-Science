@@ -1,0 +1,4 @@
+﻿  admingui.cpp
+admingui.cpp(204): warning C4286: 'DuplicateMovieException &': is caught by base class ('RepositoryException &') on line 200
+  Laboratory11-12Qt.vcxproj -> F:\Faculta\Semestrul2\OOP\Laburi\Laboratory11-12Qt\x64\Debug\Laboratory11-12Qt.exe
+  Laboratory11-12Qt.vcxproj -> F:\Faculta\Semestrul2\OOP\Laburi\Laboratory11-12Qt\x64\Debug\Laboratory11-12Qt.pdb (Full PDB)
