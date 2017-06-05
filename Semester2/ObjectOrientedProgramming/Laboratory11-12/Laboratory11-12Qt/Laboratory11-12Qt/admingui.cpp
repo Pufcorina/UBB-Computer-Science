@@ -2,6 +2,7 @@
 #include "RepositoryException.h"
 #include <string>
 #include <qlabel.h>
+#include <qwidget.h>
 
 AdminGUI::AdminGUI(QWidget *parent)
 	: QWidget(parent)
@@ -83,7 +84,7 @@ void AdminGUI::AdminInterface()
 	QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(consoleAdd()));
 	QObject::connect(this->deleteButton, SIGNAL(clicked()), this, SLOT(consoleDelete()));
 	QObject::connect(this->updateButton, SIGNAL(clicked()), this, SLOT(consoleUpdate()));
-	QObject::connect(this->exitButton, SIGNAL(clicked()), this, SLOT(close()));
+	QObject::connect(this->exitButton, SIGNAL(clicked()), this, SLOT(closeForm()));
 
 	this->setStyleSheet("background: rgb(255,228,225)");
 	this->listWidget->setStyleSheet("background: rgb(255,255,255)");
@@ -261,4 +262,9 @@ void AdminGUI::consoleUpdate()
 		this->yearLineEdit->setStyleSheet("background: rgb(203, 65, 84)");
 		this->nbLikesLineEdit->setStyleSheet("background: rgb(203, 65, 84)");
 	}
+}
+
+void AdminGUI::closeForm()
+{
+	this->close();
 }

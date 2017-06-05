@@ -5,6 +5,7 @@ class CSVWatchList :
 {
 public:
 	CSVWatchList();
+	CSVWatchList(std::string type);
 	~CSVWatchList();
 
 	void saveToFile();

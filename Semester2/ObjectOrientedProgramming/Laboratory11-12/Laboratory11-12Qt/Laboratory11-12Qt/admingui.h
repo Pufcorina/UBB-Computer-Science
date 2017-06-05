@@ -48,6 +48,7 @@ private slots:
 	void consoleAdd();
 	void consoleDelete();
 	void consoleUpdate();
+	void closeForm();
 	void consoleList();
 	void clearListWidget();
 	void clearLinesEdit();

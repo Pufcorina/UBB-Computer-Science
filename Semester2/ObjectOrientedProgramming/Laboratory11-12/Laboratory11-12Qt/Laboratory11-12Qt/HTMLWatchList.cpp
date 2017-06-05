@@ -2,8 +2,11 @@
 #include <Windows.h>
 #include <shellapi.h>
 
-
 HTMLWatchList::HTMLWatchList()
+{
+}
+
+HTMLWatchList::HTMLWatchList(std::string type) : WatchList(type)
 {
 }
 

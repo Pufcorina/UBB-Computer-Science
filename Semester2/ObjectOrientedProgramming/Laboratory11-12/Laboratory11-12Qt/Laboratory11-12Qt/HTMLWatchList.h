@@ -5,6 +5,7 @@ class HTMLWatchList :
 {
 public:
 	HTMLWatchList();
+	HTMLWatchList(std::string type);
 	~HTMLWatchList();
 
 	void saveToFile();
