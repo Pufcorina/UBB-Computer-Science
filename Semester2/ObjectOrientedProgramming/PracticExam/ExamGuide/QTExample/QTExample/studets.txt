@@ -1,0 +1,5 @@
+2231,Ungur Maria,917,8.000000,Iuliana
+2234,Todoran Ana Corina,917,8.000000,Gabi
+2232,Paius Teodor,916,8.000000,Arthur
+2233,Buhai Alexandru,912,8.000000,Lupsa
+155,Ana,914,1.000000,
