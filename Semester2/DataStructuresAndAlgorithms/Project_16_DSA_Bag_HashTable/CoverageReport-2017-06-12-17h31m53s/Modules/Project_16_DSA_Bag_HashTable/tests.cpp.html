@@ -1,0 +1,148 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>tests.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "Tests.h"
+#include &lt;assert.h&gt;
+#include "Bag.h"
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+Tests::Tests()
+<span style = "background-color:#dfd">{
+}</span>
+
+
+Tests::~Tests()
+<span style = "background-color:#dfd">{
+}</span>
+
+void Tests::testAll()
+<span style = "background-color:#dfd">{
+	testConstructrors();
+	testAddFunctions();
+	testSearchFunction();
+	testRemoveFunction();
+	testIterator();
+}</span>
+
+
+void Tests::testConstructrors()
+<span style = "background-color:#dfd">{
+	Bag&lt;int&gt; b1;
+	b1.init();
+	b1 = b1;
+	assert(b1.size() == 0);
+	Bag&lt;double&gt; b2;
+	assert(b2.size() == 0);
+	Bag&lt;int&gt; b3{ b1 };
+	assert(b3.size() == 0);
+	Bag&lt;int&gt; b4;
+	assert(b4.size() == 0);
+	b4 = b1;
+	assert(b4.size() == 0);
+}</span>
+
+void Tests::testAddFunctions()
+<span style = "background-color:#dfd">{
+	Bag&lt;int&gt; b1;
+	b1.init();
+	b1.add(3);
+	assert(b1.size() == 1);
+	b1.add(13);
+	b1.add(33);
+	b1.add(5);
+	b1.add(13);
+	b1.add(22);
+	b1.add(1);
+	b1.add(11);
+	b1.add(10);
+	b1.add(3);
+	b1.add(4);
+	b1.add(5);
+	b1.add(6);
+	b1.add(7);
+	b1.add(8);
+	b1.add(9);
+	assert(b1.size() == 16);
+}</span>
+
+
+void Tests::testSearchFunction()
+<span style = "background-color:#dfd">{
+	Bag&lt;int&gt; b;
+	b.init();
+	b.add(3);
+	b.add(13);
+	b.add(33);
+	b.add(5);
+	b.add(13);
+	b.add(22);
+	assert(b.search(22) == true);
+	assert(b.search(3) == true);
+	assert(b.search(12) == false);
+}</span>
+
+
+void Tests::testRemoveFunction()
+<span style = "background-color:#dfd">{
+	Bag&lt;int&gt; b;
+	b.init();
+	try</span>
+	{
+<span style = "background-color:#dfd">		b.remove(1);</span>
+<span style = "background-color:#fdd">	} </span>
+	catch (std::exception e)
+<span style = "background-color:#dfd">	{
+		std::cout &lt;&lt; "Element " &lt;&lt; std::to_string(1) &lt;&lt; " " &lt;&lt; e.what() &lt;&lt; '\n';
+	}</span>
+
+<span style = "background-color:#dfd">	b.add(3);
+	b.add(13);
+	b.add(33);
+	b.add(23);
+	b.add(2);
+	b.add(43);</span>
+
+<span style = "background-color:#dfd">	b.remove(23);
+	b.remove(33);
+	b.remove(43);
+	b.remove(3);
+	b.add(10);
+	b.remove(10);</span>
+
+<span style = "background-color:#dfd">	assert(b.size() == 2);
+}</span>
+
+
+void Tests::testIterator()
+<span style = "background-color:#dfd">{
+	Bag&lt;int&gt; b;
+	b.init();
+	b.add(3);
+	b.add(13);
+	b.add(33);
+	b.add(23);
+	b.add(2);
+	b.add(43);</span>
+
+<span style = "background-color:#dfd">	Bag&lt;int&gt;::Iterator it;</span>
+
+<span style = "background-color:#dfd">	assert(it.valid() == false);</span>
+
+<span style = "background-color:#dfd">	it.init(&amp;b);
+	while (it.valid())</span>
+	{
+<span style = "background-color:#dfd">		std::cout &lt;&lt; it.getCurrent() &lt;&lt; "\n";
+		it.next();
+	}
+}</span></pre>
+	</body>
+</html>
