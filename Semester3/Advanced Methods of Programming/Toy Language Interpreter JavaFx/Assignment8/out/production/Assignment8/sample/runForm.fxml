@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RunFormController">
+    <children>
+        <TableView fx:id="heapTableView" layoutX="16.0" layoutY="25.0" prefHeight="200.0" prefWidth="180.0">
+            <columns>
+                <TableColumn fx:id="heapAddressColumn" prefWidth="84.0" text="Address" />
+                <TableColumn fx:id="heapValueColumn" prefWidth="95.0" text="Value" />
+            </columns>
+        </TableView>
+        <Label layoutX="69.0" layoutY="6.0" text="Heap Table" />
+        <ListView fx:id="outputListView" layoutX="211.0" layoutY="25.0" prefHeight="200.0" prefWidth="180.0" />
+        <Label layoutX="278.0" layoutY="6.0" text="Output" />
+        <TableView fx:id="fileTableView" layoutX="403.0" layoutY="25.0" prefHeight="200.0" prefWidth="180.0">
+            <columns>
+                <TableColumn fx:id="fileIdentifierColumn" prefWidth="88.0" text="Identifier" />
+                <TableColumn fx:id="fileNameColumn" prefWidth="91.0" text="Filename" />
+            </columns>
+        </TableView>
+        <Label layoutX="462.0" layoutY="6.0" text="File Table" />
+        <Label layoutX="25.0" layoutY="252.0" text="Program state identifiers" />
+        <ListView fx:id="programStateListView" layoutX="16.0" layoutY="275.0" prefHeight="200.0" prefWidth="180.0" />
+        <ListView fx:id="executionStackListView" layoutX="404.0" layoutY="275.0" prefHeight="200.0" prefWidth="180.0" />
+        <Label layoutX="443.0" layoutY="252.0" text="Execution stack" />
+        <TableView fx:id="symbolTableView" layoutX="211.0" layoutY="275.0" prefHeight="200.0" prefWidth="180.0">
+            <columns>
+                <TableColumn fx:id="symbolTableVariableColumn" prefWidth="88.0" text="Variable" />
+                <TableColumn fx:id="symbolTableValueColumn" prefWidth="91.0" text="Value" />
+            </columns>
+        </TableView>
+        <Label layoutX="258.0" layoutY="252.0" text="Symbol table" />
+        <TextField fx:id="numberOfProgramStatesTextField" layoutX="87.0" layoutY="521.0" />
+        <Label layoutX="86.0" layoutY="505.0" text="Number of program states" />
+        <Button fx:id="executeOneStepButton" layoutX="301.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="144.0" text="Execute one step" />
+    </children>
+</AnchorPane>

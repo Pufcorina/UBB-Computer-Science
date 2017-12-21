@@ -1,0 +1,135 @@
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{}
+*****ExectutionStack*****
+[readFile(var_f, var_c); print( var_c ), openRFile(var_f,"test2.in")]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1}
+*****ExectutionStack*****
+[readFile(var_f, var_c); print( var_c )]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1}
+*****ExectutionStack*****
+[readFile(var_f, var_c); print( var_c )]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1, var_c=0}
+*****ExectutionStack*****
+[print( var_c )]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1, var_c=0}
+*****ExectutionStack*****
+[print( var_c )]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1, var_c=0}
+*****ExectutionStack*****
+[print( var_c )]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[0]
+*****SymbolTable*****
+{var_f=1, var_c=0}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[0]
+*****SymbolTable*****
+{var_f=1, var_c=0}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[0]
+*****SymbolTable*****
+{var_f=1, var_c=0}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{1= ( test2.in, java.io.BufferedReader@67d9bbf9 ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
