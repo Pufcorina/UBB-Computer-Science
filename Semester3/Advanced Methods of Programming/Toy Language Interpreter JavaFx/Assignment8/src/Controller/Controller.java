@@ -35,15 +35,16 @@ public class Controller {
             try {
                 oneStepForAllProgram(repository.getProgramStateList());
             } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
+                System.out.println();
             }
             programStates.forEach(e -> {
                 try {
                     repository.logPrgStateExec(e);
                 } catch (IOException e1) {
-                    System.out.println(e1.getMessage());
+                    System.out.println();
                 }
             });
+            removeCompletedProgram(repository.getProgramStateList());
             executor.shutdownNow();
         }
     }
@@ -79,7 +80,7 @@ public class Controller {
                 try {
                     return future.get();
                 } catch (InterruptedException | ExecutionException e) {
-                    System.out.println(e.getMessage());
+                    System.out.println();
                     return null;
                 }
             }).filter(Objects::nonNull).collect(Collectors.toList());

@@ -101,8 +101,8 @@ public class RunFormController implements Initializable {
             return;
         }
 
-        int programStateLeft = controller.getRepository().getProgramStateList().size();
-        if(programStateLeft == 0){
+        boolean programStateLeft = getCurrentProgramState().getExecutionStack().isEmpty();
+        if(programStateLeft){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Nothing left to execute", ButtonType.OK);
             alert.showAndWait();
             return;

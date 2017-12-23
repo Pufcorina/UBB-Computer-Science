@@ -1,0 +1,345 @@
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{}
+*****ExectutionStack*****
+[readFile(var_f, var_c); print( var_c ); if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 );  closeRFile(var_f), openRFile(var_f,"test.in")]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1}
+*****ExectutionStack*****
+[readFile(var_f, var_c); print( var_c ); if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 );  closeRFile(var_f)]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1}
+*****ExectutionStack*****
+[readFile(var_f, var_c); print( var_c ); if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 );  closeRFile(var_f)]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1, var_c=15}
+*****ExectutionStack*****
+[print( var_c ); if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 );  closeRFile(var_f)]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1, var_c=15}
+*****ExectutionStack*****
+[print( var_c ); if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 );  closeRFile(var_f)]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[]
+*****SymbolTable*****
+{var_f=1, var_c=15}
+*****ExectutionStack*****
+[print( var_c ); if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 );  closeRFile(var_f)]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=15}
+*****ExectutionStack*****
+[ closeRFile(var_f), if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=15}
+*****ExectutionStack*****
+[ closeRFile(var_f), if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=15}
+*****ExectutionStack*****
+[ closeRFile(var_f), if(var_c) then readFile(var_f, var_c); print( var_c ) else print( 0 )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[ closeRFile(var_f), print( var_c )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[ closeRFile(var_f), print( var_c )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[ closeRFile(var_f), print( var_c )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[ closeRFile(var_f), print( var_c )]
+*****FileTable*****
+{1= ( test.in, java.io.BufferedReader@7514ce7c ) }
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
+Thread number id: 1
+------------------------------------------------------
+*****OutputList*****
+[15, 30]
+*****SymbolTable*****
+{var_f=1, var_c=30}
+*****ExectutionStack*****
+[]
+*****FileTable*****
+{}
+*****HeapTable*****
+{}
+------------------------------------------------------
+
+
