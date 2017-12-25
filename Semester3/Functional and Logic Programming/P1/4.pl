@@ -4,6 +4,7 @@
 
 % a
 
+% Model matematic:
 % contains(l1..ln, e) =
 % 	false, n = 0
 % 	true, l1 = e
@@ -16,6 +17,7 @@ contains([V|_], V) :- !.
 contains([_|T], V) :- contains(T, V).
 
 % (A - B), where A and B sets
+% Model matematic:
 % difference(a1...an, b1...bn) =
 % 	[], n = 0
 % 	difference(a2...an, b1...bn), contains(b1...bn, a1) = true
@@ -33,6 +35,7 @@ difference([H|T], B, [H|R]) :-
 
 % b
 
+% Model matematic:
 % insert1(l1...ln) =
 % 	[], n = 0
 % 	l1 + 1 + insert1(l2...ln), l1 % 2 = 0
