@@ -20,6 +20,7 @@ remove_occurences([H|T], E, R) :- H =:= E,
 remove_occurences([H|T], E, [H|R]) :- H =\= E,
     remove_occurences(T, E, R).
 
+% Model matematic:
 % count_occurences(l1...ln, e) =
 % 	0, n = 0
 % 	1 + count_occurences(l2...ln, e), e = l1
@@ -57,6 +58,7 @@ remove_repetitive([H|T], R) :-
 
 % b
 
+% Model matematic:
 % maxim_number(a, b) = 
 % 	a, a >= b
 % 	b a < b
@@ -67,6 +69,7 @@ remove_repetitive([H|T], R) :-
 maxim_number(A, B, A) :- A >= B.
 maxim_number(A, B, B) :- A < B.
 
+% Model matematic:
 % maxim_list(l1...ln) =
 % 	l1, n = 1
 % 	maxim_number(l1, maxim_list(l2...ln))
