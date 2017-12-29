@@ -41,7 +41,8 @@ inv_list([H|T], R) :-
 % product(L:list, E:number, C:number, R:list)
 % flow model: product(i, i, i, o)
 
-product([], _, C, [C]).
+product([], _, 0, []).
+product([], _, C, [C]) :- C =\= 0.
 product([H|T], E, C, [HR|R]) :-
     HR is (H * E + C) mod 10,
     NC is (H * E + C - HR) / 10,
