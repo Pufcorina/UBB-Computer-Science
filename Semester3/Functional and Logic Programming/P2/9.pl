@@ -16,6 +16,9 @@
 % 	l1 + e + insert_pos(l2...ln, e, pos + 1), pos % 2 = 1,
 % 	l1 + insert_pos(l2...ln, e, pos + 1), otherwise
 
+% insert_list(L:list, E:number, Pos:number, R:list)
+% flow model: insert_list(i, i, i, o)
+
 insert_list([], _, _, []).
 insert_list([H|T], E, Pos, [H,E|R]) :- Pos mod 2 =:= 1, !,
     NPos is Pos + 1,
