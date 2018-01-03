@@ -1,55 +1,91 @@
-% 9. Generate all permutation of N (N - given) respecting the property:
-%  for every 2<=i<=n exists an 1<=j<=i, so |v(i)-v(j)|=1.
+% 9. Generate all permutation of N (N - given) respecting the property: 
+% for every 2<=i<=n exists an 1<=j<=i, so |v(i)-v(j)|=1.
 
-% 10. For a list a1... an with integer and distinct numbers, 
-% define a predicate to determine all subsets with sum of elements divisible with n.
+% inserare(l1...ln, e) =
+% 	[e], n = 0
+% 	e + l1...ln, n >= 1
+% 	l1 + inserare(l2...ln, e), otherwise
 
-% subsets(l1...ln) =
+% inserare(L:list, E:number, R:list)
+% inserare(i, i, o)
+
+inserare([], E, [E]).
+inserare([H|T], E, [E,H|T]).
+inserare([H|T], E, [H|R]) :- 
+         inserare(T, E, R).
+
+% permutari(l1...ln) =
 % 	[], n = 0
-% 	l1 + subsets(l2...ln), n > 0
-% 	subsets(l2...ln), n > 0
+% 	inserare(permutari(l2...ln), l1), otherwise
 
-% subsets(L:list, R:list)
-% subsets(i, o)
+% permutari(L:list, R:list)
+% permutari(i, o)
 
-subsets([E], [E]).
-subsets([H|T], [H|R]) :-
-    subsets(T, R).
-subsets([_|T], R) :-
-    subsets(T, R).
+permutari([], []).
+permutari([H|T], R) :-
+    permutari(T, RP),
+    inserare(RP, H, R).
 
-% suma(l1...ln, c) =
-% 	c, n = 0
-% 	suma(l2...ln, c + l1), otherwise
+% createList(n) =
+% 	[], n = 0
+% 	n + createList(n - 1), n > 0
 
-% suma(L:list, C:number, R:number)
-% suma(i, i, o)
+% createList(N:number, R:list)
+% createList(i, o)
 
-suma([], C, C).
-suma([H|T], C, R) :-
-    NC is C + H,
-    suma(T, NC, R).
+createList(0, []).
+createList(N, [N|R]) :-
+    N > 0,
+    NN is N - 1,
+    createList(NN, R).
 
-% check(l1...ln, n) =
-% 	true, suma(l1...ln, 0) mod n = 0
+% checkPerm(L:list, E:number)
+% checkPerm(i, i)
+ 	
+checkPerm([], _).
+checkPerm([H|T], L) :-
+    check(L, H),
+    checkPerm(T, [H|L]).
+
+% diff(a, b) =
+% 	a - b, a > b
+% 	b - a, a < b
+
+% diff(A:number, B:number, R:number)
+% diff(i, i, o)
+
+diff(A, B, R) :-
+    A > B,
+    R is A - B.
+diff(A, B, R) :-
+    A =< B,
+    R is B - A.
+
+% check(l1...ln, e) =
+% 	true, n = 0
+% 	true, diff(l1, e) = 1
+% 	check(l2...ln, e), n > 0
 % 	false, otherwise
 
-% check(L:list, N:number)
+% check(L:list, E:number)
 % check(i, i)
 
-check(L, N) :-
-    suma(L, 0, RS),
-    RS mod N =:= 0.
+check([], _).
+check([H|_], X) :-
+    diff(X, H, R),
+    R =:= 1, !.
+check([_|T], X) :-
+    check(T, X).
 
-% onesolution(L:list, N:number, R:list)
-% onesolution(i, i, o)
+% allsolutions(L:list, R:list)
+% allsolutions(i, o)
+onesolution(L, R) :-
+    permutari(L, R),
+    checkPerm(R, []).
 
-onesolution(L, N, R) :- 
-    subsets(L, R),
-    check(R, N).
+% allsolutions(N:number, R:list)
+% allsolutions(i, o)
 
-% allsolutions(L:list, N:number, R:list)
-% allsolutions(i, i, o)
-
-allsolutions(L, N, R) :-
-    findall(RPartial, onesolution(L, N, RPartial), R).
+allsolutions(N, R) :-
+    createList(N, RL),
+    findall(RP, onesolution(RL, RP), R).
