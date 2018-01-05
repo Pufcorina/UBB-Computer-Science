@@ -12,10 +12,7 @@ namespace Assignement7.View
     {
         private MyIDictionary<string, Command> cmds;
 
-        public TextMenu(MyIDictionary<string, Command> cmds)
-        {
-            this.cmds = cmds;
-        }
+        public TextMenu(MyIDictionary<string, Command> cmds) => this.cmds = cmds;
 
         public void AddCommand(Command cmd)
         {
