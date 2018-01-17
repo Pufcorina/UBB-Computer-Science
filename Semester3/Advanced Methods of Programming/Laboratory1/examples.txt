@@ -1,0 +1,48 @@
+1. Intr-o parcare exista masini, motociclete 
+si biciclete. Sa se afiseze toate vehiculele 
+de culoare rosie.
+
+
+2. Intr-un depozit de alimente exista sare, 
+zahar si faina. Sa se afiseze produsele 
+cu pretul mai mare decit 20Ron/kg.
+
+
+3. Intr-un service se afla in reparatie mai multe
+masini, camioane si motociclete. Sa se afiseze 
+toate autovehiculele ce au costul de reparatie 
+mai mare de 1000Ron.
+
+
+4. La o ferma se cresc pasari, vaci si porci.
+Sa se afiseze toate animalele care au greutatea
+mai mare decit 3kg.
+
+
+5. Intr-o sera se cultiva rosii, ardei si vinete.
+Sa se afiseze toate legumele cu greutatea mai mare
+de 0.2 kg.
+
+
+6. Intr-o livada cresc meri, peri si ciresi. 
+Sa se afiseze toti pomii frunctiferi mai batrini
+de 3 ani.
+
+
+7. Se da o colectie de mai multe obiecte
+avind forme de cuburi, sfere si cilindrii.
+Sa se afiseze obiectele avind volumul mai mare
+decit 25cm3.
+
+
+8. Intr-un acvariu traiesc pesti si broaste testoase.
+Sa se afiseze toate vietuitoarele din acvariu care sunt 
+mai batrine de 1 an.
+
+
+
+
+9. La o conferinta participa profesori, studenti si 
+specialisti din industrie. Sa se afiseze toti participantii
+care au prezentat o lucrare.
+   
