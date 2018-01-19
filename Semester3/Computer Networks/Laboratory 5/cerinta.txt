@@ -1,0 +1,55 @@
+Use Packet Tracer to create a network topology like the one bellow and setup IP Addressing and manual routes such that:
+
+·         All local LAN PCs  have intra-lan access to each other (ping)
+
+·         Setup routing such that LAN 192.168.2.0/24 and 192.168.3.0/24 could access each other. Do you need to do anything?
+
+·         Setup NAT access from all networks to the server in Internet (193.231.20.2) such that its web server is accessible from all LANs
+
+·         Setup physical locations for all equipment such that
+
+o   192.168.0.0 is in city Cluj Napoca, building UPC (at least 1km away from FSEGA and UBBMainBuilding)
+
+o   192.168.1.0 is in city Bucharest, building ROEDU (at least 1km away from other buildings in Bucharest)
+
+o   192.168.2.0 is in city Cluj Napoca, building FSEGA (at least 1km away from other building in Cluj Napoca)
+
+o   192.168.3.0 is in city Cluj Napoca, UBBMainBuilding (at least 1km away from other building in Cluj Napoca)
+
+o   193.231.20.2 is in city Bucharest, building Google (at least 1km away from other buildings in Bucharest)
+
+ 
+
+The links between R1-R2-R3 are serial links. You need to add serial interfaces to those 1841 Routers as they are not equipped with. There is no special setup for serial links otherwise. Just IP addressing.
+
+Requirements:
+
+1.   Be able to access the Internet Server 193.231.20.2 from all networks (NAT)
+
+2.   Be able to access networks 192.168.2.0 and 192.168.3.0 from each other
+
+3.   What happens with network access between private nets 192.168.0.0 and 192.168.1.0.
+
+4.   What happens with network access between private nets 192.168.x.0 ? Can this be solved ?
+
+ 
+
+ 
+
+ 
+
+You will need to familiarize yourself with the following procedures for solving the problem:
+
+1.   Router CLI interface and commands for setting up:
+
+a.    Enter admin mode in a router CLI (enable)
+
+b.    Enter configuration mode in router CLI (config terminal or conf t)
+
+c.    Manage Static routes (in configure mode – ip route ….)
+
+d.   DHCP pools for local LANs (in configure mode – ip dhcp pool ….)
+
+e.    NAT setup ( in configure mode ip nat inside/outside , etc)
+
+f.     Show configuration (enable or just at prompt – show ….)

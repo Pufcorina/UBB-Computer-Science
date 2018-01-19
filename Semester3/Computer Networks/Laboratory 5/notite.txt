@@ -1,0 +1,111 @@
+Notes:
+Router Configuration
+            For any equipment configuration try to setup things in the config tab and watch the equivalent commands as you should have enter them in order to accomplish the same task in the bottom side of the window. There are things that cannot be configured from the graphical user interface. In order to learn new commands try the help system “?”.  After any part of a command entered, placing a “?” shows the remaining parameters and their explanation.  Usually a user needs administrative privileges (or entering privileged mode) in order to apply any new configuration changes to a router. The command to enter privileged mode is enable.
+
+From privileged mode – most of configuration changes need a special mode that is entered by using the command:
+
+config t – as configure terminal – which enters configuration mode. You need to type CTRL+Z or exit .
+
+In order to make router settings changes permanent one needs to copy the current running configuration into the startup configuration. The command to accomplish this is copy running-config startup-config. Upon reboot the router will keep its configuration.
+
+ 
+DHCP – configuration
+            In order to configure a DCHP service on a router you need to setup a dhcp pool, define its range and parameters and excluded IPs. The necessary commands are (from config mode):
+
+#define a dhcp pool of addresses to be delivered
+
+ip dhcp pool <name_of_pool>
+
+Ex: ip dhcp pool lan
+
+ 
+
+#define the network range
+
+network 192.168.0.0 255.255.255.0
+
+ 
+
+#define the default gateway (if any) that should be passed to the clients
+
+default-router 192.168.0.1
+
+ 
+
+#define the DNS server (if any) that should be passed to the clients
+
+dns-server 192.168.0.3
+
+ 
+
+#exit dhcp pool configuration
+
+exit
+
+ 
+
+# If there any IPs in that range that you do not want to be served to PCs - add them to the excluded range:
+
+ip dhcp excluded-range 192.168.0.1            (for a single IP)
+
+#or
+
+ip dhcp excluded–range 192.168.0.1 192.168.0.10              (for a range of IPs)
+
+ 
+
+NAT configuration
+In order to config NAT on a router on needs to specify one or multiple inside (local LAN) interfaces and one or multiple outside (WAN) interface. After setting up NAT all packets travelling from an inside interface to an outside 
+interface are NAT-ted (their IP addresses are changed according to the NAT policy in place).
+
+Suppose in our case that FastEthernet 0/0 (192.168.0.0/24 range) is inside and Serial 0/0/0 (193.226.40.1) is outside.
+
+In order to accomplish NAT we do the following:
+
+Router:
+
+enable
+
+conf t
+
+interface FastEthernet 0/0
+
+ 
+
+#specify that this is an inside interface. The interface needs to have an IP Address
+
+ip nat inside
+
+ 
+
+exit
+
+ 
+
+#define Serial 0/0/0 as WAN (outside) interface
+
+interface Serial 0/0/0
+
+ip nat outside
+
+ 
+
+exit
+
+ 
+
+#define an Access list with the addresses from the inside that can be nat-ted. The 0.0.0.31 specify the masks of bits from the IP Address that can vary. In our example bellow all addresses between 192.168.0.1 – 192.168.0.31 would pass !
+
+access-list 1 permit 192.168.0.1 0.0.0.31
+
+ 
+
+#define a pool of addresses to be allocated to the clients when NAT-ted. First IP – last IP netmask for those IPs
+
+ip nat pool ISP 193.226.40.1 193.226.40.1 netmask 255.255.255.252
+
+ 
+
+#define the NAT policy. Overload allows to use a single outside IP from the defined pool for multiple clients – by altering the port. One port is allocated on that IP for each outgoing client. Overload allows this behavior.
+
+ip nat inside source list 1 pool ISP overload
