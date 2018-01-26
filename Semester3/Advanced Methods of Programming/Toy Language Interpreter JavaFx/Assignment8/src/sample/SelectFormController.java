@@ -113,8 +113,15 @@ public class SelectFormController implements Initializable {
                                                         new PrintStatement(new HeapReadingExpression("a"))))), new PrintStatement(new ArithmeticExpression(new ConstantExpression(23), new VariableExpression("c"), OperationEnum.PLUS)))),
                                 new CompoundStatement(new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression("a"))))));
 
-        programStatements = new ArrayList<>(Arrays.asList(ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8, ex9, ex10, ex11, ex12, ex13));
-    }
+        IStatement ex14 = new CompoundStatement(new AssignStatement("v", new ConstantExpression(0)),
+                new CompoundStatement(new RepeatStatement(new CompoundStatement(new ForkStatement(new CompoundStatement(new PrintStatement(new VariableExpression("v")), new AssignStatement("v", new ArithmeticExpression(new VariableExpression("v"), new ConstantExpression(1), OperationEnum.MINUS)))), new AssignStatement("v", new ArithmeticExpression(new VariableExpression("v"), new ConstantExpression(1), OperationEnum.PLUS))), new BooleanExpression(new VariableExpression("v"), new ConstantExpression(3), "==")),
+                        new CompoundStatement(new AssignStatement("x", new ConstantExpression(1)),
+                                new CompoundStatement(new AssignStatement("y", new ConstantExpression(2)),
+                                        new CompoundStatement(new AssignStatement("z", new ConstantExpression(3)),
+                                                new CompoundStatement(new AssignStatement("w", new ConstantExpression(4)),
+                                                        new PrintStatement(new ArithmeticExpression(new VariableExpression("v"), new ConstantExpression(10), OperationEnum.MULTIPLY))))))));
+
+        programStatements = new ArrayList<>(Arrays.asList(ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8, ex9, ex10, ex11, ex12, ex13, ex14));}
 
     private List<String> getStringRepresentations(){
         return programStatements.stream().map(IStatement::toString).collect(Collectors.toList());

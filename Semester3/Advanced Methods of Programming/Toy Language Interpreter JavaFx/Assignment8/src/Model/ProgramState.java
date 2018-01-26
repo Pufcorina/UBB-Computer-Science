@@ -26,6 +26,7 @@ public class ProgramState {
     private MyIDictionary<Integer, Integer> heapTable;
     private Integer id_thread = 1;
     private HeapAddressBuilder b = new HeapAddressBuilder();
+    private Integer last_id = 1;
 
     public ProgramState(MyStack<IStatement> programStateMyStack, MyIDictionary<String, Integer> symbolTable, List<Integer> outputList, IStatement originalProgram, MyIDictionary<Integer, MyFilePair> fileTable, MyIDictionary<Integer, Integer> heap, Integer id) {
         executionStack = programStateMyStack;
@@ -37,6 +38,14 @@ public class ProgramState {
         this.id_thread = id;
 
         executionStack.push(originalProgram);
+    }
+
+    public void setLast_id(Integer last_id) {
+        this.last_id = last_id;
+    }
+
+    public Integer getLast_id() {
+        return last_id;
     }
 
     public Integer getNewAddress(){
@@ -118,7 +127,7 @@ public class ProgramState {
         return !executionStack.isEmpty();
     }
 
-    public ProgramState oneStep() throws ToyLanguageInterpreterException, FileNotFoundException {
+    public ProgramState oneStep() throws Exception {
         if (executionStack.isEmpty())
             throw new ADTEmptyException("Stack empty");
         IStatement currentStatement = executionStack.pop();

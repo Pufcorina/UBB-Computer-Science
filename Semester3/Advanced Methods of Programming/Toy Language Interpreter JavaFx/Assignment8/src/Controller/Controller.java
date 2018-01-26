@@ -55,7 +55,7 @@ public class Controller {
 
     }
 
-    private void closeAllFiles(Collection<Integer> fileTable, MyIDictionary<String, Integer> symbolTable, ProgramState programState) throws ToyLanguageInterpreterException, FileNotFoundException {
+    private void closeAllFiles(Collection<Integer> fileTable, MyIDictionary<String, Integer> symbolTable, ProgramState programState) throws Exception {
         System.out.println(fileTable);
         List<Map.Entry<String,Integer>> keys = symbolTable.entrySet().stream().filter(e->fileTable.contains(e.getValue())).collect(Collectors.toList());
 
@@ -93,7 +93,7 @@ public class Controller {
 
 
     @SuppressWarnings("unchecked")
-    public void allSteps() throws InterruptedException, ToyLanguageInterpreterException, IOException {
+    public void allSteps() throws Exception {
         executor = Executors.newFixedThreadPool(2);
         List<ProgramState> states = removeCompletedProgram(repository.getProgramStateList());
         // List<ProgramState> prgList = null;

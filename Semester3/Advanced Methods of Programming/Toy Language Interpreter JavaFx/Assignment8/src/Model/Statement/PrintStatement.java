@@ -21,7 +21,7 @@ public class PrintStatement implements IStatement{
         try{
             state.addOut(expression.evaluate(state.getSymbolTable(), state.getHeap()));
         }
-        catch (ToyLanguageInterpreterException e){
+        catch (Exception e){
             throw new ToyLanguageInterpreterException(e.getMessage());
         }
         return null;

@@ -24,7 +24,7 @@ public class AssignStatement implements IStatement {
         try{
             value = expression.evaluate(symbolTable, heapTable);
         }
-        catch (ToyLanguageInterpreterException e){
+        catch (Exception e){
             throw new ToyLanguageInterpreterException(e.getMessage());
         }
         symbolTable.put(name, value);

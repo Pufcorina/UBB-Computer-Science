@@ -36,7 +36,7 @@ public class WriteStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws ToyLanguageInterpreterException, FileNotFoundException {
+    public ProgramState execute(ProgramState state) throws Exception {
         MyIDictionary<String, Integer> symbolTable = state.getSymbolTable();
         MyIDictionary<Integer, Integer> heapTable = state.getHeap();
         Integer address;

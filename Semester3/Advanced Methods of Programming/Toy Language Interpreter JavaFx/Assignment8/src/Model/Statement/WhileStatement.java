@@ -40,14 +40,14 @@ public class WhileStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws ToyLanguageInterpreterException, FileNotFoundException {
+    public ProgramState execute(ProgramState state) throws Exception {
         MyIDictionary<String, Integer> symbolTable = state.getSymbolTable();
         MyIDictionary<Integer, Integer> heapTable = state.getHeap();
         Integer expressionResult;
 
         expressionResult = expression.evaluate(symbolTable, heapTable);
 
-        if(!expressionResult.equals(0)){
+        if(!expressionResult. equals(0)){
             MyIStack<IStatement> stack = state.getExecutionStack();
 
             stack.push(this);

@@ -8,6 +8,6 @@ import Model.Exceptions.VariableNotFoundException;
 
 
 public abstract class Expression {
-    abstract public Integer evaluate(MyIDictionary<String, Integer> symbolTable, MyIDictionary<Integer, Integer> heapTable) throws ADTEmptyException, DivisionByZero, VariableNotFoundException, ComparisonExpression;
+    abstract public Integer evaluate(MyIDictionary<String, Integer> symbolTable, MyIDictionary<Integer, Integer> heapTable) throws ADTEmptyException, DivisionByZero, VariableNotFoundException, ComparisonExpression, Exception;
     abstract public String toString();
 }

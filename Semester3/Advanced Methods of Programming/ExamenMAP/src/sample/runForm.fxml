@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="732.0" prefWidth="1017.0" style="-fx-background-color: #faebd7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RunController">
+   <children>
+      <TextField fx:id="numberOfProgramStatesTextField" layoutX="507.0" layoutY="331.0" prefHeight="31.0" prefWidth="209.0" style="-fx-background-color: #f5f5dc;" />
+      <Label layoutX="488.0" layoutY="263.0" text="Number of program states" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="heapTableView" layoutX="29.0" layoutY="65.0" prefHeight="180.0" prefWidth="209.0" style="-fx-background-color: #f5f5dc;">
+        <columns>
+          <TableColumn fx:id="heapAddressTableColumn" prefWidth="103.0" text="Address" />
+          <TableColumn fx:id="heapValueTableColumn" prefWidth="105.0" text="Value" />
+        </columns>
+      </TableView>
+      <Label layoutX="75.0" layoutY="14.0" text="Heap Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="561.0" layoutY="14.0" text="File Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="298.0" layoutY="14.0" prefHeight="42.0" prefWidth="147.0" text="Output List" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <ListView fx:id="outputListView" layoutX="267.0" layoutY="65.0" prefHeight="180.0" prefWidth="209.0" style="-fx-background-color: #f5f5dc;" />
+      <TableView fx:id="fileTableView" layoutX="506.0" layoutY="65.0" prefHeight="180.0" prefWidth="209.0" style="-fx-background-color: #f5f5dc;">
+        <columns>
+          <TableColumn fx:id="fileIdentifierTableColumn" prefWidth="103.0" text="Identifier" />
+          <TableColumn fx:id="fileNameTableColumn" prefWidth="105.0" text="File name" />
+        </columns>
+      </TableView>
+      <ListView fx:id="programStateIdentifiersListView" layoutX="29.0" layoutY="321.0" prefHeight="156.0" prefWidth="217.0" style="-fx-background-color: #f5f5dc;" />
+      <Label layoutX="25.0" layoutY="268.0" text="List of program state identifiers" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="symbolTableView" layoutX="259.0" layoutY="321.0" prefHeight="156.0" prefWidth="217.0" style="-fx-background-color: #f5f5dc;">
+        <columns>
+          <TableColumn fx:id="symbolNameTableColumn" prefWidth="102.0" text="Name" />
+          <TableColumn fx:id="symbolValueTableColumn" prefWidth="106.0" text="Value" />
+        </columns>
+      </TableView>
+      <Label layoutX="305.0" layoutY="263.0" text="Symbol Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <ListView fx:id="executionStackListView" layoutX="749.0" layoutY="65.0" prefHeight="180.0" prefWidth="234.0" style="-fx-background-color: #f5f5dc;" />
+      <Button fx:id="runOneStepButton" layoutX="525.0" layoutY="399.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="173.0" text="Run one step" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="29.0" />
+         </font>
+      </Button>
+      <Label layoutX="790.0" layoutY="14.0" text="Execution Stack" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="latchTableView" layoutX="762.0" layoutY="321.0" prefHeight="156.0" prefWidth="209.0" style="-fx-background-color: #f5f5dc;">
+        <columns>
+          <TableColumn fx:id="locationLatchTableColumn" prefWidth="100.0" text="Location" />
+          <TableColumn fx:id="valueLatchTableColumn" prefWidth="108.0" text="Value" />
+        </columns>
+      </TableView>
+      <Label layoutX="808.0" layoutY="263.0" text="Latch Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="488.0" text="Lock Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="lockTableView" layoutX="29.0" layoutY="530.0" prefHeight="156.0" prefWidth="217.0" style="-fx-background-color: #f5f5dc;">
+        <columns>
+          <TableColumn fx:id="locationLockTableColumn" prefWidth="102.0" text="Location" />
+          <TableColumn fx:id="valueLockTableColumn" prefWidth="114.0" text="Value" />
+        </columns>
+      </TableView>
+      <TableView fx:id="barrierTableView" layoutX="263.0" layoutY="530.0" prefHeight="156.0" prefWidth="217.0" style="-fx-background-color: #f5f5dc;">
+         <columns>
+            <TableColumn fx:id="indexBarrierTableColumn" prefWidth="77.0" text="Index" />
+            <TableColumn fx:id="valueBarrierTableColumn" prefWidth="63.0" text="Value" />
+            <TableColumn fx:id="listBarrierTableColumn" prefWidth="87.0" text="List" />
+         </columns>
+      </TableView>
+      <Label layoutX="302.0" layoutY="488.0" text="Barrier Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="semaphorTableView" layoutX="502.0" layoutY="530.0" prefHeight="156.0" prefWidth="217.0" style="-fx-background-color: #f5f5dc;">
+         <columns>
+            <TableColumn fx:id="indexSemaphorTableColumn" prefWidth="77.0" text="Index" />
+            <TableColumn fx:id="valueSemaphorTableColumn" prefWidth="63.0" text="Value" />
+            <TableColumn fx:id="listSemaphorTableColumn" prefWidth="87.0" text="List" />
+         </columns>
+      </TableView>
+      <TableView fx:id="barrierTableView2" layoutX="762.0" layoutY="530.0" prefHeight="156.0" prefWidth="217.0" style="-fx-background-color: #f5f5dc;">
+         <columns>
+            <TableColumn fx:id="indexBarrierTableColumn2" prefWidth="77.0" text="Index" />
+            <TableColumn fx:id="valueBarrierTableColumn2" prefWidth="63.0" text="Value" />
+            <TableColumn fx:id="listBarrierTableColumn2" prefWidth="87.0" text="List" />
+         </columns>
+      </TableView>
+      <Label layoutX="534.0" layoutY="488.0" text="Semaphor Table" textFill="#cc2929">
+         <font>
+            <Font name="French Script MT" size="32.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

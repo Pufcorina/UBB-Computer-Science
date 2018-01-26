@@ -29,7 +29,7 @@ public class CloseStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws ToyLanguageInterpreterException, FileNotFoundException {
+    public ProgramState execute(ProgramState state) throws Exception {
         MyIDictionary<String, Integer> symbolTable = state.getSymbolTable();
         MyIDictionary<Integer, MyFilePair> fileTable = state.getFileTable();
         MyIDictionary<Integer, Integer> heapTable = state.getHeap();

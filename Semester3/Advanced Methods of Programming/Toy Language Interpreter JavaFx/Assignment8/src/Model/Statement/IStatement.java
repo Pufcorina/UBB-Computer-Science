@@ -6,6 +6,6 @@ import Model.ProgramState;
 import java.io.FileNotFoundException;
 
 public interface IStatement {
-    ProgramState execute(ProgramState state) throws ToyLanguageInterpreterException, FileNotFoundException;
+    ProgramState execute(ProgramState state) throws ToyLanguageInterpreterException, FileNotFoundException, Exception;
     String toString();
 }

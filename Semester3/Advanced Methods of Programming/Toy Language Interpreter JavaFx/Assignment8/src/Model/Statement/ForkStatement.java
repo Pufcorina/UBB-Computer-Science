@@ -16,8 +16,10 @@ public class ForkStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws ToyLanguageInterpreterException, FileNotFoundException {
-        return new ProgramState(new MyStack<>(), state.getSymbolTable().clone_dict(),
-                state.getOutputList(), this.statement, state.getFileTable(), state.getHeap(), state.getId_thread() * 10);
+        ProgramState newProgram = new ProgramState(new MyStack<>(), state.getSymbolTable().clone_dict(),
+                state.getOutputList(), this.statement, state.getFileTable(), state.getHeap(), state.getLast_id() + 10);
+        state.setLast_id(state.getLast_id() + 10);
+        return newProgram;
     }
 
     @Override

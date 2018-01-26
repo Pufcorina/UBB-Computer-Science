@@ -18,7 +18,7 @@ public class RunCommand extends Command{
     public void execute() {
         try{
             controller.allSteps();
-        } catch (InterruptedException | ToyLanguageInterpreterException | IOException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

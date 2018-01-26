@@ -23,7 +23,7 @@ public class IfStatement implements IStatement{
         try{
             value = expression.evaluate(state.getSymbolTable(), state.getHeap());
         }
-        catch (ToyLanguageInterpreterException e){
+        catch (Exception e){
             throw new ToyLanguageInterpreterException(e.getMessage());
         }
         if(value != 0) stack.push(thenStatement);

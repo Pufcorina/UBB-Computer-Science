@@ -48,13 +48,11 @@ public class Console {
             try{
                 option = getInteger(scanner);
                 if(option == -1) break;
-                if(option < statements.size()){
-                    try{
-                        //ctrl.setProgram(new ProgramState(statements.get(option)));
-                        ctrl.allSteps();
-                    } catch (InterruptedException | ToyLanguageInterpreterException | IOException e) {
-                        e.printStackTrace();
-                    }
+                if(option < statements.size()) try {
+                    //ctrl.setProgram(new ProgramState(statements.get(option)));
+                    ctrl.allSteps();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             catch (BadInputException e){

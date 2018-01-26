@@ -15,7 +15,7 @@ public class ArithmeticExpression extends Expression {
     }
 
     @Override
-    public Integer evaluate(MyIDictionary<String, Integer> symbolTable, MyIDictionary<Integer, Integer> heapTable) throws ADTEmptyException, DivisionByZero, VariableNotFoundException, ComparisonExpression {
+    public Integer evaluate(MyIDictionary<String, Integer> symbolTable, MyIDictionary<Integer, Integer> heapTable) throws Exception {
         Integer eval1 = exp1.evaluate(symbolTable, heapTable);
         Integer eval2 = exp2.evaluate(symbolTable, heapTable);
 

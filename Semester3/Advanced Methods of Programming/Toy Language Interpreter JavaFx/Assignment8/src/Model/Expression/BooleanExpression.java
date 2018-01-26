@@ -49,7 +49,7 @@ public class BooleanExpression extends Expression {
     }
 
     @Override
-    public Integer evaluate(MyIDictionary<String, Integer> symbolTable, MyIDictionary<Integer, Integer> heapTable) throws ADTEmptyException, DivisionByZero, VariableNotFoundException, ComparisonExpression {
+    public Integer evaluate(MyIDictionary<String, Integer> symbolTable, MyIDictionary<Integer, Integer> heapTable) throws Exception {
         Integer expr1 = expression_left.evaluate(symbolTable, heapTable);
         Integer expr2 = expression_right.evaluate(symbolTable, heapTable);
         boolean booleanEvaluationResult;
