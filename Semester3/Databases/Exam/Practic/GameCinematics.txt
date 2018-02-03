@@ -1,0 +1,17 @@
+1. You must create a database that manages cinematics from different games. The purpose of the database is to
+contain all the information about the cinematics of all games and some details about the heroes that appear in cinematics.
+	A) The entities of interest for the problem domani are: Heroes, Cinematics, Games and Companies.
+	B) Each game has a name, a release date and belongs to a company. The company has a name, a description and a website.
+	C) Each cinematic has a name, an associated game and a list of heroes with an entry moment for each hero.
+	The entry moment is represented as an hour/minute/second pair (ex: a hero appears at 00:02:33). Every hero
+	has a name, a description and an importance.
+
+1) Write a SQL script to create a relational data model in order to represent the required data. (4 points)
+
+2) Create a store procedure that receives a hero, a cinematic, and an entry moment and adds the new cinematic to
+the hero. If the cinematic already exists, the entry moment is updated. (2 points)
+
+3) Create a view that shows the name and the importance of all heroes that appear in all cinematics. (1 point)
+
+4) Create a function that lists the name of the company, the name of the game and the title of the cinematic for all 
+games that have the release date greater than or equal to '2000-12-02' and less than or equal to '2016-01-01'. (2 points)
