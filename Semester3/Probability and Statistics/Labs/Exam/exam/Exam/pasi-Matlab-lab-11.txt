@@ -1,0 +1,19 @@
+- vector x
+- miu0 = 9
+- sigma = 5
+- alfa = 0.05 si 0.01
+- ztest -> poate returna h,p,ci,zval
+	-> date de intrare: x, miu0, alfa,
+				-1/0/1 pt left/both/right
+'alfa',val_alfa,'tail',left etc
+- se returneaza 0 sau 1, adica ce se accepta intre h0 si h1 
+if in functie de h
+
+PUNCTUL B
+- pentru varianta trebuie sa testam daca sigma e 5 (??)
+- functia este vartest
+
+PENTRU RR
+tt_cu_indice se calculeaza cu functia pentru distributia chi2
+
+PROBLEMA 2 -> vezi poza 21 dec.
