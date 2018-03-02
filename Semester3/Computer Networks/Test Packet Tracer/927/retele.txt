@@ -1,0 +1,70 @@
+1. pui calculatoare, switch-uri, laptop, access points + SERVER
+
+2. cofigurezi Access point-u
+	- mergi pe config -> port 1
+	- la SSID dai numele wireless-ului + parola pe (WPA2-PSK)
+	- gata cu access point-u =D
+
+3. configurezi serverul
+	- mergi desktop -> ip configuration ->
+		- la ip address pui primul ip liber din reteaua ta (sa nu uiti de ip pt router)
+		(sau orice ip liber da sa il tii minte) 
+		de ex: pentru reteaua 192.168.0.0/27
+		ip address 192.168.0.2
+		subnet mask 255.255.255.224
+		default gateway: e ip routerului (practic ip de iesire din subretea) 192.168.0.1
+	- mergi in services -> dns : name (www.mere.ro) si la address (192.168.0.2 -> adresa serverului)
+	- meri in services -> http index.html pe edit schimbi html-u idk cu orice mesaj
+	- gata cu serveru :)
+
+4. configurezi fiecare router acuma la "punctulete" cu ip-urile corespunzatoare
+	- sa va uitati la fiecare subretea sa fie mereu primul ip liber ca sa nu va incurcati
+	- la subretelele cu netmasku 255.255.255.252 aka /30 deobicei va da direct care e ip si nu il mai alegeti voi
+
+5. DHCP:	
+	- intram in fiecare router pe rand si ne uitam cate subretele sunt conectate la el
+	- pentru fiecare subretea trebuie sa facem un "dictionar" aka sa setam dhcp pool-ul
+	- si acuma comenzile:
+		(apasati ctrl+z ori exit pana sunteti in cel mai rudimentar mod posibil)
+		en (daca va apare "Router> ")
+		conf t (daca va apare "Router# "
+		ip dhcp pool <nume sugestiv pentru fiecare subretea> (cand sunteti in modul "Router(config)# ")
+		network <ip de inceput al subretelei> <netmaskul subretelei>
+		default-router <ip router>
+		dns-server <ip dns server>
+		exit
+
+	ex:
+		ip dhcp pool Router0
+		network 192.168.0.0 255.255.255.224
+		default-router 192.168.0.1
+		dns-server 192.168.0.2
+		exit
+
+6. mergem pe fiecare calculator si intram Desktop -> ip configuration 
+	si din Static mutam pe DHCP
+
+7. si acuma rip-u
+	mergem pe fiecare router si ne uitam in ce subretele se afla
+	comenzi:
+		(apasati ctrl+z ori exit pana sunteti in cel mai rudimentar mod posibil)
+		en (daca va apare "Router> ")
+		conf t (daca va apare "Router# "
+		router rip (cand sunteti in modul "Router(config)# ")
+		version 2
+		network <ip de inceput al subretelei1>
+		network <ip de inceput al subretelei2>
+		network <ip de inceput al subretelei3>
+		...
+		network <ip de inceput al subretelein>
+		exit
+	asta la toate routerele
+	
+	ex:
+		router rip
+		version 2
+		network 192.168.0.0
+		network 192.169.0.0
+		network 193.226.40.0
+		exit
+		
