@@ -1,10 +1,8 @@
-Data 		30.11.2016					Name 	     Todoran Ana Corina – Group 917
-
 Problem statement:
 
-An application implement for: 
-⦁	arithmetic operations: addition, subtraction, multiplication and division by one digit, in a base p{2,3,...,9,10,16}
-⦁	conversions of natural numbers between two bases p, q{2,3,...,9,10,16} using the substitution method or successive divisions and rapid conversions between two bases p, q{2, 4, 8, 16}.
+Implement an application for:
+⦁ arithmetic operations: addition, subtraction, multiplication and division by one digit, in a base p{\displaystyle \in } \in{2,3,...,9,10,16}
+⦁ conversions of natural numbers between two bases p, q{2,3,...,9,10,16} using the substitution method or successive divisions and rapid conversions between two bases p, q{2, 4, 8, 16}.
 Calculator - Feature list
 
 F1. Add two real numbers in a certain base
