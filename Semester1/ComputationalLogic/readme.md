@@ -31,70 +31,72 @@ Iteration 1
 Running scenario
 
 First run of application:
-![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/start.png)
 
-⦁ Add two numbers in base b:
-      ⦁ Both numbers are positive:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_both_positive.png)
+![start](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/start.png)
+
+1. Add two numbers in base b:
+
+      ⦁ Both numbers are positive:
+            ![add positive](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_both_positive.png)
 
       ⦁ Both numbers are negative: 
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_both_negative.png)
+            ![add negative](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_both_negative.png)
 
       ⦁ First number is positive and second number is negative:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_second_negative.png)
+            ![add](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_second_negative.png)
 
       ⦁ First number is negative and second number is positive:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_first_negative.png)
+            ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/add_first_negative.png)
 
 
-⦁ Substract two numbers in base b:
+2. Substract two numbers in base b:
       ⦁ Both numbers are positive:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_both_pozitive.png)
+      ![substract poz](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_both_pozitive.png)
 
       ⦁ Both numbers are negative:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_both_negative.png)
+      ![substract neg](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_both_negative.png)
 
       ⦁ First number is positive and second number is negative: 
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_second_negative.png)
+      ![sub1](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_second_negative.png)
 
       ⦁ First number is negative and second number is positive:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_first_negative.png)
+      ![sub2](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/sub_first_negative.png)
 
 
-⦁ Multiplication of a number with another one digit number in base b:
+3. Multiplication of a number with another one digit number in base b:
       ⦁ Both numbers are positive: 
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/mul_both_positive.png)
+      ![mult poz](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/mul_both_positive.png)
 
       ⦁ Both numbers are negative:
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/mul_both_negative.png)
+      ![mult neg](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/mul_both_negative.png)
  
       ⦁ One number is positive and the other number is negative:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/mul_one_number_negative.png)
+      ![mult1](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/mul_one_number_negative.png)
 
 
-⦁ Division of a number with another one digit number in base b:
+4. Division of a number with another one digit number in base b:
       ⦁ Both numbers are positive:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/div_both_positive.png)
+      ![div poz](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/div_both_positive.png)
 
       ⦁ Both numbers are negative: 
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/div_both_negative.png)
+      ![div neg](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/div_both_negative.png)
       
       ⦁ One number is positive and the other number is negative:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/div_one_number_negative.png)
+      ![div 1](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/div_one_number_negative.png)
 
-⦁ Conversion of a number from a base b into a base h:
+5. Conversion of a number from a base b into a base h:
       ⦁ Base b < h and we use substitution method as follows:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/conversion_substitution.png)
+      ![conv1](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/conversion_substitution.png)
       
       ⦁ Base b > h and we use successive divisions and multiplications method as follows:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/conversion_sccessive_divisions_and_multiplications.png)
+      ![conv2](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/conversion_sccessive_divisions_and_multiplications.png)
 
       ⦁ Base b, h are from the following list {2, 4, 8, 16} and we can also use rapid conversions:  
-      ![](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/conversion_raid_conversion.png)
+      ![conv3](https://github.com/Pufcorina/UBB/blob/master/Semester1/ComputationalLogic/Poze/conversion_raid_conversion.png)
 
 
 Work items/tasks:
 T1	Implement the arithmetic operation: addition, substraction, multiplication, division
 T2	Implement conversion of any number in base 2
-T3	Implement conversion of any number using following methods: substitution method or successive divisions or rapid conversions between two bases p, q{2, 4, 8, 16}.
+T3	Implement conversion of any number using following methods: substitution method or successive divisions or rapid conversions between two bases p, q belongs to {2, 4, 8, 16}.
 
