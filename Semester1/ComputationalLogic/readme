@@ -1,0 +1,99 @@
+Data 		30.11.2016					Name 	     Todoran Ana Corina – Group 917
+
+Problem statement:
+
+An application implement for: 
+⦁	arithmetic operations: addition, subtraction, multiplication and division by one digit, in a base p{2,3,...,9,10,16}
+⦁	conversions of natural numbers between two bases p, q{2,3,...,9,10,16} using the substitution method or successive divisions and rapid conversions between two bases p, q{2, 4, 8, 16}.
+Calculator - Feature list
+
+F1. Add two real numbers in a certain base
+F2. Substract two real numbers in a certain base
+F3. Multiply a real number with a one digit number
+F4. Divide a real number with a one digit number
+F5. Convert a real number from base b into base h
+
+Iteration plan
+Iteration	Planned features
+I1	F1. Add two real numbers in a certain base
+F2. Substract two real numbers in a certain base
+F3. Multiply a real number with a one digit number
+F4. Divide a real number with a one digit number
+I2	F5. Convert a real number from base b into base h
+      1. Substitution method
+      2. Successive divisions and multiplications
+      3. Rapid conversions
+
+
+
+
+Iteration 1
+Running scenario
+
+First run of application:
+ 
+
+⦁	Add two numbers in base b:
+⦁	Both numbers are positive:  
+
+⦁	Both numbers are negative: 
+
+⦁	First number is positive and second number is negative:  
+
+⦁	First number is negative and second number is positive:  
+
+⦁	Substract two numbers in base b:
+⦁	Both numbers are positive:  
+
+
+
+
+
+⦁	Both numbers are negative:  
+
+⦁	First number is positive and second number is negative:  
+
+⦁	First number is negative and second number is positive:  
+
+
+
+
+
+
+
+⦁	Multiplication of a number with another one digit number in base b:
+⦁	Both numbers are positive:  
+
+⦁	Both numbers are negative:
+ 
+
+⦁	One number is positive and the other number is negative:  
+
+
+
+
+
+
+⦁	Division of a number with another one digit number in base b:
+⦁	Both numbers are positive:  
+
+⦁	Both numbers are negative:  
+
+
+⦁	One number is positive and the other number is negative:  
+
+
+
+
+Conversion of a number from a base b into a base h:
+⦁	Base b < h and we use substitution method as follows:  
+⦁	Base b > h and we use successive divisions and multiplications method as follows:  
+
+⦁	Base b, h are from the following list {2, 4, 8, 16} and we can also use rapid conversions:  
+
+
+Work items/tasks
+T1	Implement the arithmetic operation: addition, substraction, multiplication, division
+T2	Implement conversion of any number in base 2
+T3	Implement conversion of any number using following methods: substitution method or successive divisions or rapid conversions between two bases p, q{2, 4, 8, 16}.
+A
