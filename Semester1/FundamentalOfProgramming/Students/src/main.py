@@ -16,12 +16,12 @@ from controller.grade_controller import GradeController
 from controller.student_controller import StudentController
 from controller.undo_controller import UndoController
 from domain.entities import Student, Discipline, Grade, Settings
+from domain.validators import DisciplineValidator, StudentValidator, GradeValidator
 from repository.binary_repository import BinaryRepository
 from repository.file_repository import FileRepository
 from repository.json_repository import JSONRepository
+from repository.repository import Repository
 from repository.sql_repository import SQLRepository
-from src.domain.validators import StudentValidator, DisciplineValidator, GradeValidator
-from src.repository.repository import Repository
 from ui.console import Console
 from ui.gui import GUI
 

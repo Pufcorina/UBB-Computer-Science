@@ -6,8 +6,8 @@ Created on 7 nov. 2016
 from operator import itemgetter
 
 from controller.undo_controller import FunctionCall, Operation
-from src.domain.entities import Grade
-from src.domain.validators import GradeValidatorException
+from domain.entities import Grade
+from domain.validators import GradeValidatorException
 from util.util import Util, Algorithm
 
 

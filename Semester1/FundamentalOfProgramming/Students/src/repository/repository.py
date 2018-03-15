@@ -7,7 +7,7 @@ import collections
 
 import copy
 
-from src.domain.validators import StoreException
+from domain.validators import StoreException
 
 
 class RepositoryException(StoreException):

@@ -4,7 +4,7 @@ Created on 6 nov. 2016
 @author: corina
 '''
 from controller.undo_controller import FunctionCall, Operation
-from src.domain.entities import Student
+from domain.entities import Student
 
 from util.util import Util
 
