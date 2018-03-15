@@ -1,15 +1,21 @@
 Problem statement:
 
 Implement an application for:
+
 ⦁ arithmetic operations: addition, subtraction, multiplication and division by one digit, in a base p belongs to {2,3,...,9,10,16}
+
 ⦁ conversions of natural numbers between two bases p, q belongs to {2,3,...,9,10,16} using the substitution method or successive divisions and rapid conversions between two bases p, q belongs to {2, 4, 8, 16}.
 
 Calculator - Feature list
 
 F1. Add two real numbers in a certain base
+
 F2. Substract two real numbers in a certain base
+
 F3. Multiply a real number with a one digit number
+
 F4. Divide a real number with a one digit number
+
 F5. Convert a real number from base b into base h
 
 Iteration plan
@@ -17,14 +23,22 @@ Iteration plan
 Iteration	Planned features
 
 I1	
+
       F1. Add two real numbers in a certain base
+      
       F2. Substract two real numbers in a certain base
+      
       F3. Multiply a real number with a one digit number
+      
       F4. Divide a real number with a one digit number
+      
 I2	
       F5. Convert a real number from base b into base h
+      
             1. Substitution method
+
             2. Successive divisions and multiplications
+
             3. Rapid conversions
 
 Iteration 1
