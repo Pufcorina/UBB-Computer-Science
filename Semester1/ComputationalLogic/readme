@@ -1,7 +1,7 @@
 Problem statement:
 
 Implement an application for:
-⦁ arithmetic operations: addition, subtraction, multiplication and division by one digit, in a base p{\displaystyle \in } \in{2,3,...,9,10,16}
+⦁ arithmetic operations: addition, subtraction, multiplication and division by one digit, in a base p<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6fe4d5b0a594c1da89b5e78e7dfbeed90bdcc32f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.55ex; height:1.843ex;" alt="\in ">{2,3,...,9,10,16}
 ⦁ conversions of natural numbers between two bases p, q{2,3,...,9,10,16} using the substitution method or successive divisions and rapid conversions between two bases p, q{2, 4, 8, 16}.
 Calculator - Feature list
 
