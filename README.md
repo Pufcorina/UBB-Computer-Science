@@ -32,7 +32,7 @@
     <ul>
       <li>
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/DataStructuresAndAlgorithms"> 
-          DataStructures and Algorithms 
+          Data Structures and Algorithms 
         </a>
       </li>
       <li>
