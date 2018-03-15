@@ -11,24 +11,64 @@
 <ul>
   <li>Semester 1
     <ul>
-      <li>Algebra</li>
-      <li>Computational Logic</li>
-      <li>Fundamental of Programming</li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/Algebra"> 
+          Algebra 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/ComputationalLogic"> 
+          Computational Logic 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/FundamentalOfProgramming"> 
+          Fundamental of Programming 
+        </a>
+      </li>
     </ul>
   </li>
   <li>Semester 2
     <ul>
-    <li>DataStructures and Algorithms</li>
-    <li>Object Oriented Programming</li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/DataStructuresAndAlgorithms"> 
+          DataStructures and Algorithms 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/ObjectOrientedProgramming"> 
+          Object Oriented Programming 
+        </a>
+      </li>
     </ul>
   </li>
   <li>Semester 3
     <ul>
-      <li>Advanced Methods of Programming</li>
-      <li>Computer Networks</li>
-      <li>Databases</li>
-      <li>Functional and Logic Programming</li>
-      <li>Probability and Statistics</li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Advanced%20Methods%20of%20Programming"> 
+          Advanced Methods of Programming 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Computer%20Networks"> 
+          Computer Networks 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Databases"> 
+          Databases 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Functional%20and%20Logic%20Programming"> 
+          Functional and Logic Programming 
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Probability%20and%20Statistics"> 
+          Probability and Statistics
+        </a>
+      </li>
     </ul>
   </li>
   <li>Semester 4</li>
