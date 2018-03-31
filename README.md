@@ -68,6 +68,10 @@
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Database%20Management%20Systems">
           :nut_and_bolt:  Database Management Systems
       </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Web%20Programming">
+          :newspaper:  Web Programming
+      </li>
     </ul>
   </li>
 </ul>
