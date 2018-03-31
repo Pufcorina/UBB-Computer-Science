@@ -65,7 +65,7 @@
   <li>:open_file_folder: Semester 4
     <ul>
       <li>
-        <a hreg="https://github.com/Pufcorina/UBB/tree/master/Semester4/Database%20Management%20Systems">
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Database%20Management%20Systems">
           :nut_and_bolt:  Database Management Systems
       </li>
     </ul>
