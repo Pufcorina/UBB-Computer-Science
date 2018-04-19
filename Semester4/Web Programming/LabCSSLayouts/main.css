@@ -1,0 +1,144 @@
+.menu-bar {
+    height: 84px;
+    background-color: #0d60b5;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    right: 0;
+}
+
+.menu-container {
+    display: flex;
+    width: 83%;
+    
+    position: absolute;
+    top: 20px;
+    left: 52%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.navbar-brand {
+    float:left;
+    padding:10px 10px;
+    font-size:18px;
+    line-height:20px;
+    height:40px
+}
+
+.navbar-brand {
+    display:block;
+    float:none;
+    padding-top:0;
+    padding-bottom:0;
+    height:36px
+}
+
+.emag-search {
+    flex: 4;
+    margin: 5px;
+    margin-left:15px;
+    padding-top: 2px;
+}
+
+.navbar-searchbox {
+    padding-left: 10px;
+    padding-right: 40px;
+    display: table-cell;
+    width:631px;
+    height:36px;
+    float:left;
+  }
+  
+  .searchbox-wrapper {
+    width: 80%;
+    height: 36px;
+    /* background-color: white; */
+    border-radius: 3px;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #e9ebee;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #222;
+  }
+  
+  .input-field {
+    width:89%;
+    height: 36px;
+    border-radius: 2px;
+    color: black;
+    font-size: 16px;
+    font-family: "ProximaNova-Light";
+    border: 1px solid gray;
+    padding-left: 15px;
+    position: relative;
+  }
+  
+  .input-field::before { 
+    content: "";
+    position:absolute;
+    margin-top:-6px;
+    margin-left:-5px;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #146f79;
+    transform:rotate(-45deg);
+    right: -15px; 
+    top: 10px;
+  }
+  
+  .submit-button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline: none;
+  }
+  
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 90.2%;
+    background: white;
+    border-right: none;
+    font-size: 16px;
+  }
+  
+  form.example button {
+    float: right;
+    width: 6%;
+    padding: 10px;
+    background: white;
+    color: white;
+    font-size: 16px;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: whitesmoke;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

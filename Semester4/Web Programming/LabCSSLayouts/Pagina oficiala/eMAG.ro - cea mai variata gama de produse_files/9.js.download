@@ -1,0 +1,46 @@
+var ps_cookie_days = 2;
+var ps_click_id = 0;
+
+var queryString = window.location.search.substring(1);
+if (queryString.length > 0)
+{
+	var pairs = queryString.split('&');
+							
+	for(var i = 0; i < pairs.length; i++)
+	{
+		var pairs2 = pairs[i].split('=');
+		
+		if(pairs2[0].toLowerCase() == "emag_click_id") {
+			ps_click_id = pairs2[1];
+		}
+	}
+}
+
+if (ps_click_id != 0 && top.location.href == window.location.href)
+{
+	SetCookie('emag_click_id', ps_click_id, ps_cookie_days, '.emag.ro');
+}
+
+function WriteCookie (name, value, expires) 
+{
+	var argv = SetCookie.arguments;
+	var argc = SetCookie.arguments.length;
+	var path = '/';
+	var domain = (argc > 3) ? argv[3] : null;
+	var secure = (argc > 4) ? argv[4] : false;
+	
+	var cookie = name + "=" + escape(value) +
+		((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+		((path == null) ? "" : ("; path=" + path)) +
+		((domain == null) ? "" : ("; domain=" + domain)) +
+		((secure == true) ? "; secure" : "");
+	
+	document.cookie = cookie;
+}
+
+function SetCookie(name, value, expiredays)
+{
+	var expdate = new Date(); 
+	expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * expiredays)); 
+	WriteCookie(name, value, expdate);  
+}
