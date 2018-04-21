@@ -1,0 +1,5 @@
+<!ELEMENT record (title, artist, year, genre)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT artist (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
