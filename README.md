@@ -72,6 +72,14 @@
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Web%20Programming">
           :newspaper:  Web Programming
       </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Systems%20for%20Design%20and%20Implementation">
+          :zap:  Systems for Design and Implementation
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Artificial%20Intelligence">
+          :ferris_wheel:  Artificial Intelligence
+      </li>
     </ul>
   </li>
 </ul>
