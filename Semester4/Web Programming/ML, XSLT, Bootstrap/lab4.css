@@ -1,18 +1,20 @@
-* {
-    margin: auto;
-    text-align: center;
-}
-
-title {
-    background: palegreen;
+table, h2{
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
 }
 
 td {
     width: 200px;
+    text-align: center
 }
 
 th {
-    align-content: center;
     text-align: center;
     background: oldlace;
 }
@@ -52,4 +54,18 @@ tr:nth-child(even) .genre {
 
 tr.first{
     background: red;
+}
+
+.problem {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+    border: 5px outset;
+    border-radius: 10px;
+    background-color: rgb(213, 209, 246);
 }

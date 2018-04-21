@@ -9,6 +9,12 @@
         <link href="bootstrap.css" rel="stylesheet"/>
     </head>
     <body>
+        <div class="problem">
+            List by using XSLT the content of an XML document so that: 
+                - each sub-element within the same element has to have a different formatting; 
+                - the first XML element has a different formatting from the other elements. 
+            The XSLT file should also use at least 6 Bootstrap CSS classes for formatting XML elements.
+        </div>
         <h2>My Playlist Collection</h2>
         <table border="1">
             <tr>
