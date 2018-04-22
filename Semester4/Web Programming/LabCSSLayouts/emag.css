@@ -6,6 +6,7 @@
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     right: 0;
+    z-index: 100;
   }
 
   .emag-container {
@@ -134,9 +135,142 @@
     opacity: 0.8;
   }
 
-  .under-navbar {
-    width:100%;
-    height: 40px;
+.under-navbar {
+    padding: 16px;
+    margin-top: 68px;
+
+    height: 25px;
+    width: 100%;
+    margin-left: -25px;
     background: white;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.03);
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.under-navbar-content {
+    display: flex;
+    width: 83%;
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.produse {
+    flex: 2;
+    height: 40px;
+    background:#2ea8ed; 
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.small-text-under-navbar {
+    height: 50px;
+}
+
+.margin-top {
+    margin-top: 3px;
+}
+
+.help {
+    margin-top: -10px;
+}
+
+body {
+    margin: 0;
+    background-color: #e9ebee;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #222;
   }
+
+.main {
+    height: 460px;
+    width: 83%;
+    background-color: white;
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.1); 
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.main-content {
+    display: flex;
+}
+
+.main-content div {
+    /* border: 1px solid black; */
+  }
+
+.main-menu {
+    margin-left:5px;
+    height: 100%;
+    font-size: 14px;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+}
+
+tr.spaceUnder>td {
+    padding-top: 6px;
+    padding-bottom: 7px;
+    color: rgb(60, 60, 60);
+}
+
+img.spaceUnder {
+    width: 17px;
+    height: 17px;
+}
+
+.second-navbar {
+    margin-top: 20px;
+    height: 70px;
+    width: 100%;
+    background-color: white;
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.second-navbar-container {
+    display: flex;
+    width:100%;
+    height: 70px;
+}
+
+.mobile-img {
+    margin-top: 140px;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+
+.cont {
+    margin-top: 20px;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.cont-content {
+    display: flex;
+}
