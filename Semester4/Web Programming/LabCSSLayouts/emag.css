@@ -1,0 +1,142 @@
+.emag-navbar {
+    height: 84px;
+    background-color: #0d60b5;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    right: 0;
+  }
+
+  .emag-container {
+    display: flex;
+    width: 83%;
+    
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+  }
+
+  .emag-image {
+    flex: 1;
+    margin: 5px;
+    margin-top: 7px;
+  }
+
+  .emag-search {
+    flex: 4;
+    margin: 5px;
+    margin-left:15px;
+    padding-top: 0px;
+    border: 4px solid white;
+    border-radius: 5px;
+  }
+
+  form.example input[type=text] {
+    padding: 7px;
+    font-size: 17px;
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
+    margin-bottom: 0;
+    padding-bottom: 1;
+    border: 0;
+    float: left;
+    width: 92.7%;
+    background: white;
+    border-right: none;
+    font-size: 16px;
+  }
+  
+  form.example button {
+    float: right;
+    left: -1px;
+    width: 6%;
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding: 7px;
+    background: white;
+    color: white;
+    font-size: 16px;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: whitesmoke;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .submit-button {
+    float: left;
+    width: 36px;
+    padding: 1px;
+    height: 33px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid white;
+    border-left: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .search-image {
+      padding: 0;
+      object-fit: fill;
+      margin: 0;
+      flex: 1;
+      margin-top: -15px;
+      margin-bottom: 20px;
+      border-bottom: -5px;
+      margin-left: -7px;
+  }
+  
+  .emag-contul-meu {
+    flex: 1;
+    margin: 5px;
+    margin-left: 25px;
+  }
+
+  .menu-text-element {
+    color: white;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+  }
+  
+  .emag-favorite {
+    flex: 1;
+    margin: 5px;
+    margin-top: 0.5px;
+  }
+  
+  .emag-cos-cumparaturi {
+    flex: 1;
+    margin: 5px;
+  }
+
+  .navigation-table {
+    position: absolute;
+    margin-top: 5px;
+    margin-left:7px;
+  }
+
+  .navigation-table:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .under-navbar {
+    width:100%;
+    height: 40px;
+    background: white;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.03);
+  }

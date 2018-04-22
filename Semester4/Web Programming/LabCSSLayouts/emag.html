@@ -1,35 +1,85 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>eMAG.ro - cea mai variata gama de produse</title>
-    <link rel="icon" sizes="any" type="image/png" href="https://s5emagst.akamaized.net/assets/ro/css/icons/favicon.ico?v=1a">       
+    <link rel="icon" sizes="any" type="image/png" href="https://s5emagst.akamaized.net/assets/ro/css/icons/favicon.ico?v=1a">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="emag.css" />
+    <script src="main.js"></script>
 </head>
-
 <body>
-    <div class="menu-bar">
-        <div class="menu-container">
-            <div>
-                    <a class="navbar-brand" href="https://www.emag.ro/" title="Online va fi mereu simplu!">
-                        <img src="./Resources/57629.png" alt="eMAG">
-                    </a>
+    <div class="emag-navbar">
+        <div class="emag-container">
+            <div class="emag-image">
+                <a href="https://www.emag.ro/">
+                    <img src="images/navbar/emag.png" style="float: right;"/>
+                </a>
             </div>
+
             <div class="emag-search">
                 <form class="example">
                     <input type="text" placeholder="Ce vrei sa cauti azi?" name="search">
-                    <button type="submit" class="submit-button"><i class="fa fa-search" style="color:black"></i></button>
+                    <button type="submit" class="submit-button"><img src="images/navbar/search.png" class="search-image"/></button>
                 </form>
             </div>
-            <div>
 
+            <div class="emag-contul-meu">
+                <table class="navigation-table">
+                    <tr>
+                        <td>
+                            <img src="images/navbar/contul-meu.png"/>
+                        </td>
+                        <td>
+                            &nbsp;
+                            &nbsp;
+                        </td>
+                        <td>
+                            <span class="menu-text-element">Contul meu</span>
+                            <i class="fa fa-caret-down" style="color: white;"></i>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div>
-                
+
+            <div class="emag-favorite">
+                <table class="navigation-table">
+                    <tr>
+                        <td>
+                                <img src="images/navbar/hearth.png"/>
+                        </td>
+                        <td>
+                            &nbsp;
+                            &nbsp;
+                        </td>
+                        <td>
+                            <span class="menu-text-element">Favorite</span>
+                            <i class="fa fa-caret-down" style="color: white;"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="emag-cos-cumparaturi">
+                <table class="navigation-table">
+                    <tr>
+                        <td>
+                            <img src="images/navbar/cos.png"/>
+                        </td>
+                        <td>
+                            &nbsp;
+                            &nbsp;
+                        </td>
+                        <td>
+                            <span class="menu-text-element">Cosul meu</span>
+                            <i class="fa fa-caret-down" style="color: white;"></i>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-        
-    </div>
-    
+    </div>  
 </body>
 </html>
