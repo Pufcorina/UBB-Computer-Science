@@ -274,3 +274,63 @@ img.spaceUnder {
 .cont-content {
     display: flex;
 }
+
+.cont-nou-button {
+    background-color: white;
+    border: 1px solid rgb(0, 94, 184);
+    border-radius: 5px;
+    height: 32px;
+    margin-top: 30px;
+    text-align: center;
+    width: 200px;
+    position: absolute;
+}
+
+.cont-nou-link {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 5px;
+    color: rgb(66, 141, 212);
+    text-decoration: none;
+}
+
+.intra-cont {
+    background-color: rgb(0, 94, 184);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    height: 32px;
+    margin-top: 30px;
+    text-align: center;
+    width: 200px;
+    position: absolute;
+}
+
+.intra-cont-link {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.emag-inta-in-cont {
+    background-color: rgb(239, 40, 9);
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    color: white;
+    display: block;
+    height: 34px;
+    position: absolute;
+    top: -1px;
+    width: 37px;
+    margin-top: -6px;
+    margin-left: -72px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    border-bottom-right-radius: 37% 100%; 
+}
