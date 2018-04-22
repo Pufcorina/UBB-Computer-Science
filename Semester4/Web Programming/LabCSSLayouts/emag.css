@@ -391,3 +391,61 @@ ul.second>li {
     
     color: rgb(66, 141, 212);
 }
+
+.brands {
+    margin-top: 280px;
+    height: 474px;
+    width: 100%;
+    background-color: white;
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.abonare {
+    margin-top: 800px;
+    height: 210px;
+    width: 100%;
+    background-color: white;
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.footer {
+    background-color: white;
+    height: 577px;
+    margin-top: 2800px;
+    display: block;
+}
+
+.footer-aux {
+    border: 1px solid lightgray;
+    height: 113px;
+}
+
+.footer-content {
+    height: 289px;
+}
+
+.footer-under {
+    display: flex;
+    height: 62;
+}
+
+.copy-right {
+
+}
+
+.caption {
+    text-align: left;
+    font-size: 14px;
+    color:rgb(136, 136, 136);
+    position: absolute;
+    margin-left: 130px;
+    margin-top: 25px;
+}
