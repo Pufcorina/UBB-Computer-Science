@@ -376,7 +376,7 @@ img.spaceUnder {
     width: 100%;
 }
 
-ul, li {
+ul.third, li.third {
     list-style-type: none;
     font-size: 18px;
     margin-left: -10px;
@@ -393,7 +393,7 @@ ul.second>li {
 }
 
 .brands {
-    margin-top: 280px;
+    margin-top: 320px;
     height: 474px;
     width: 100%;
     background-color: white;
@@ -404,8 +404,9 @@ ul.second>li {
     transform: translate(-50%, 0%);
 }
 
-.abonare {
-    margin-top: 800px;
+.marketplace {
+    overflow: hidden;
+    margin-top: 840px;
     height: 210px;
     width: 100%;
     background-color: white;
@@ -416,10 +417,39 @@ ul.second>li {
     transform: translate(-50%, 0%);
 }
 
+.container-market{
+    display: flex;
+    overflow: hidden;
+}
+
+table.forth {
+    margin-top: 35px;
+    text-align: left;
+}
+
+ul.forth, li.forth {
+    margin-left: -26px;
+    font-size: 18px;
+}
+
+.market-button{
+    height: 50px;
+    width: 220px;
+    background-color: #0d60b5;
+    border: 2px solid rgb(0, 94, 184);
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    margin-top: 80px;
+    margin-left: 55px;
+}
+
 .footer {
     background-color: white;
+    overflow: hidden;
     height: 527px;
-    margin-top: 2800px;
+    margin-top: 2840px;
     width: 100%; /* Full width */
     right: 0;
 }
