@@ -471,9 +471,9 @@ ul.second>li {
 .footer-container {
     display: flex;
     margin-top: 20px;
-    width: 100%;
+    width: 83%;
     background-color: white;
-    margin-left: 160px;
+    margin-left: 140px;
 
     position: absolute;
     left: 50%;
@@ -482,11 +482,23 @@ ul.second>li {
 }
 
 .footer-tables {
-    flex: 1;
+    display: flex;
 }
 
 .footer-tables-th {
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 150;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
     text-align: left;
+}
+
+.footer-tables-td {
+    color: rgb(136, 136, 136);
+    font-size: 16px;
+}
+
+.t1 {
+    flex: 1;
+    margin-left: -100px;
 }
 
