@@ -502,3 +502,30 @@ ul.second>li {
     margin-left: -100px;
 }
 
+.emag-phone {
+    flex: 1;
+}
+
+form.example-phone input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
+    margin-bottom: 0;
+    padding-bottom: 1;
+    border: 0;
+    float: left;
+    background: white;
+    border-right: none;
+    font-size: 16px;
+  }
+
+.text-footer-1 {
+    flex: 1;
+    margin-left: -100px;
+}
+
+.phone-button {
+    
+}
