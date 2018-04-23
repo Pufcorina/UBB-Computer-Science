@@ -420,7 +420,8 @@ ul.second>li {
     background-color: white;
     height: 527px;
     margin-top: 2800px;
-    display: block;
+    width: 100%; /* Full width */
+    right: 0;
 }
 
 .footer-aux {
@@ -473,7 +474,7 @@ ul.second>li {
     margin-top: 20px;
     width: 83%;
     background-color: white;
-    margin-left: 140px;
+    margin-left: 100px;
 
     position: absolute;
     left: 50%;
@@ -504,16 +505,24 @@ ul.second>li {
 
 .emag-phone {
     flex: 1;
+    margin-top: 5px;
+    margin-right: 200px;
+}
+
+form {
+    display: flex;
 }
 
 form.example-phone input[type=text] {
     padding: 10px;
-    font-size: 17px;
+    font-size: 16px;
+    width: 300px;
     margin-right: 0;
     padding-right: 0;
     border-right: 0;
     margin-bottom: 0;
     padding-bottom: 1;
+    margin-left: -280px;
     border: 0;
     float: left;
     background: white;
@@ -522,10 +531,23 @@ form.example-phone input[type=text] {
   }
 
 .text-footer-1 {
-    flex: 1;
+    flex: 2;
     margin-left: -100px;
 }
 
 .phone-button {
-    
+    padding: 12px;
+    width: 120px;
+    background-color: #0d60b5;
+    border: 2px solid rgb(0, 94, 184);
+    border-radius: 5px;
+    margin-left: -3px;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+.image-footer {
+    flex: 1;
+    margin-left: -440px;
 }
