@@ -112,45 +112,70 @@ namespace Lab2
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("insert into " + childTableName + " ( " + ConfigurationManager.AppSettings["ChildLabelNames"] + " ) values ( " + columnNamesInsertParameters + " )", connection);
-            for (int i = 0; i < nr; i++)
+            try
             {
-                cmd.Parameters.AddWithValue(paramsNames[i], textBoxes[i].Text);
+                SqlCommand cmd = new SqlCommand("insert into " + childTableName + " ( " + ConfigurationManager.AppSettings["ChildLabelNames"] + " ) values ( " + columnNamesInsertParameters + " )", connection);
+                for (int i = 0; i < nr; i++)
+                {
+                    cmd.Parameters.AddWithValue(paramsNames[i], textBoxes[i].Text);
+                }
+                SqlDataAdapter daChild = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                connection.Open();
+                daChild.Fill(dataSet);
+                connection.Close();
+                MessageBox.Show("Added!");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                connection.Close();
             }
-            SqlDataAdapter daChild = new SqlDataAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            connection.Open();
-            daChild.Fill(dataSet);
-            connection.Close();
+            
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            string delete = ConfigurationManager.AppSettings["DeleteChild"];
-            SqlCommand cmd = new SqlCommand(delete, connection);
-            cmd.Parameters.AddWithValue("@id", (int)dataGridViewChild.CurrentRow.Cells[0].Value);
-            SqlDataAdapter daChild = new SqlDataAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            connection.Open();
-            cmd.ExecuteNonQuery();
-            daChild.Fill(dataSet);
-            connection.Close();
-        }
+            try
+            {
+                string delete = ConfigurationManager.AppSettings["DeleteChild"];
+                SqlCommand cmd = new SqlCommand(delete, connection);
+                cmd.Parameters.AddWithValue("@id", (int)dataGridViewChild.CurrentRow.Cells[0].Value);
+                SqlDataAdapter daChild = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                daChild.Fill(dataSet);
+                connection.Close();
+                MessageBox.Show("Deleted!");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                connection.Close();
+            }
+}
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            string update = ConfigurationManager.AppSettings["UpdateQuery"];
-            SqlCommand cmd = new SqlCommand(update, connection);
-            for (int i = 0; i < nr; i++)
+            try
             {
-                cmd.Parameters.AddWithValue(paramsNames[i], textBoxes[i].Text);
+                string update = ConfigurationManager.AppSettings["UpdateQuery"];
+                SqlCommand cmd = new SqlCommand(update, connection);
+                for (int i = 0; i < nr; i++)
+                {
+                    cmd.Parameters.AddWithValue(paramsNames[i], textBoxes[i].Text);
+                }
+                cmd.Parameters.AddWithValue("@id", (int)dataGridViewChild.CurrentRow.Cells[0].Value);
+                SqlDataAdapter daChild = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                connection.Open();
+                daChild.Fill(dataSet);
+                connection.Close();
+                MessageBox.Show("Updated!");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                connection.Close();
             }
-            cmd.Parameters.AddWithValue("@id", (int)dataGridViewChild.CurrentRow.Cells[0].Value);
-            SqlDataAdapter daChild = new SqlDataAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            connection.Open();
-            daChild.Fill(dataSet);
-            connection.Close();
-        }
+}
     }
 }
