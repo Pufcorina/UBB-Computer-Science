@@ -18,12 +18,13 @@ public:
 private:
 	static void printMenuApplication();
 	static void printMenuAdmin();
-	/*
+
 	static void printMenuUser();
 	static void printWatchMenu();
 
-	void userDelete();
-	*/
+	void userFilter();
+	void printWatchList();
+	void watchStart();
 
 	void addPetToController();
 	void deletePetToController();

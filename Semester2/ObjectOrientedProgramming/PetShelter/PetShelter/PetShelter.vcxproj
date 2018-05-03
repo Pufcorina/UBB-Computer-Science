@@ -152,6 +152,7 @@
     <ClInclude Include="Repo.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="WatchList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dog.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="PetShelter.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="WatchList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
