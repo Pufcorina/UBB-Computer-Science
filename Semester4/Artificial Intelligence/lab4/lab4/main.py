@@ -13,8 +13,10 @@ def readData(filename):
             data = line.split(' ')
             if len(data) < 7:
                 continue
-            inputData.append(
-                [float(data[0]), float(data[1]), float(data[2]), float(data[3]), float(data[4]), float(data[5])])
+            inp = []
+            for i in range(6):
+                inp.append(float(data[i]))
+            inputData.append(inp)
             outputData.append(data[6])
     return inputData, outputData
 

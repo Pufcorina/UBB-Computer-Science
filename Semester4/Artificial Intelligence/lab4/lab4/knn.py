@@ -2,7 +2,10 @@ from math import sqrt
 
 
 def euclidian_distance(a, b):
-    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2 + (a[3] - b[3]) ** 2 + (a[4] - b[4]) ** 2 + (a[5] - b[5]) ** 2)
+    sum = 0
+    for i in range(len(a)):
+        sum += (a[i] - b[i]) ** 2
+    return sqrt(sum)
 
 
 class KNeighborsClassifier:
