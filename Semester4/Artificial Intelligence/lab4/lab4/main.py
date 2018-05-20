@@ -14,20 +14,20 @@ def readData(filename):
             if len(data) < 7:
                 continue
             inp = []
-            for i in range(6):
+            for i in range(20):
                 inp.append(float(data[i]))
             inputData.append(inp)
-            outputData.append(data[6])
+            outputData.append(data[20])
     return inputData, outputData
 
 
 if __name__ == '__main__':
-    inputToLearn, outputToLearn = readData("input.data")
+    inputToLearn, outputToLearn = readData("file.txt")
 
     inputTest = []
     outputTest = []
 
-    for i in range(100):
+    for i in range(10):
         index = randint(0, len(inputToLearn) - 1)
 
         inputTest.append(inputToLearn[index])
