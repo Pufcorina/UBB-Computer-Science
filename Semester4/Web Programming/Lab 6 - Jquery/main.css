@@ -1,0 +1,41 @@
+.problem-statement {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+    border: 5px outset;
+    border-radius: 10px;
+    background-color: rgb(213, 209, 246);
+}
+
+table {
+    width: 70%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(25%);
+    text-align: center;
+}
+
+tr:nth-child(odd){
+    background: lightgray;
+}
+
+tr:nth-child(even){
+    background: lightskyblue;
+}
+
+th {
+    background: lightseagreen;
+}
+
+.row {
+    height: 27px;
+}

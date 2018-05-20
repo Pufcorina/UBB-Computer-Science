@@ -1,0 +1,71 @@
+table, h2{
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+}
+
+td {
+    width: 200px;
+    text-align: center
+}
+
+th {
+    text-align: center;
+    background: oldlace;
+}
+
+tr:nth-child(odd) .title {
+    background: violet;
+}
+
+tr:nth-child(even) .title {
+    background: palevioletred;
+}
+
+tr:nth-child(odd) .artist {
+    background: aqua;
+}
+
+tr:nth-child(even) .artist {
+    background: aquamarine;
+}
+
+tr:nth-child(odd) .year {
+    background: green;
+}
+
+tr:nth-child(even) .year {
+    background: greenyellow;
+}
+
+tr:nth-child(odd) .genre {
+    background: lightpink;
+}
+
+tr:nth-child(even) .genre {
+    background: lightsalmon;
+}
+
+
+tr.first{
+    background: red;
+}
+
+.problem {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+    border: 5px outset;
+    border-radius: 10px;
+    background-color: rgb(213, 209, 246);
+}

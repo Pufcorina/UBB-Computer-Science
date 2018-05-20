@@ -1,0 +1,13 @@
+div {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+    border: 5px outset;
+    border-radius: 10px;
+    background-color: rgb(213, 209, 246);
+}

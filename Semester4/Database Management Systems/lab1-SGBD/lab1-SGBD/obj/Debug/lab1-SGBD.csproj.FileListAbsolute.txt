@@ -1,0 +1,20 @@
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\bin\Debug\lab1-SGBD.exe.config
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\bin\Debug\lab1-SGBD.exe
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\bin\Debug\lab1-SGBD.pdb
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.csprojResolveAssemblyReference.cache
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1_SGBD.Form1.resources
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1_SGBD.Properties.Resources.resources
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.csproj.GenerateResource.cache
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.csproj.CoreCompileInputs.cache
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.exe
+D:\Semestru 4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.pdb
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\bin\Debug\lab1-SGBD.exe.config
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\bin\Debug\lab1-SGBD.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\bin\Debug\lab1-SGBD.pdb
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.csprojResolveAssemblyReference.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1_SGBD.Form1.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1_SGBD.Properties.Resources.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.csproj.GenerateResource.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.csproj.CoreCompileInputs.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab1-SGBD\lab1-SGBD\obj\Debug\lab1-SGBD.pdb
