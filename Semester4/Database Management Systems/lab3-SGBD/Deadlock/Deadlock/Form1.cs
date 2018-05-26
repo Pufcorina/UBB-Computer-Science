@@ -31,42 +31,21 @@ namespace Deadlock
             d2.Start();
         }
 
-        void Deadlock1()
+        private void Deadlock2()
         {
-            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-MCH57F0B\\SQLEXPRESS;Initial Catalog=BookLibrary;Integrated Security=True;");
-            MessageBox.Show("Deadlock1 started!");
-            SqlCommand command = new SqlCommand("Deadlock1", connection);
-            command.CommandType = CommandType.StoredProcedure;
-            connection.Open();
-            int rows_affected = 0;
-            try { 
-                rows_affected = command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Deadlock1 failed!");
-                int tries = 1;
-                while(rows_affected < 2 && tries > 0)
-                {
-                    Console.WriteLine("Deadlock1 failed! rows affected: " + rows_affected + " tries: " + tries);
-                    try
-                    {
-                        rows_affected = command.ExecuteNonQuery();
-                        Console.WriteLine("Deadlock1 tries: " + (1 - tries + 1));
-                    }
-                    catch (Exception exe)
-                    {
-                        Console.WriteLine("Deadlock1 failed!");
-                    }
-                }
-            }
+            Deadlock("deadlock1");
         }
 
-        void Deadlock2()
+        private void Deadlock1()
+        {
+            Deadlock("deadlock2");
+        }
+
+        void Deadlock(String deadlock)
         {
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-MCH57F0B\\SQLEXPRESS;Initial Catalog=BookLibrary;Integrated Security=True;");
-            MessageBox.Show("Deadlock2 started!");
-            SqlCommand command = new SqlCommand("Deadlock2", connection);
+            MessageBox.Show(deadlock + " started!");
+            SqlCommand command = new SqlCommand(deadlock, connection);
             command.CommandType = CommandType.StoredProcedure;
             connection.Open();
             int rows_affected = 0;
@@ -76,19 +55,19 @@ namespace Deadlock
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Deadlock2 failed!");
+                MessageBox.Show(deadlock + " failed!");
                 int tries = 1;
                 while (rows_affected < 2 && tries > 0)
                 {
-                    Console.WriteLine("Deadlock2 failed! rows affected: " + rows_affected + " tries: " + tries);
+                    MessageBox.Show(deadlock + " failed! rows affected: " + rows_affected + " tries: " + tries);
                     try
                     {
                         rows_affected = command.ExecuteNonQuery();
-                        Console.WriteLine("Deadlock2 tries: " + (1 - tries + 1));
+                        MessageBox.Show(deadlock + " tries: " + (1 - tries + 1));
                     }
                     catch (Exception exe)
                     {
-                        Console.WriteLine("Deadlock2 failed!");
+                        MessageBox.Show(deadlock + " failed!");
                     }
                 }
             }
