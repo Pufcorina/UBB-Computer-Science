@@ -41,15 +41,9 @@
     <ClCompile Include="admingui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_admingui.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_admingui.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_admingui.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
+    
+    
+    
     <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,44 +80,36 @@
     <ClCompile Include="mainform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_mainform.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_mainform.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
+    
+    
     <ClCompile Include="usergui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_usergui.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_usergui.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
+    
+    
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="admingui.h">
+    <QtMoc Include="admingui.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="admingui.ui">
+    </QtMoc>
+    <QtUic Include="admingui.ui">
       <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="admingui.qrc">
+    </QtUic>
+    <QtRcc Include="admingui.qrc">
       <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mainform.h">
+    </QtRcc>
+    <QtMoc Include="mainform.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mainform.ui">
+    </QtMoc>
+    <QtUic Include="mainform.ui">
       <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="usergui.h">
+    </QtUic>
+    <QtMoc Include="usergui.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="usergui.ui">
+    </QtMoc>
+    <QtUic Include="usergui.ui">
       <Filter>Form Files</Filter>
-    </CustomBuild>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_admingui.h">
