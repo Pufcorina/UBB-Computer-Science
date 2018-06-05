@@ -1,0 +1,10 @@
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\bin\Debug\Practic927.exe.config
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\bin\Debug\Practic927.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\bin\Debug\Practic927.pdb
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.csprojResolveAssemblyReference.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.Form1.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.Properties.Resources.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.csproj.GenerateResource.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.csproj.CoreCompileInputs.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\Practic927\Practic927\obj\Debug\Practic927.pdb
