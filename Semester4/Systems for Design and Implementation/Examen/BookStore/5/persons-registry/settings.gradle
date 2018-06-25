@@ -1,0 +1,4 @@
+rootProject.name = 'persons-registry'
+include 'core'
+include 'web'
+

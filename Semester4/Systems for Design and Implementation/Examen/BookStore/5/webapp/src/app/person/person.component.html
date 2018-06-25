@@ -1,0 +1,13 @@
+<div *ngIf="!visible || persons.length === 0">
+  <label>Name: {{personName}}<br><br>
+      <input [(ngModel)]="personName" placeholder="name"/>
+  </label>
+  <br><br>
+  <button (click)="loadClicked()">Load</button>
+</div>
+<div *ngIf="visible">
+  <app-person-list [persons]="persons"></app-person-list>
+</div>
+
+<br>
+<h2 *ngIf="visible && persons.length === 0">Not found!</h2>
