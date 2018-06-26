@@ -1,9 +1,11 @@
 package ro.ubb.web.converter;
 
+import java.util.Collection;
+import java.util.Set;
+
 public interface Converter<Model, Dto> {
 
-    Model convertDtoToModel(Dto dto);
+    public Dto convertModelToDto(Model model);
 
-    Dto convertModelToDto(Model model);
-
+    public Set<Dto> convertModelsToDtos(Collection<Model> models);
 }

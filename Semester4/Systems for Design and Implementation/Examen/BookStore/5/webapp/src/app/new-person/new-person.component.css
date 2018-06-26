@@ -1,0 +1,30 @@
+label {
+  display: inline-block;
+  width: 3em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+  font-size: 2.1em;
+}
+input {
+  height: 1em;
+  width: 10em;
+  font-size: 0.8em;
+  padding-left: .4em;
+}
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  height: 55px;
+  width: 75px;
+  font-family: Arial;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
