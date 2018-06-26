@@ -1,0 +1,10 @@
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\bin\Debug\Deadlock.exe.config
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\bin\Debug\Deadlock.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\bin\Debug\Deadlock.pdb
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.csprojResolveAssemblyReference.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.Form1.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.Properties.Resources.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.csproj.GenerateResource.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.csproj.CoreCompileInputs.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab3-SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.pdb

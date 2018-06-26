@@ -1,0 +1,8 @@
+<div *ngIf="persons.length !== 0" class="persons">
+  Persons list: <br>
+  <ul class="persons">
+    <li *ngFor="let person of persons">
+      {{person.name}} --- {{person.publisher}}
+    </li>
+  </ul>
+</div>

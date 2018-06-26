@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE record SYSTEM "record.dtd">
+<?xml-stylesheet type="text/xsl" href="lab4.xsl"?>
+<?xml-stylesheet type="text/css" href="lab4.css"?> 
+
+<playlist>
+    <record>
+        <title>One More Light</title>
+        <artist>Linkin Park</artist>
+        <year>2017</year>
+        <genre>Electropop</genre>
+    </record>
+    <record>
+        <title>Moving On</title>
+        <artist>Marshmello</artist>
+        <year>2017</year>
+        <genre>Electro</genre>
+    </record>
+    <record>
+        <title>Misery Business</title>
+        <artist>Paramore</artist>
+        <year>2007</year>
+        <genre>Alternative</genre>
+    </record>
+    <record>
+        <title>Aicha</title>
+        <artist>Outlandish</artist>
+        <year>2009</year>
+        <genre>Hip-Hop/Rap</genre>
+    </record>
+    <record>
+        <title>Cad Fulgi</title>
+        <artist>Alternosfera</artist>
+        <year>2015</year>
+        <genre>Alternative</genre>
+    </record>
+    <record>
+        <title>One More Light</title>
+        <artist>Linkin Park</artist>
+        <year>2017</year>
+        <genre>Electropop</genre>
+    </record>
+    <record>
+        <title>The Unforgiven III</title>
+        <artist>Metallica</artist>
+        <year>2008</year>
+        <genre>Metal</genre>
+    </record>
+    <record>
+        <title>Beautifully Unfinished</title>
+        <artist>Ella Henderson</artist>
+        <year>2014</year>
+        <genre>Pop</genre>
+    </record>
+    <record>
+        <title>End Game</title>
+        <artist>Taylor Swift</artist>
+        <year>2018</year>
+        <genre>Pop</genre>
+    </record>
+    <record>
+        <title>Am uitat</title>
+        <artist>Alternosfera</artist>
+        <year>2016</year>
+        <genre>Alternative</genre>
+    </record>
+    <record>
+        <title>Cad Fulgi</title>
+        <artist>Alternosfera</artist>
+        <year>2015</year>
+        <genre>Alternative</genre>
+    </record>
+</playlist>

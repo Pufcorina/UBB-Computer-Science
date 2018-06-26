@@ -1,0 +1,15 @@
+<div *ngIf="!visible">
+  <label>SSN: {{personSSN}}<br><br>
+      <input [(ngModel)]="personSSn" placeholder="ssn"/>
+  </label>
+  <br><br>
+  <label>Name: {{personName}}<br><br>
+      <input [(ngModel)]="personName" placeholder="name"/>
+  </label>
+  <br><br>
+  <button (click)="saveClicked()">Save</button>
+</div>
+
+<div *ngIf="visible">
+  <app-person></app-person>
+</div>

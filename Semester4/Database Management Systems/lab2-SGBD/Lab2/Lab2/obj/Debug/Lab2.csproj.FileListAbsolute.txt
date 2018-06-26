@@ -1,0 +1,10 @@
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\bin\Debug\Lab2.exe.config
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\bin\Debug\Lab2.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\bin\Debug\Lab2.pdb
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.csproj.GenerateResource.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.csproj.CoreCompileInputs.cache
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.exe
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.pdb
+C:\Users\todor\Documents\GitHub\UBB\Semester4\Database Management Systems\lab2-SGBD\Lab2\Lab2\obj\Debug\Lab2.Form1.resources

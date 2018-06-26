@@ -1,0 +1,100 @@
+.problem-statement-15 {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+    border: 5px outset;
+    background-color: rgb(213, 209, 246);
+    border-radius: 10px;
+}
+
+#menu * { 
+    font: 12px Comic Sans MS; 
+    list-style-type: none;
+}
+
+#menu {
+    line-height: 10px; 
+    margin: auto;
+    width:900px;
+}
+
+#menu a { 
+    display: block; 
+    text-decoration: none; 
+    color: black;
+}
+
+#menu a:hover { 
+    background: rgb(50, 125, 81);
+}
+
+#menu .active {
+    background: rgb(50, 125, 81);
+}
+
+#menu ul li ul li {
+    width: 170px; 
+    border: none; 
+    color: black;  
+    padding-top: 3px; 
+    padding-bottom:3px; 
+    padding-left: 3px; 
+    padding-right: 3px; 
+    background: rgb(80, 161, 66);
+}
+
+#menu ul li ul li a { 
+    font: 11px Comic Sans MS; 
+    font-weight: normal; 
+    font-variant: small-caps; 
+    padding: 15px 10px;
+}
+
+#menu ul li {
+    float: left; 
+    width: 170px; 
+    font-weight: bold;
+    background: rgb(80, 161, 66);
+}
+
+#menu ul li a { 
+    font-weight: bold;
+    padding: 15px 10px;
+}
+
+#menu li { 
+    position:relative; 
+}
+
+#menu ul li ul, #menu:hover ul li ul, #menu:hover ul li:hover ul li ul{ 
+    display:none;
+    list-style-type:none; 
+    width: 140px;
+}
+
+#menu:hover ul, #menu:hover ul li:hover ul, #menu:hover ul li:hover ul li:hover ul { 
+    display:block;
+}
+
+#menu:hover ul li:hover ul li:hover ul { 
+    position: absolute;
+    margin-left: 145px;
+    margin-top: -22px;
+    font: 10px;
+}
+
+#menu:hover ul li:hover ul { 
+    position: absolute;
+    margin-top: 1px;
+    font: 10px;
+}
+
+#menu>ul>li:hover>ul { 
+    bottom:100%;
+    border-bottom: 1px hidden;
+}

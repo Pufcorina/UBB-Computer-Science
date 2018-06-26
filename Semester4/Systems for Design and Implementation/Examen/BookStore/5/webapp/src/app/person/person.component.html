@@ -1,0 +1,19 @@
+ <!-- <div>
+  <button (click)="newClicked()">New</button>
+</div>
+<br> <br>
+
+<div *ngIf="visible">
+  <label>SSN: <br><br>
+      <input #ssn (change)="ssnChange(ssn.value)"/>
+  </label>
+  <p *ngIf="!validSSN" class="text-danger">This SSN is already taken!</p>
+  <br><br>
+  <label>Name: <br><br>
+      <input [(ngModel)]="personName" placeholder="name"/>
+  </label>
+  <br><br>
+  <button (click)="saveClicked(ssn.value)">Save</button>
+</div> -->
+
+<app-person-list [persons]="persons"></app-person-list>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Auth.Login</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>Auth.Register</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>Auth.Logout</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AddPhotoServlet</servlet-name>
+        <servlet-class>Topic.AddPhoto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddPhotoServlet</servlet-name>
+        <url-pattern>/AddPhotoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LikePhotoServlet</servlet-name>
+        <servlet-class>Topic.LikePhoto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LikePhotoServlet</servlet-name>
+        <url-pattern>/LikePhotoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FilterServlet</servlet-name>
+        <servlet-class>Topic.FilterPhoto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FilterServlet</servlet-name>
+        <url-pattern>/FilterServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

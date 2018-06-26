@@ -1,0 +1,140 @@
+.problem-statement-2 {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    position:relative;
+    transform: translateX(50%);
+    border: 5px outset;
+    border-radius: 10px;
+    background-color: rgb(213, 209, 246);
+}
+
+.bar-graph {
+    padding: 0;
+    width: 800px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    height: 400px;
+    margin: 0;
+  }
+  
+  .bar-graph li {
+    display: block;
+    padding: 1.5625rem 0;
+    position: relative;
+    text-align: center;
+    vertical-align: bottom;
+    border-radius: 4px 4px 0 0;
+    max-width: 20%;
+    height: 100%;
+    margin: 0 1.8% 0 0;
+    -webkit-flex: 1 1 15%;
+        -ms-flex: 1 1 15%;
+            flex: 1 1 15%;
+  }
+  
+  .bar-graph .bar-graph-axis {
+    -webkit-flex: 1 1 8%;
+        -ms-flex: 1 1 8%;
+            flex: 1 1 8%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .line_ox {
+  		width: 850px;
+  		height: 5px;
+  		background-color: black;
+  		margin: auto;
+  }
+
+  .line_oy {
+  		width: 5px;
+  		height: 450px;
+  		background-color: black;
+  		margin: auto;
+  		position: absolute;
+  		top: 40;
+  		left: 350px;
+  }
+
+  .bar-graph .bar-graph-label {
+    margin: 0;
+    background-color: none;
+    color: #8a8a8a;
+    position: relative;
+  }
+  
+  .bar-graph .percent {
+    letter-spacing: -3px;
+    opacity: 0.4;
+    width: 100%;
+    font-size: 1.875rem;
+    position: absolute;
+  }
+
+  .bar-graph .percent span {
+    font-size: 1.875rem;
+  }
+  
+  .bar-graph .description {
+    font-weight: 800;
+    opacity: 0.5;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 14px;
+    bottom: 20px;
+    position: absolute;
+    font-size: 1rem;
+    overflow: hidden;
+  }
+  
+  .bar-graph .bar.primary {
+    border: 1px solid #6a5acd;
+    background: linear-gradient(#6a5acd, #6a5acd 70%);
+  }
+  
+  .bar-graph .bar.secondary {
+    border: 1px solid #767676;
+    background: linear-gradient(#909090, #767676 70%);
+  }
+
+  
+  .bar-graph .bar.success {
+    border: 1px solid #3adb76;
+    background: linear-gradient(#65e394, #3adb76 70%);
+  }
+
+
+  
+  .bar-graph .bar.warning {
+    border: 1px solid #ffae00;
+    background: linear-gradient(#ffbe33, #ffae00 70%);
+  }
+
+  
+  .bar-graph .bar.alert {
+    border: 1px solid #cc4b37;
+    background: linear-gradient(#d67060, #cc4b37 70%);
+  }
+
+.line {
+width: 112px;
+height: 47px;
+border-bottom: 1px solid black;
+position: absolute;
+}

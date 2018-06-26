@@ -1,0 +1,75 @@
+allprojects {
+    group 'ro.ubb.lab8-10'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        springVersion = '5.0.3.RELEASE'
+        postgresqlVersion = '42.2.1'
+
+        dbcpVersion = '2.2.0'
+
+        slf4jVersion = '1.7.25'
+        log4jVersion = '2.10.0'
+
+        springDataVersion = '2.0.3.RELEASE'
+        hibernateVersion = '5.2.13.Final'
+        caffeineVersion = '2.6.1'
+        hikariVersion = '2.7.7'
+        jaxbapiVersion = '2.3.0'
+
+        javaxValidationVersion = '2.0.0.Final'
+        hibernateValidatorVersion = '6.0.6.Final'
+        javaxElApiVersion = '3.0.1-b04'
+        glassfishJavaxElVersion = '3.0.1-b08'
+
+        lombokVersion = '1.16.12'
+
+        jacksonDatabindVersion = '2.9.4'
+        javaxServeletApiVersion = '3.1.0'
+        guavaVersion = '21.0'
+
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+
+        compile group: 'org.springframework', name: 'spring-context', version: "$springVersion"
+
+        //jdbctemplate
+        compile group: 'org.springframework', name: 'spring-jdbc', version: "$springVersion"
+
+        compile group: 'org.apache.commons', name: 'commons-dbcp2', version: "$dbcpVersion"
+
+        //logging
+        compile group: 'org.slf4j', name: 'slf4j-api', version: "$slf4jVersion"
+        testCompile group: 'org.slf4j', name: 'slf4j-simple', version: "$slf4jVersion"
+
+        compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: "$log4jVersion"
+        compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "$log4jVersion"
+        compile group: 'org.apache.logging.log4j', name: 'log4j-1.2-api', version: "$log4jVersion"
+
+        //validation
+        compile group: 'javax.validation', name: 'validation-api', version: "$javaxValidationVersion"
+        compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: "$hibernateValidatorVersion"
+        compile group: 'javax.el', name: 'javax.el-api', version: "$javaxElApiVersion"
+        compile group: 'org.glassfish', name: 'javax.el', version: "$glassfishJavaxElVersion"
+
+        //lombok
+        compile group: 'org.projectlombok', name: 'lombok', version: "$lombokVersion"
+
+        compile group: 'com.google.guava', name: 'guava', version: "$guavaVersion"
+        compile group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: "$hibernateVersion"
+
+
+    }
+
+
+}
