@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("body").click(function(){
+                console.log("divs");
+                var divs = document.getElementsByTagName('div');
+                console.log(divs);
+                if (divs.length < 10){
+                    var div = document.createElement('div');
+                    div.style.backgroundColor = "red";
+                    div.style.width = "10px";
+                    div.style.height = "10px";
+                    div.style.bottom = "2px;"
+                    document.body.appendChild(div);
+                }
+            })
+        })
+    </script>
+</head>
+<body style="width: 100%; height: 100%;">
+    <p>dasdas</p>
+</body>
+</html>
