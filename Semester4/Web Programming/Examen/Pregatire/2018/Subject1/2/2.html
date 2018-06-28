@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Remove paragraphs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script>
+        $(document).ready(function() {
+            var paragraphs = document.getElementsByTagName("p");
+            var words = [];
+            var nr_words = [];
+            var i;
+            var j;
+            var nr_char;
+            for( i = 0; i < paragraphs.length; i++){
+                words.push(paragraphs[i].innerHTML.split(' '));
+                nr_char = 0;
+                for( j = 0; j < words.length; j++){
+                    nr_char += words[j].length;
+                }
+                nr_words.push(nr_char);
+            }
+            var final_list = [];
+            var average;
+            for( i = 0; i < paragraphs.length; i++)
+            {
+                average = nr_words[i] / paragraphs[i].innerHTML.split(' ').length;
+                final_list.push([paragraphs[i], average]);
+            }
+                        
+            final_list.sort(function(a, b) {
+                return a.average > b.average ? -1: 1;
+            });
+            console.log(final_list);
+            $("p").remove();
+            var par = []
+            for( i = 0; i < final_list.length; i++)
+            {
+                console.log(final_list[i][0]);
+                par.push(final_list[i][0]);
+            }
+            
+            $("body").html(par);
+            console.log("am iesit");
+        });
+    </script>
+</head>
+<body>
+
+    <p>Buna ziua!</p>
+    <p>Ana are mere!</p>
+    <p>Sper sa trec astazi la web!</p>
+    <p>Sa speram ca nu mai vedem materia asta in veci!</p>
+    
+</body>
+</html>

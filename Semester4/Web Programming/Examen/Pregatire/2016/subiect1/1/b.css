@@ -1,0 +1,8 @@
+.line {
+    position:absolute;
+    top: 50%;
+    left: 12.5%;
+    width: 75%;
+    height: 10px;
+    background: linear-gradient(90deg, red, blue, red);
+ }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JQuery selectors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            document.body.style.background="green";
+            var element = document.createElement("h");
+            element.innerHTML = "Title";
+            document.body.insertBefore(element, document.body.firstChild);
+        })
+    </script>
+</head>
+<body>
+    <p>Ceva text!</p>
+</body>
+</html>
