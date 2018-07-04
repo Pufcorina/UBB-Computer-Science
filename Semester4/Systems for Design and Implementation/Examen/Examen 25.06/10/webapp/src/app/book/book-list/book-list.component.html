@@ -1,0 +1,12 @@
+<div *ngIf="books.length !== 0" class="persons">
+  Books list: <br>
+  <ul class="persons">
+    <li *ngFor="let book of books">
+      {{book.title}} --- {{book.year}}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="books.length === 0" class="persons">
+  No books!
+</div>
