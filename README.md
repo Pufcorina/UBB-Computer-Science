@@ -80,10 +80,13 @@
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Artificial%20Intelligence">
           :ferris_wheel:  Artificial Intelligence
       </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Software%20Engineering/">
+          :ambulance:  Software Engineering
+      </li>
     </ul>
   </li>
 </ul>
-
 
 <br>
 <img src="http://www.chem.ubbcluj.ro/romana/conferinte/MEEMB/archive/pictures/ubb.gif" />
