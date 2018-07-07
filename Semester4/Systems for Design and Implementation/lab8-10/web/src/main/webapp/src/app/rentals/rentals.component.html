@@ -1,0 +1,24 @@
+<div *ngIf="selectedRental">
+  <p>Rate the movie {{selectedRental.movieTitle}}!</p>
+  <br>
+  <label>Rating: </label>
+  <input [(ngModel)]="selectedRental.rating">
+  <button (click)="submitRating(selectedRental)" name="rating">Submit</button>
+</div>
+<p>My rented movies:</p>
+<ul *ngIf="rentals">
+  <li *ngFor="let rental of rentals"
+      (click)="onMyMovieClick(rental)"
+  >
+    {{rental.movieTitle}}
+  </li>
+</ul>
+
+<p>All the existent movies:</p>
+<ul *ngIf="movies">
+  <li *ngFor="let movie of movies"
+      (click)="onAllMovieClick(movie)"
+  >
+    {{movie.title}}
+  </li>
+</ul>

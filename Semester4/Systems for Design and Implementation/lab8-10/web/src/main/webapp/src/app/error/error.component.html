@@ -1,0 +1,8 @@
+<p style="color: red">
+Encountered errors:
+</p>
+<ul *ngIf="staticErrors">
+  <li *ngFor="let error of staticErrors" style="color: red;">
+    {{error}}
+  </li>
+</ul>

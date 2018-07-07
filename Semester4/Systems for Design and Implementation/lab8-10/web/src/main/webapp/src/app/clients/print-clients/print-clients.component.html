@@ -1,0 +1,24 @@
+<div *ngIf="selectedClient">
+  <p>You have selected the client {{selectedClient.name}}</p>
+  <a routerLink="/clients/manageRentals/{{selectedClient.id}}">
+    <button>Manage Movie Rentals</button>
+  </a>
+</div>
+
+<br>
+<div *ngIf="clients">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+    </tr>
+    <tr *ngFor="let client of clients"
+        (click)="onSelect(client)"
+    >
+      <td>{{client.name}}</td>
+      <td>{{client.phoneNumber}}</td>
+      <td>{{client.email}}</td>
+    </tr>
+  </table>
+</div>

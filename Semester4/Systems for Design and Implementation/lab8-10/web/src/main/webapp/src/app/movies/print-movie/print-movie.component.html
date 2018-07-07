@@ -1,0 +1,32 @@
+<br>
+<div *ngIf="selectedMovie && movies.indexOf(selectedMovie) != -1">
+  <label>
+    Movie {{selectedMovie.title}} was selected!
+  </label>
+  <a routerLink="/movies/details/{{selectedMovie.id}}">
+    <button>Details</button>
+  </a>
+</div>
+<br>
+<button style="visibility: hidden">Details</button>
+  <table>
+    <tr>
+      <th>title</th>
+      <th>director</th>
+      <th>genre</th>
+      <th>year</th>
+      <th>duration</th>
+      <th>Remove</th>
+    </tr>
+    <tr *ngFor="let movie of movies"
+        [class.selected]="movie===selectedMovie"
+        (click)="onSelect(movie)"
+    >
+      <td>{{movie.title}}</td>
+      <td>{{movie.director}}</td>
+      <td>{{movie.genre}}</td>
+      <td>{{movie.year}}</td>
+      <td>{{movie.duration}}</td>
+      <td><button (click)="removeMovie(movie)">Remove</button></td>
+    </tr>
+  </table>

@@ -1,0 +1,37 @@
+<form>
+  <br>
+  <br>
+  <table *ngIf="movie">
+    <tr>
+      <td><label>Title {{movie.title}}</label></td>
+      <td><input [(ngModel)]="movie.title" name="title" placeholder="title"
+      #title="ngModel" required minlength="1"/></td>
+    </tr>
+    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div *ngIf="title.errors.required" style="color: red;">
+        *The title can't be null!
+      </div>
+    </div>
+    <tr>
+      <td><label>Director {{movie.director}}</label></td>
+      <td><input [(ngModel)]="movie.director" name="director" placeholder="director" /></td>
+    </tr>
+    <tr>
+      <td><label>Genre {{movie.genre}}</label></td>
+      <td><input [(ngModel)]="movie.genre" name="genre" placeholder="genre" /></td>
+    </tr>
+    <tr>
+      <td><label>Duration {{movie.duration}}</label></td>
+      <td><input [(ngModel)]="movie.duration" name="duration" placeholder="duration" /></td>
+    </tr>
+    <tr>
+      <td><label>Year {{movie.year}}</label></td>
+      <td><input [(ngModel)]="movie.year" name="year" placeholder="year" /></td>
+    </tr>
+  </table>
+  <button (click)="buttonClicked()">Update the Movie!</button>
+  <br>
+  <p>{{str}}</p>
+
+
+</form>
