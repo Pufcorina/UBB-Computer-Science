@@ -37,28 +37,28 @@
 
 
     <servlet>
-        <servlet-name>AddPhotoServlet</servlet-name>
-        <servlet-class>Topic.AddPhoto</servlet-class>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>Topic.Add</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AddPhotoServlet</servlet-name>
-        <url-pattern>/AddPhotoServlet</url-pattern>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>LikePhotoServlet</servlet-name>
-        <servlet-class>Topic.LikePhoto</servlet-class>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>Topic.Delete</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>LikePhotoServlet</servlet-name>
-        <url-pattern>/LikePhotoServlet</url-pattern>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>FilterServlet</servlet-name>
-        <servlet-class>Topic.FilterPhoto</servlet-class>
+        <servlet-class>Topic.Filter</servlet-class>
     </servlet>
 
     <servlet-mapping>

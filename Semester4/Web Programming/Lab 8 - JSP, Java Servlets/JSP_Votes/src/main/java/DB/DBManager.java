@@ -9,10 +9,10 @@ public class DBManager {
 
     public static void connect() {
         if(connection == null) {
-            String url = "jdbc:mysql://127.0.0.1:3306/weblab8";
+            String url = "jdbc:mysql://127.0.0.1:3306/examen";
             try{
                 Class.forName( "com.mysql.jdbc.Driver" );
-                connection = DriverManager.getConnection( url, "root", "password" );
+                connection = DriverManager.getConnection( url, "root", "" );
             } catch (Exception e) {
                 e.printStackTrace();
             }

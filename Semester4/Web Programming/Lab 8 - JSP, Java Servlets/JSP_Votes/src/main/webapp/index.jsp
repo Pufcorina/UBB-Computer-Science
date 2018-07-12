@@ -16,30 +16,10 @@
   </head>
   <body>
     <div>
-      <%@include file="/components/pageElems/navbar.jsp"%>
-
-      <%
-        if(session.getAttribute( "mail" ) == null){
-            String redirectURL;
-
-            if(request.getParameter( "error" ) == null){
-                redirectURL = "/components/auth/auth.jsp";
-            } else {
-                redirectURL = "/components/auth/auth.jsp?error=" + request.getParameter( "error" );
-            }
-            response.sendRedirect( redirectURL );
-        }
-      %>
-      <div class="container">
-          <%
-              if(session.getAttribute( "mail" ) != null) {
-          %>
-          <%@ include file="/components/topic/addPicture.jsp" %>
-          <%
-              }
-          %>
-          <%@include file="/components/topic/viewPictures.jsp"%>
-      </div>
+        <%@include file="/components/pag.jsp"%>
+        <%@include file="/components/search.jsp"%>
+        <%@include file="/components/add.jsp"%>
+        <%@include file="/components/delete.jsp"%>
     </div>
   </body>
 </html>

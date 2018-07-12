@@ -1,0 +1,10 @@
+<div *ngIf="!visible">
+  <button (click)="newButtonClicked()">New</button>
+</div>
+
+<div *ngIf="visible">
+  <label>SSN: <input type="text" #ssn/></label>
+  <br /><br />
+  <label>Name: <input type="text" #name (change)="ssnChanged(ssn.value)"/></label>
+  <button (click)="loadButtonClick(ssn.value, name.value)">Load</button>
+</div>
