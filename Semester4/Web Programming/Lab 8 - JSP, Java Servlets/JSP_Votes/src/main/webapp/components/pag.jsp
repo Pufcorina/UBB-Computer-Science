@@ -69,50 +69,21 @@
     }
 
     function search(){
-        searchByTitleOrAuthor();
         searchByTitleOrAuthorPaged(page);
     }
 
-    function searchByTitleOrAuthor() {
-        var input = document.getElementById("inputSearch").value;
-
-        getByTitleOrAuthor(input, function(response) {
-            console.log(response);
-            displayEntries(response);
-        })
-    }
 
     function searchByTitleOrAuthorPaged(page) {
         var input = document.getElementById("inputSearch").value;
 
         getByTitleOrAuthorPaged(input, page, function(response) {
             console.log(response);
-            displayEntries2(response);
+            displayEntries(response);
         })
     }
 
+
     function displayEntries(entries){
-        $("#entries-section").html("<div id='entries-section'>");
-
-        for (var entry in entries) {
-            entry = entries[entry];
-            console.log(entry);
-            $("#entries-section").append(
-                "<p>"
-                + "<span>"+ entry["ID"] +" </span>"
-                + "<span>"+ entry["IDCategory"]+" </span>"
-                + "<span>"+ entry["Author"]+" </span>"
-                + "<span>"+ entry["Title"] +" </span>"
-                + "<span>"+ entry["NumberOfPages"] +" </span>"
-                + "<span>"+ entry["Year"] +" </span>"
-                + "<span>"+ entry["Cost"] +" </span>"
-                + "</p></br>")
-        }
-
-        $("#entries-section").append("</div>");
-    }
-
-    function displayEntries2(entries){
         $("#entries-section2").html("<div id='entries-section2'>");
 
         for (var entry in entries) {

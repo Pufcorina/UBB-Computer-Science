@@ -34,13 +34,13 @@ public class Add extends HttpServlet {
 
         List<BibliographyEntry> bibliographyEntries = new ArrayList<>(  );
         if (!author1.equals( "" ) && !title1.equals( "" ) && !nbOfPages1.equals( "" ) && !year1.equals( "" ) && !cost1.equals( "" )){
-            bibliographyEntries.add( new BibliographyEntry( 4, author1, title1, Integer.parseInt( nbOfPages1), Integer.parseInt( year1), Integer.parseInt( cost1) ) );
+            bibliographyEntries.add( new BibliographyEntry( 2, author1, title1, Integer.parseInt( nbOfPages1), Integer.parseInt( year1), Integer.parseInt( cost1) ) );
         }
         if (!author2.equals( "" ) && !title2.equals( "" ) && !nbOfPages2.equals( "" ) && !year2.equals( "" ) && !cost2.equals( "" )){
-            bibliographyEntries.add( new BibliographyEntry( 4, author2, title2, Integer.parseInt( nbOfPages2), Integer.parseInt( year2), Integer.parseInt( cost2) ) );
+            bibliographyEntries.add( new BibliographyEntry( 2, author2, title2, Integer.parseInt( nbOfPages2), Integer.parseInt( year2), Integer.parseInt( cost2) ) );
         }
         if (!author3.equals( "" ) && !title3.equals( "" ) && !nbOfPages3.equals( "" ) && !year3.equals( "" ) && !cost3.equals( "" )){
-            bibliographyEntries.add( new BibliographyEntry( 4, author3, title3, Integer.parseInt( nbOfPages3), Integer.parseInt( year3), Integer.parseInt( cost3) ) );
+            bibliographyEntries.add( new BibliographyEntry( 2, author3, title3, Integer.parseInt( nbOfPages3), Integer.parseInt( year3), Integer.parseInt( cost3) ) );
         }
 
         BibliographyManager.add(bibliographyEntries);

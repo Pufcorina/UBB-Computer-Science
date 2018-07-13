@@ -50,7 +50,6 @@ public class BiblioController extends HttpServlet {
                 int page = Integer.valueOf(request.getParameter("page"));
 
                 List<BibliographyEntry> entries = BibliographyManager.getAllBiblioBySubstring(input);
-//                entries = sortEntieis(entries);
                 List<List<BibliographyEntry>> pages = splitIntoPages(entries);
                 System.out.println(pages);
                 try {
