@@ -1,0 +1,7 @@
+Regarding the testing part of the application, it wasn't an easy thing to do, as we envolved both manual and automation testing.
+To manage my work easily I've created specific Test Cases for the app, and these contained tests regarding functionality, compatibility, usability, interface, security and performance.
+Each case had points on how important hard it is to perform the test, how much is it testable, a status - Passed, Failed, In Progress, To Be Performed and so on -, a progress percentage and in how much time it took to finish.
+The Performance Test was made using JMeter to test for Connection Speed, Load and Stress but it is still work in progress.
+Bug reports were written in Trello, those include title, description, steps and an attachment for the issues found. Finally, I've made a test report with the results which contains documentation on how the test is performed and the current results for the application.
+On the automation part, we've written scripts in C# using the Selenium Webdriver framework, and checked for specific elemets to exist in the page and lots and lots of asserts.
+In the end, I've learned how to properly test a web application, and it was a pleasure to work such an amazing team.
