@@ -8,12 +8,12 @@
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/ComputationalLogic"> 
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/Computational%20Logic"> 
           :trollface:  Computational Logic 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/FundamentalOfProgramming"> 
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/Fundamental%20of%20Programming"> 
           :snake:  Fundamental of Programming 
         </a>
       </li>
@@ -22,12 +22,12 @@
   <li>:open_file_folder: Semester 2
     <ul>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/DataStructuresAndAlgorithms"> 
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/Data%20Structures%20and%20Algorithms"> 
           :scissors:  Data Structures and Algorithms 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/ObjectOrientedProgramming"> 
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/Object%20Oriented%20Programming"> 
           :poop:  Object Oriented Programming 
         </a>
       </li>
