@@ -83,10 +83,72 @@
       <li>
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Software%20Engineering/">
           :ambulance:  Software Engineering
+        </a>
       </li>
     </ul>
   </li>
-  <li>:open_file_folder: Semester 4
+  <li>:open_file_folder: Semester 5
+    <ul>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Audio-video%20Data%20Processing">
+          Audio-video Data Processing
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Formal%20Languages%20and%20Compiler%20Design">
+          Formal Languages and Compiler Design
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Intelligent%20Methods%20for%20solving%20real-world%20problems">
+          Intelligent Methods for solving real-world problems
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Mobile%20Application%20Programming">
+          Mobile Application Programming
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Parallel%20and%20Distributed%20Programming">
+          Parallel and Distributed Programming
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>:open_file_folder: Semester 6
+    <ul>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Business%20Intelligence">
+          Business Intelligence
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Design%20Patterns">
+          Design Patterns
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/History%20of%20Computer%20Science">
+          History of Computer Science
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Numerical%20Calculus">
+          Numerical Calculus
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Preparation%20of%20Bachelor%20Thesis">
+          Preparation of Bachelor Thesis
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Software%20Systems%20Verification%20and%20Validation">
+          Software Systems Verification and Validation
+        </a>
+      </li>
+    </ul>
   </li>
 </ul>
 
