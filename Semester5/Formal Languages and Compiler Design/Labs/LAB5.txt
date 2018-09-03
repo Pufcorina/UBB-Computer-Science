@@ -1,0 +1,16 @@
+Laboratory Assignment 5: Use of LEX and YACC
+
+You may use any version (LEX or FLEX)
+
+1) Write a LEX specification containing the regular expressions corresponding to your language specification.
+
+2) Use Lex in order to obtain a scanner. Test for the same input as 
+in lab 1.
+
+
+You may use any parser generator (yacc-bison, LLgen or other)
+
+3) Write a specification file containing the production rules corresponding to the language specification.
+
+4) Then, use the parser generator, and test it on the input as in Lab 3.
+

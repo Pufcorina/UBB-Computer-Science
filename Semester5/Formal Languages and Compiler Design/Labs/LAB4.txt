@@ -1,0 +1,34 @@
+     Lab Assignment no. 4-  Parsing
+
+One assignment for a team of 2 students!
+
+    One of the following parsing methods will be chosen:
+            	1.a. recursive descendent
+		1.b. ll(1)
+	        1.c. lr(0)
+	        1.d. lr(1)
+
+The representation of the parsing tree will be:
+             2.a. table (using father and sibling relation)
+             2.b. productions string
+             2.c. derivations string
+
+
+The assignment is divided in the following phases:
+
+    STEP 1: perform the parsing of an input sequence
+
+     Input: - a context free grammar (the example from course)
+            - an input sequence
+     Output: the parsing tree corresponding to the input sequence or a message in case the sequence is not accepted.
+
+Remark: Verify if the parsing method can be applied
+
+
+    STEP 2: performs the parsing for a program written in your language (lab. 1)
+
+      Input: PIF + minilanguage grammar
+      Output: parsing tree corresponding to the program or a message for errors (error diagnose where it is the case)
+
+If the grammar does not satisfy the conditions of the parsing algorithm, consult your teacher!
+
