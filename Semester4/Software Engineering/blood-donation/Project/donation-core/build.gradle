@@ -1,0 +1,26 @@
+dependencies {
+    //jpa
+    compile group: 'org.springframework', name: 'spring-context-support', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-orm', version: "$springVersion"
+    compile (group: 'org.springframework.data', name: 'spring-data-jpa', version: "$springDataVersion")
+
+    compile group: 'org.hibernate', name: 'hibernate-core', version: "$hibernateVersion"
+
+    //compile group: 'org.postgresql', name: 'postgresql', version: "$postgresqlVersion"
+//    compile group: 'postgresql', name: 'postgresql', version: "$jdbcpostgreSqlVersion"
+    //---
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+
+
+    compile group: 'org.springframework', name: 'spring-jdbc', version: "$springVersion"
+//    compile group: 'org.postgresql', name: 'postgresql', version: "$postgresqlVersion"
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: "$dbcpVersion"
+
+
+    compile group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: "$caffeineVersion"
+    compile group: 'com.zaxxer', name: 'HikariCP', version: "$hikariVersion"
+
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: "$jaxbapiVersion"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "bloodyfastfrontend",
+  "version": "1.0.0",
+  "description": "A front-end for BloodyFast, written using React.",
+  "main": "index.js",
+  "author": "Echipa Plasma",
+  "license": "ISC",
+  "proxy": "http://localhost:1234/api",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-dropzone": "^4.2.11",
+    "react-paginate": "^5.2.3",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start"
+  }
+}

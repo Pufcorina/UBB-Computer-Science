@@ -1,0 +1,337 @@
+/* GENERAL CSS */
+
+body {
+    min-height: 100vh;
+    position: relative;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+.darken-on-hover:hover {
+    filter: brightness(85%);
+}
+
+.questrial-font {
+    font-family: 'Questrial', 'sans-serif';
+}
+
+.clean-link, .clean-link:hover, .clean-link:active, .clean-link:focus {
+    color: white;
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+/* NAVBAR CSS */
+
+.my-navbar {
+    background-color: #ec0a0b;
+    color: white;
+}
+
+.my-navbar-logo {
+    width: 250px;
+    margin-right: 18px;
+}
+
+#profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+    font-weight: lighter;
+    font-size: 16px;
+    padding-right: 15px;
+    color: white;
+}
+
+.navbar-inverse .navbar-nav .nav-link:hover, .navbar-inverse .navbar-nav .nav-link:focus {
+    color: #560001;
+}
+
+.navbar .navbar-nav > li > .active-navbar-link {
+    color: #560001;
+    font-weight: 400;
+    pointer-events: none;
+    cursor: default;
+}
+
+.my-navbar-list {
+    list-style: none;
+}
+
+/* --------------------------------------------------------------------------- */
+
+/* HOME */
+
+.intro {
+    background-image: url('/images/intro-background.jpg');
+    background-size: cover;
+    color: white;
+    min-height: 90vh;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+/* FAQ */
+
+.introFaq {
+    position: relative;
+    z-index: 1;
+    min-height: 88vh;
+}
+
+.introFaq::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('/images/faq.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
+
+.faqs h3 {
+    font-family: 'Questrial', 'sans-serif';
+}
+
+.faqs p {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* LOGIN */
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10%;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+/* USER DASHBOARD */
+
+.user-dashboard {
+    position: relative;
+    z-index: 1;
+    min-height: 90vh;
+}
+
+.user-dashboard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('/images/user-dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
+
+.dashboard-link {
+    color: #560001;
+    font-style: italic;
+}
+
+.dashboard-link:hover, .dashboard-link:focus{
+    color: #560001;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+/* DONATION FORM */
+
+.donation-form-card > h5 > button {
+    font-family: 'Questrial', 'sans-serif';
+    color: black;
+    font-size: large;
+}
+
+.donation-form-card > h5 > button:hover, .donation-form-card > h5 > button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------- */
+
+/* SENT REQUESTS TABLE */
+
+.requests-table, .forms-table {
+    width: 100%;
+    text-align: left;
+    font-weight: lighter;
+}
+
+.requests-table > thead > tr > th > h5, .forms-table > thead > tr > th > h5 {
+    font-size: 25px;
+}
+
+.requests-table > thead > tr, .requests-table > tbody > tr, .forms-table > thead > tr, .forms-table > tbody > tr {
+    border-bottom: 1px solid #e6e6e6;
+    font-family: 'Questrial', 'sans-serif';
+}
+
+.requests-table > thead > tr > th:first-of-type, .forms-table > thead > tr > th:first-of-type {
+    text-align: left;
+}
+
+.requests-table > thead > tr > th:last-of-type, .forms-table > thead > tr > th:last-of-type {
+    text-align: right;
+}
+
+.requests-table > tbody > tr > td:last-of-type, .forms-table > tbody > tr > td:last-of-type {
+    text-align: right;
+}
+
+.requests-table > tbody > tr > td, .forms-table > tbody > tr > td {
+    font-size: 18px;
+    padding: 15px 3px;
+}
+
+.requests-table > thead > tr > th, .forms-table > thead > tr > th {
+    padding: 10px 3px;
+}
+
+/* PAGINATION */
+
+.pagination {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 576px) {
+    .pagination {
+        margin-right: 30px;
+    }
+}
+
+.pagination > li {
+    margin-left: 5px;
+}
+
+.pagination > :not(.active-page) > a {
+    color: black;
+}
+
+.active-page > a {
+    color: #ec0a0b;
+}
+
+.pagination > li > a:hover, .pagination > li > a:focus {
+    color: #ec0a0b;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------- */
+
+/* PROCESS REQUEST PAGE */
+
+.filler-paragraph-for-box2 {
+    height: 85px;
+}
+
+.filler-paragraph-for-box3 {
+    height: 16px;
+}
+
+@media (max-width: 980px) {
+    .filler-paragraph-for-box2 {
+        height: 135px;
+    }
+
+    .filler-paragraph-for-box3 {
+        height: 76px;
+    }
+}
+
+@media (max-width: 765px) {
+    .filler-paragraph-for-box2 {
+        height: 0px;
+    }
+
+    .filler-paragraph-for-box3 {
+        height: 0px;
+    }
+}
+
+.rounded-borders {
+    border-radius: 5%;
+}
+
+/* -------------------------------------------------------------------- */
+
+/* RECEIVED DONATION FORMS */
+
+.donor-info-box {
+    text-align: justify;
+}
+
+@media (max-width: 770px) {
+    .donor-info-box {
+        text-align: center;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+
+/* STOCK PAGE */
+
+.stock-table > thead > tr > th, .stock-table > tbody > tr > th {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #ec0a0b;
+    color: white;
+    font-weight: lighter;
+    font-size: large;
+}
+
+.stock-table > tbody > tr > td{
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Questrial', 'sans-serif';
+    font-size: large;
+}
+
+/* --------------------------------------------------------------------- */
+
+/* UPLOAD PDF PART */
+
+#drop-files-div {
+    height: 300px;
+    width: 100%;
+    border-radius: 5%;
+    color: #560001;
+    font-family: Questrial, sans-serif;
+    font-size: large;
+}
+
+#drop-files-div:hover {
+    cursor: pointer;
+}
