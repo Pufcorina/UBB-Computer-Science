@@ -1,11 +1,12 @@
 # BloodyFast
+<a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Software%20Engineering/blood-donation/Documentation">User manual</a>
 
 # Members:
 
 <ul>
     <li><a href="https://github.com/marialzr">Lazăr Maria</a></li>
     <li><a href="https://github.com/AdaSimion">Simion Alexandra-Maria</a></li>
-    <li><a href="hhttps://github.com/Pufcorina">Todoran Ana-Corina</a></li>
+    <li><a href="https://github.com/Pufcorina">Todoran Ana-Corina</a></li>
     <li><a href="https://github.com/Ema18">Turcu Ema</a></li>
     <li><a href="https://github.com/ungurmaria">Ungur Maria</a></li>
     <li><a href="https://github.com/mihaiuscat">Uscat Mihai Andrei</a></li>
@@ -24,7 +25,7 @@ We have been tasked with the development of a blood donation application to enab
         Programming language:
         <li>Front-end: JavaScript with React, HTML, CSS</li>
         <li>Back-end: Java, Spring</li> 
-    <ul>
+    </ul>
 </li>
 <li>ORM: Hibernate</li>
 <li>Tools used for diagram creation: draw.io and StarUML</li>
