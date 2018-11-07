@@ -12,7 +12,7 @@ import static java.lang.Math.min;
 
 public class Main {
 
-    private static Matrix operation(MatrixOperationEnum op, Matrix a, Matrix b, int threadCount) throws Exception {
+    private static Matrix operation(MatrixOperationEnum op, Matrix a, Matrix b, int taskCount) throws Exception {
         int rowCount = min(a.getRowsNumber(), b.getRowsNumber());
         int colCount = min(a.getColsNumber(), b.getColsNumber());
 
@@ -22,12 +22,12 @@ public class Main {
 
         switch (op){
             case ADD:
-                for (int i = 0; i < threadCount; i++){
+                for (int i = 0; i < taskCount; i++){
                     callables.add(new MatrixAddition(a, b, sum));
                 }
                 break;
             case MULTIPLY:
-                for (int i = 0; i < threadCount; i++){
+                for (int i = 0; i < taskCount; i++){
                     callables.add(new MatrixMultiplication(a, b, sum));
                 }
                 break;
@@ -37,7 +37,7 @@ public class Main {
 
         for (int row = 0; row < sum.getRowsNumber(); row++){
             for(int col = 0; col < sum.getRowsNumber(); col++){
-                callables.get(sum.index(row, col) % threadCount).addPointToWorkload(row, col);
+                callables.get(sum.index(row, col) % taskCount).addPointToWorkload(row, col);
             }
         }
 
@@ -67,7 +67,7 @@ public class Main {
         Matrix b = new Matrix(500, 500);
 
         float start =  System.nanoTime() / 1000000;
-        operation(MatrixOperationEnum.ADD, a, b, 4);
+        operation(MatrixOperationEnum.MULTIPLY, a, b, 8);
         float end = System.nanoTime() / 1000000;
 
         System.out.println(end - start);
