@@ -14,79 +14,9 @@ public class Encoder {
 
     public Encoder(PPM image) {
         this.image = image;
-        encodeBlocks("Y");
-        encodeBlocks("U");
-        encodeBlocks("V");
-    }
-
-    private void encodeBlocks(String type) {
-        int length = image.getWidth() * image.getHeight() / 64;
-
-        int line = 0;
-        int column = 0;
-
-        for (int pos = 0; pos < length && line != image.getHeight(); pos++) {
-            BlockStore store = new BlockStore(8, type, pos);
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++) {
-                    switch (type) {
-                        case "Y":
-                            store.getStore()[i][j] = image.getY()[line][column];
-                            break;
-                        case "U":
-                            store.getStore()[i][j] = image.getU()[line][column];
-                            break;
-                        default:
-                            store.getStore()[i][j] = image.getV()[line][column];
-                            break;
-                    }
-
-                    column++;
-                    if (column % 8 == 0) {
-                        line++;
-                        column -= 8;
-                    }
-                }
-
-                line -= 8;
-                column += 8;
-
-            switch (type) {
-                case "Y":
-                    encodedY.add(store);
-                    break;
-                case "U":
-                    encodedU.add(sampleBlock(store));
-                    break;
-                default:
-                    encodedV.add(sampleBlock(store));
-                    break;
-            }
-
-            if (column == image.getWidth()) {
-                column = 0;
-                line += 8;
-            }
-        }
-    }
-
-    private BlockStore sampleBlock(BlockStore toSample) {
-        BlockStore sampleStore = new BlockStore(4, toSample.getStoreType(), toSample.getPosition());
-        int line = 0;
-        int column = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                sampleStore.getStore()[i][j] = (toSample.getStore()[line][column] +
-                                                toSample.getStore()[line][column + 1] +
-                                                toSample.getStore()[line + 1][column] +
-                                                toSample.getStore()[line + 1][column + 1])
-                                                / 4.0;
-                column += 2;
-            }
-            line += 2;
-            column = 0;
-        }
-        return sampleStore;
+        encodedY = new BlockManipulation().splitInBlocks(image, "Y", image.getY());
+        encodedU = new BlockManipulation().splitInBlocks(image, "U", image.getU());
+        encodedV = new BlockManipulation().splitInBlocks(image, "V", image.getV());
     }
 
     public PPM getImage() {
@@ -120,5 +50,17 @@ public class Encoder {
         }
 
         printWriter.close();
+    }
+
+    public void setY(double[][] matrix) {
+        image.setY(matrix);
+    }
+
+    public void setU(double[][] matrix) {
+        image.setU(matrix);
+    }
+
+    public void setV(double[][] matrix) {
+        image.setV(matrix);
     }
 }

@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Decoder {
@@ -7,69 +8,45 @@ public class Decoder {
 
     public Decoder(Encoder encoder){
         this.encoder = encoder;
-        decoreBlock("Y");
-        decoreBlock("U");
-        decoreBlock("V");
+//        decodeBlock("Y");
+//        decodeBlock("U");
+//        decodeBlock("V");
+        decodeEncoded();
     }
 
-    private void decoreBlock(String type) {
+    private void decodeEncoded() {
+        List<BlockStore> decodeU = new BlockManipulation().getListResized(encoder.getEncodedU());
+        List<BlockStore> decodeV = new BlockManipulation().getListResized(encoder.getEncodedV());
+        encoder.setY(decodeBlock(this.encoder.getEncodedY()));
+        encoder.setU(decodeBlock(decodeU));
+        encoder.setV(decodeBlock(decodeV));
+    }
+
+
+
+    private double[][] decodeBlock(List<BlockStore> encoded) {
+        double[][] matrix = new double[encoder.getImage().getHeight()][encoder.getImage().getWidth()];
+
         int line = 0;
         int column = 0;
-        List<BlockStore> encoded;
-        switch (type) {
-            case "Y":
-                encoded = encoder.getEncodedY();
-                break;
-            case "U":
-                encoded = encoder.getEncodedU();
-                break;
-            default:
-                encoded = encoder.getEncodedV();
-                break;
-        }
-        
-        
-        for (BlockStore blockStore: encoded) {
-            double[][] matrix = new double[encoder.getImage().getHeight()][encoder.getImage().getWidth()];
-            if (type.equals("U") || type.equals("V"))
-                blockStore = resizeBlock(blockStore, 0, type);
+
+        for (BlockStore blockStore : encoded)
+        {
             for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++) {
-                    matrix[line][column] = blockStore.getStore()[i][j];
-                    column++;
-                    if (column % 8 == 0) {
-                        line++;
-                        column -= 8;
-                    }
-                }
-            line -= 8;
+                for (int j = 0; j < 8; j++)
+                    matrix[line + i][column + j] = blockStore.getStore()[i][j];
             column += 8;
-            if (column == encoder.getImage().getWidth()) {
-                column = 0;
+            if (column == encoder.getImage().getWidth())
+            {
                 line += 8;
+                column = 0;
             }
         }
+
+        return matrix;
     }
 
-    private BlockStore resizeBlock(BlockStore blockStore, int position, String type) {
-        BlockStore sampleStore = new BlockStore(8, type, position);
-        int line = 0;
-        int column = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                double value = blockStore.getStore()[i][j];
-                sampleStore.getStore()[line][column] = value;
-                sampleStore.getStore()[line][column + 1] = value;
-                sampleStore.getStore()[line + 1][column] = value;
-                sampleStore.getStore()[line + 1][column + 1] = value;
-                column += 2;
-            }
-            line += 2;
-            column = 0;
-        }
 
-        return sampleStore;
-    }
 
     public PPM getImage() {
         return encoder.getImage();

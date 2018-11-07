@@ -155,4 +155,16 @@ public class PPM {
     public void setV(double[][] v) {
         this.v = v;
     }
+
+    public int[][] getR() {
+        return r;
+    }
+
+    public int[][] getG() {
+        return g;
+    }
+
+    public int[][] getB() {
+        return b;
+    }
 }
