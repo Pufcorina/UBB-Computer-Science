@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.*;
+import java.util.Objects;
 
 public class PPM {
     private String filename;
@@ -15,7 +16,7 @@ public class PPM {
     private double[][] u;
     private double[][] v;
 
-    public PPM(PPM ppm){
+    private PPM(PPM ppm){
         this.filename = ppm.filename;
         this.width = ppm.width;
         this.height = ppm.height;
@@ -54,12 +55,12 @@ public class PPM {
 
         String st;
         try {
-            String firstLine = br.readLine();
+            String firstLine = Objects.requireNonNull(br).readLine();
             br.readLine();
 
             String thirdLine = br.readLine();
-            width = Integer.parseInt(thirdLine.split(" ")[1]);
-            height = Integer.parseInt(thirdLine.split(" ")[0]);
+            height = Integer.parseInt(thirdLine.split(" ")[1]);
+            width = Integer.parseInt(thirdLine.split(" ")[0]);
             maxValue = Integer.parseInt(br.readLine());
             r = new int[height][width];
             g = new int[height][width];
@@ -117,6 +118,10 @@ public class PPM {
                 if (G > 255) G = 255.0;
                 if (B > 255) B = 255.0;
 
+                if (R < 0) R = 0.0;
+                if (G < 0) G = 0.0;
+                if (B < 0) B = 0.0;
+
                 newPPM.r[line][column] = R.intValue();
                 newPPM.g[line][column] = G.intValue();
                 newPPM.b[line][column] = B.intValue();
@@ -124,35 +129,35 @@ public class PPM {
         return newPPM;
     }
 
-    public int getWidth() {
+    int getWidth() {
         return width;
     }
 
-    public int getHeight() {
+    int getHeight() {
         return height;
     }
 
-    public double[][] getY() {
+    double[][] getY() {
         return y;
     }
 
-    public double[][] getU() {
+    double[][] getU() {
         return u;
     }
 
-    public double[][] getV() {
+    double[][] getV() {
         return v;
     }
 
-    public void setY(double[][] y) {
+    void setY(double[][] y) {
         this.y = y;
     }
 
-    public void setU(double[][] u) {
+    void setU(double[][] u) {
         this.u = u;
     }
 
-    public void setV(double[][] v) {
+    void setV(double[][] v) {
         this.v = v;
     }
 

@@ -3,14 +3,13 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockManipulation {
-    public List<BlockStore> splitInBlocks(PPM image, String type, double[][] matrix) {
+class BlockManipulation {
+    static List<BlockStore> splitInBlocks(PPM image, String type, double[][] matrix) {
         List<BlockStore> encoded = new ArrayList<>();
 
-        int k = 0;
         for (int i = 0; i < image.getHeight(); i += 8)
             for (int j = 0; j < image.getWidth(); j += 8) {
-                BlockStore store = subMatrix(8, type, k, i, j, matrix);
+                BlockStore store = subMatrix(type, i, j, matrix);
                 if (type.equals("Y"))
                     encoded.add(store);
                 else
@@ -20,8 +19,8 @@ public class BlockManipulation {
         return encoded;
     }
 
-    private BlockStore subMatrix(int size, String type, int pos, int i_pos, int j_pos, double[][] matrix) {
-        BlockStore store = new BlockStore(8, type, pos);
+    private static BlockStore subMatrix(String type, int i_pos, int j_pos, double[][] matrix) {
+        BlockStore store = new BlockStore(8, type);
 
         for (int i = 0; i < 8; i++)
             for (int j = 0; j < 8; j++)
@@ -30,8 +29,8 @@ public class BlockManipulation {
         return store;
     }
 
-    private BlockStore average4Block(BlockStore toSample) {
-        BlockStore sampleStore = new BlockStore(4, toSample.getStoreType(), toSample.getPosition());
+    private static BlockStore average4Block(BlockStore toSample) {
+        BlockStore sampleStore = new BlockStore(4, toSample.getStoreType());
         int line = 0;
         int column = 0;
         for (int i = 0; i < 4; i++) {
@@ -49,14 +48,14 @@ public class BlockManipulation {
         return sampleStore;
     }
 
-    public List<BlockStore> getListResized(List<BlockStore> encoded) {
+    static List<BlockStore> getListResized(List<BlockStore> encoded) {
         List<BlockStore> resized = new ArrayList<>();
         encoded.forEach(b -> resized.add(resizeBlock(b)));
         return resized;
     }
 
-    private BlockStore resizeBlock(BlockStore blockStore) {
-        BlockStore sampleStore = new BlockStore(8, blockStore.getStoreType(), blockStore.getPosition());
+    private static BlockStore resizeBlock(BlockStore blockStore) {
+        BlockStore sampleStore = new BlockStore(8, blockStore.getStoreType());
         int line = 0;
         int column = 0;
         for (int i = 0; i < 4; i++) {
@@ -74,5 +73,4 @@ public class BlockManipulation {
 
         return sampleStore;
     }
-
 }

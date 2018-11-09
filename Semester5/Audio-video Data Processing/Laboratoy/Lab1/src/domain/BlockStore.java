@@ -6,14 +6,13 @@ import java.util.List;
 public class BlockStore {
     private int size;
     private double[][] store;
+    private double[][] gStore;
     private String storeType;
-    private int position;
 
 
-    public BlockStore(int size, String storeType, int position) {
+    BlockStore(int size, String storeType) {
         this.size = size;
         this.storeType = storeType;
-        this.position = position;
 
         store = new double[size][size];
     }
@@ -34,15 +33,23 @@ public class BlockStore {
         return size;
     }
 
-    public double[][] getStore() {
+    double[][] getStore() {
         return store;
     }
 
-    public String getStoreType() {
+    String getStoreType() {
         return storeType;
     }
 
-    public int getPosition() {
-        return position;
+    void setStore(double[][] matrix) {
+        store = matrix;
+    }
+
+    public double[][] getgStore() {
+        return gStore;
+    }
+
+    public void setgStore(double[][] gStore) {
+        this.gStore = gStore;
     }
 }
