@@ -1,0 +1,5 @@
+bool a=true;
+bool b=false;
+bool c=(!a&&b||a<=b&c);
+
+cout<<"test for \"token\" generator"<<
