@@ -36,6 +36,8 @@ if __name__ == '__main__':
     print('Program Internal Form: \n', pif)
     print('Symbol Table: \n', symbolTable)
 
-    print([token for token in tokenGenerator('(a+b&&c/2<=8+"a<=b||2")', separators)])
-    print([token for token in tokenGenerator('something', separators)])
-    print([token for token in tokenGenerator('" \\"Hello\\" "', separators)])
+    print('\n\n', codification)
+
+    # print([token for token in tokenGenerator('(a+b&&c/2<=8+"a<=b||2")', separators)])
+    # print([token for token in tokenGenerator('something', separators)])
+    # print([token for token in tokenGenerator('" \\"Hello\\" "', separators)])

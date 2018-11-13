@@ -72,7 +72,7 @@ def tokenGenerator(line, separators):
 
 
 def isIdentifier(token):
-    return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9]|_){,8}$', token) is not None
+    return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9]|_){,7}$', token) is not None
 
 def isConstant(token):
     return re.match('^(0|[\+\-]?[1-9][0-9]*)$|^\'.\'$|^\".*\"$', token) is not None
