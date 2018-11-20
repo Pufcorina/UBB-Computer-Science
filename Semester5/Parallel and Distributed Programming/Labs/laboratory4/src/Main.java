@@ -9,26 +9,23 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static int[][] matrix_a = {
-            {1, 2, 4, 5},
-            {3, 2, 2, 11},
-            {11, 12, 5, 4},
-            {11, 10, 17, 12}
+    private static int[][] matrix_a = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
     };
-    public static int[][] matrix_b = {
-            {1, 4, 10, 11},
-            {1, 2, 11, 19},
-            {23, 2, 8, 3},
-            {2, 1, 8, 31}
+    private static int[][] matrix_b = {
+            {0, 7, 5},
+            {2, 6, 1},
+            {0, 8, 1}
     };
-    public static int[][] matrix_c = {
-            {10, 4, 10, 3},
-            {12, 2, 1, 1},
-            {2, 2, 8, 3},
-            {2, 10, 18, 3}
+    private static int[][] matrix_c = {
+            {2, 9, 7},
+            {0, 6, 1},
+            {3, 0, 6}
     };
-    public static int[][] matrix_prod_ab = new int[matrix_a[0].length][matrix_b.length];
-    public static int[][] matrix_prod_abc = new int[matrix_a[0].length][matrix_b.length];
+    private static int[][] matrix_prod_ab = new int[matrix_a[0].length][matrix_b.length];
+    private static int[][] matrix_prod_abc = new int[matrix_a[0].length][matrix_b.length];
 
     private static final Lock lock = new ReentrantLock();
 
@@ -45,21 +42,21 @@ public class Main {
         //Create all threads for product
         ExecutorService executorServiceAB = Executors.newFixedThreadPool(6);
         for (int rows = 0; rows < matrix_a.length; rows++) {
-            Main.MatrixProdab thr = new MatrixProdab(rows);
+            Main.MatrixProdAB thr = new MatrixProdAB(rows);
             executorServiceAB.submit(thr);
         }
 
 
         ExecutorService executorServiceABC = Executors.newFixedThreadPool(6);
         for (int rows = 0; rows < matrix_a.length; rows++) {
-            Main.MatrixProdabc thr = new MatrixProdabc(rows);
+            Main.MatrixProdABC thr = new MatrixProdABC(rows);
             executorServiceABC.submit(thr);
         }
 
 
-        if (executorServiceAB.awaitTermination(10, TimeUnit.MILLISECONDS))
+        if (!executorServiceAB.awaitTermination(10, TimeUnit.MILLISECONDS))
             executorServiceAB.shutdown();
-        if (executorServiceABC.awaitTermination(10, TimeUnit.MILLISECONDS))
+        if (!executorServiceABC.awaitTermination(10, TimeUnit.MILLISECONDS))
             executorServiceABC.shutdown();
 
 
@@ -72,7 +69,7 @@ public class Main {
         // print prod matrix
         for (int i = 0; i < matrix_prod_ab.length; i++) {
             for (int j = 0; j < matrix_prod_ab[0].length; j++) {
-                System.out.print(matrix_prod_ab[i][j]+"\t");
+                System.out.print(matrix_prod_ab[i][j]+" ");
             }
             System.out.println();
         }
@@ -80,16 +77,16 @@ public class Main {
         // print prod matrix
         for (int i = 0; i < matrix_prod_abc.length; i++) {
             for (int j = 0; j < matrix_prod_abc[0].length; j++) {
-                System.out.print(matrix_prod_abc[i][j]+"\t");
+                System.out.print(matrix_prod_abc[i][j]+" ");
             }
             System.out.println();
         }
     }
 
-    static class MatrixProdab extends Thread {
+    static class MatrixProdAB extends Thread {
         int row;
 
-        MatrixProdab(int row) {
+        MatrixProdAB(int row) {
             this.row = row;
         }
 
@@ -106,10 +103,10 @@ public class Main {
             lock.unlock();
         }
     }
-    static class MatrixProdabc extends Thread {
+    static class MatrixProdABC extends Thread {
         int row;
 
-        MatrixProdabc(int row) {
+        MatrixProdABC(int row) {
             this.row = row;
         }
 
