@@ -1,79 +1,144 @@
-import model.Matrix;
-import runnables.Task;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
-        try{
-            Matrix A = new Matrix(3, 3, 1, 5);
+    public static int[][] matrix_a = {
+            {1, 2, 4, 5},
+            {3, 2, 2, 11},
+            {11, 12, 5, 4},
+            {11, 10, 17, 12}
+    };
+    public static int[][] matrix_b = {
+            {1, 4, 10, 11},
+            {1, 2, 11, 19},
+            {23, 2, 8, 3},
+            {2, 1, 8, 31}
+    };
+    public static int[][] matrix_c = {
+            {10, 4, 10, 3},
+            {12, 2, 1, 1},
+            {2, 2, 8, 3},
+            {2, 10, 18, 3}
+    };
+    public static int[][] matrix_prod_ab = new int[matrix_a[0].length][matrix_b.length];
+    public static int[][] matrix_prod_abc = new int[matrix_a[0].length][matrix_b.length];
 
-            A.setRow(0, Arrays.asList(1, 2, 3));
-            A.setRow(1, Arrays.asList(4, 5, 6));
-            A.setRow(2, Arrays.asList(7, 8, 9));
+    private static final Lock lock = new ReentrantLock();
 
-            Matrix B = new Matrix(3, 3, 3, 6);
+    private static final Condition rowDone = lock.newCondition();
 
-            B.setRow(0, Arrays.asList(0, 7, 5));
-            B.setRow(1, Arrays.asList(2, 6, 1));
-            B.setRow(2, Arrays.asList(0, 8, 1));
+    public static void main(String[] args) throws InterruptedException {
 
-            Matrix C = new Matrix(3, 3, 1, 3);
+        //start timer
+        long startTime;
+        long stopTime;
+        long elapsedTime;
 
-            C.setRow(0, Arrays.asList(2, 9, 7));
-            C.setRow(1, Arrays.asList(0, 6, 1));
-            C.setRow(2, Arrays.asList(3, 0, 6));
+        startTime = System.currentTimeMillis();
+        //Create all threads for product
+        ExecutorService executorServiceAB = Executors.newFixedThreadPool(6);
+        for (int rows = 0; rows < matrix_a.length; rows++) {
+            Main.MatrixProdab thr = new MatrixProdab(rows);
+            executorServiceAB.submit(thr);
+        }
 
-            float start = System.nanoTime() /1000000;
 
-            Matrix result = matrixMultiply(Arrays.asList(A, B, C), 8);
+        ExecutorService executorServiceABC = Executors.newFixedThreadPool(6);
+        for (int rows = 0; rows < matrix_a.length; rows++) {
+            Main.MatrixProdabc thr = new MatrixProdabc(rows);
+            executorServiceABC.submit(thr);
+        }
 
-            float finish = System.nanoTime() /1000000;
 
-            System.out.println("Seconds: " + (finish - start));
+        if (executorServiceAB.awaitTermination(10, TimeUnit.MILLISECONDS))
+            executorServiceAB.shutdown();
+        if (executorServiceABC.awaitTermination(10, TimeUnit.MILLISECONDS))
+            executorServiceABC.shutdown();
 
-            System.out.println(result);
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        stopTime = System.currentTimeMillis();
+        elapsedTime = stopTime - startTime;
+        System.out.println("Elapsed time for product computation: " + elapsedTime);
+
+
+
+        // print prod matrix
+        for (int i = 0; i < matrix_prod_ab.length; i++) {
+            for (int j = 0; j < matrix_prod_ab[0].length; j++) {
+                System.out.print(matrix_prod_ab[i][j]+"\t");
+            }
+            System.out.println();
+        }
+
+        // print prod matrix
+        for (int i = 0; i < matrix_prod_abc.length; i++) {
+            for (int j = 0; j < matrix_prod_abc[0].length; j++) {
+                System.out.print(matrix_prod_abc[i][j]+"\t");
+            }
+            System.out.println();
         }
     }
 
-    private static Matrix matrixMultiply(List<Matrix> matrices, int threadCount) {
-        int rowCount = getFinalMatrixRowCount(matrices);
-        int columnCount = getFinalMatrixColumnCount(matrices);
+    static class MatrixProdab extends Thread {
+        int row;
 
-        List<Matrix> results = new ArrayList<>();
-        results.add(matrices.get(0));
+        MatrixProdab(int row) {
+            this.row = row;
+        }
 
-        while (results.size() < matrices.size())
-            results.add(new Matrix(rowCount, columnCount, 0, 0));
+        public void run() {
+            lock.lock();
+//            System.out.println("running thread:" + this.getName() + " --> " + row);
 
-        ConcurrentLinkedQueue<Task> backlog = new ConcurrentLinkedQueue<>();
+            for (int j = 0; j < matrix_b[row].length; j++) { // bColumn
+                for (int k = 0; k < matrix_a[row].length; k++) { // aColumn
+                    matrix_prod_ab[row][j] += matrix_a[row][k] * matrix_b[k][j];
+                }
+            }
+            rowDone.signal();
+            lock.unlock();
+        }
+    }
+    static class MatrixProdabc extends Thread {
+        int row;
 
-        for (int )
+        MatrixProdabc(int row) {
+            this.row = row;
+        }
 
-        return null;
+        public void run() {
+//            System.out.println("running thread:" + this.getName() + " --> " + row);
+            lock.lock();
+
+            try {
+                while (!isFilledRow(matrix_prod_ab, row)) {
+                    rowDone.await();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for (int j = 0; j < matrix_prod_ab[row].length; j++) { // bColumn
+                for (int k = 0; k < matrix_c[row].length; k++) { // aColumn
+                    matrix_prod_abc[row][j] += matrix_prod_ab[row][k] * matrix_c[k][j];
+                }
+            }
+            lock.unlock();
+        }
     }
 
-    private static int getFinalMatrixRowCount(List<Matrix> matrices) {
-        int row = matrices.get(0).getRowsNumber();
-
-        for (Matrix m: matrices)
-            row = Math.min(m.getRowsNumber(), row);
-
-        return row;
+    private static boolean isFilledRow(int[][] mat, int row) {
+        for (int i = 0; i < mat.length; i++) {
+            if (mat[row][i] == 0) return false;
+        }
+        return true;
     }
 
-    private static int getFinalMatrixColumnCount(List<Matrix> matrices) {
-        int column = matrices.get(0).getColsNumber();
 
-        for (Matrix m: matrices)
-            column = Math.min(m.getColsNumber(), column);
-
-        return column;
-    }
 }
