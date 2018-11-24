@@ -1,8 +1,13 @@
 package domain;
 
+import javafx.util.Pair;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Encoder {
@@ -10,6 +15,8 @@ public class Encoder {
     private List<BlockStore> encodedY;
     private List<BlockStore> encodedU;
     private List<BlockStore> encodedV;
+    private HashMap<Integer, List<Integer>> amplitudes = new HashMap<>();
+    private List<Pair<Pair<Integer, Integer>, Integer>> entropy = new ArrayList<>();
 
     private double[][] Q = {
             {6, 4, 4, 6, 10, 16, 20, 24},
@@ -23,7 +30,19 @@ public class Encoder {
     };
 
     public Encoder(PPM image) {
+        amplitudes.put(1, Arrays.asList(-1, 1));
+        amplitudes.put(2, Arrays.asList(-3, -2, 2, 3));
+        amplitudes.put(3, Arrays.asList(-7, -4, 4, 7));
+        amplitudes.put(4, Arrays.asList(-15, -8, 8, 15));
+        amplitudes.put(5, Arrays.asList(-31, -16, 16, 31));
+        amplitudes.put(6, Arrays.asList(-63, -32, 32, 63));
+        amplitudes.put(7, Arrays.asList(-127, -64, 64, 127));
+        amplitudes.put(8, Arrays.asList(-225, -128, 128, 255));
+        amplitudes.put(9, Arrays.asList(-511, -256, 256, 511));
+        amplitudes.put(10, Arrays.asList(-1023, -512, 512, 1023));
+
         this.image = image;
+
         encodedY = BlockManipulation.splitInBlocks(image, "Y", image.getY());
         encodedU = BlockManipulation.splitInBlocks(image, "U", image.getU());
         encodedV = BlockManipulation.splitInBlocks(image, "V", image.getV());
@@ -42,6 +61,114 @@ public class Encoder {
         quantizationPhase(encodedY);
         quantizationPhase(encodedU);
         quantizationPhase(encodedV);
+
+        entropyEncoding();
+    }
+
+    private void entropyEncoding() {
+        for (int i = 0; i < encodedY.size(); i++) {
+            addEntropy(encodedY.get(i).getgStore());
+            addEntropy(encodedU.get(i).getgStore());
+            addEntropy(encodedV.get(i).getgStore());
+        }
+    }
+
+    private void addEntropy(double[][] matrix) {
+        int[] amplitude = parcurgereMatrice(matrix);
+
+        int DC_size = getSize(amplitude[0]);
+        entropy.add(new Pair<>(new Pair<>(-1, DC_size), amplitude[0]));
+
+        for(int i = 1; i < 64; i++)
+        {
+            int runlength = 0;
+            while( amplitude[i] == 0) {
+                runlength++;
+                i++;
+                if ( i == 64 ) {
+                    break;
+                }
+            }
+            if (i == 64 )
+                entropy.add(new Pair<>(new Pair<>(0, 0), 0));
+            else
+                entropy.add(new Pair<>(new Pair<>(runlength, getSize(amplitude[i])), amplitude[i]));
+        }
+    }
+
+    private int getSize(int amplitude_value) {
+        if (amplitude_value == 0) return 0;
+        for (Integer k : amplitudes.keySet())
+            if (amplitude_value == 1 || amplitude_value == -1) {
+                return 1;
+            }
+            else if (k != 1) {
+                if (amplitudes.get(k).get(0).compareTo(amplitude_value) == 0
+                        || amplitudes.get(k).get(1).compareTo(amplitude_value) == 0
+                        || amplitudes.get(k).get(2).compareTo(amplitude_value) == 0
+                        || amplitudes.get(k).get(3).compareTo(amplitude_value) == 0
+                        || amplitudes.get(k).get(0).compareTo(amplitude_value) == (-1) *  amplitudes.get(k).get(1).compareTo(amplitude_value)
+                        || amplitudes.get(k).get(2).compareTo(amplitude_value) == (-1) *  amplitudes.get(k).get(3).compareTo(amplitude_value))
+                    return k;
+            }
+        return -1;
+    }
+
+    private int[] parcurgereMatrice(double[][] matrix) {
+        int[] lista = new int[64];
+        int k = 0;
+        int column = 0;
+        int row = 0;
+        lista[k] = (int) matrix[row][column];
+        do {
+            k++;
+            column++;
+            lista[k] = (int) matrix[row][column];
+            do {
+                k++;
+                column--;
+                row++;
+                lista[k] = (int) matrix[row][column];
+            } while (column != 0);
+
+            if (row == 7 )
+                break;
+            row++;
+            k++;
+            lista[k] = (int) matrix[row][column];
+            do {
+                row--;
+                column++;
+                k++;
+                lista[k] = (int) matrix[row][column];
+            } while (row != 0);
+        } while (true);
+
+        do {
+
+            k++;
+            column++;
+            lista[k] = (int) matrix[row][column];
+            if (column == 7)
+                break;
+            do {
+                k++;
+                column++;
+                row--;
+                lista[k] = (int) matrix[row][column];
+            } while (column != 7);
+            row++;
+            k++;
+            lista[k] = (int) matrix[row][column];
+            do {
+                row++;
+                column--;
+                k++;
+                lista[k] = (int) matrix[row][column];
+            } while (row != 7);
+        } while (true);
+
+        return lista;
     }
 
     private void quantizationPhase(List<BlockStore> encoded) {
@@ -129,18 +256,6 @@ public class Encoder {
         return image;
     }
 
-    List<BlockStore> getEncodedY() {
-        return encodedY;
-    }
-
-    List<BlockStore> getEncodedU() {
-        return encodedU;
-    }
-
-    List<BlockStore> getEncodedV() {
-        return encodedV;
-    }
-
     void setY(double[][] matrix) {
         image.setY(matrix);
     }
@@ -153,15 +268,19 @@ public class Encoder {
         image.setV(matrix);
     }
 
-    public void setEncodedY(List<BlockStore> encodedY) {
-        this.encodedY = encodedY;
+    public List<Pair<Pair<Integer, Integer>, Integer>> getEntropy() {
+        return entropy;
     }
 
-    public void setEncodedU(List<BlockStore> encodedU) {
-        this.encodedU = encodedU;
+    List<BlockStore> getEncodedY() {
+        return encodedY;
     }
 
-    public void setEncodedV(List<BlockStore> encodedV) {
-        this.encodedV = encodedV;
+    List<BlockStore> getEncodedU() {
+        return encodedU;
+    }
+
+    List<BlockStore> getEncodedV() {
+        return encodedV;
     }
 }

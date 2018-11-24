@@ -1,9 +1,17 @@
 package domain;
 
+import javafx.util.Pair;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Decoder {
     private Encoder encoder;
+
+    private List<BlockStore> encodedY = new ArrayList<>();
+    private List<BlockStore> encodedU = new ArrayList<>();
+    private List<BlockStore> encodedV = new ArrayList<>();
+
     private double[][] Q = {
             {6, 4, 4, 6, 10, 16, 20, 24},
             {5, 5, 6, 8, 10, 23, 24, 22},
@@ -21,27 +29,88 @@ public class Decoder {
     }
 
     private void decodeEncoded() {
-        deQuantizationPhase(encoder.getEncodedY());
-        deQuantizationPhase(encoder.getEncodedU());
-        deQuantizationPhase(encoder.getEncodedV());
+        entropyDecoding(encoder.getEntropy());
 
-        inverseDCT(encoder.getEncodedY());
-        inverseDCT(encoder.getEncodedU());
-        inverseDCT(encoder.getEncodedV());
+        deQuantizationPhase(encodedY);
+        deQuantizationPhase(encodedU);
+        deQuantizationPhase(encodedV);
 
-        encoder.setEncodedY(encoder.getEncodedY());
-        encoder.setEncodedU(encoder.getEncodedU());
-        encoder.setEncodedV(encoder.getEncodedV());
+        inverseDCT(encodedY);
+        inverseDCT(encodedU);
+        inverseDCT(encodedV);
 
-        addValue(encoder.getEncodedY());
-        addValue(encoder.getEncodedU());
-        addValue(encoder.getEncodedV());
+        addValue(encodedY);
+        addValue(encodedU);
+        addValue(encodedV);
 
-        encoder.setY(decodeBlock(encoder.getEncodedY()));
-        encoder.setU(decodeBlock(encoder.getEncodedU()));
-        encoder.setV(decodeBlock(encoder.getEncodedV()));
+        encoder.setY(decodeBlock(encodedY));
+        encoder.setU(decodeBlock(encodedU));
+        encoder.setV(decodeBlock(encodedV));
 
 
+    }
+
+    private void entropyDecoding(List<Pair<Pair<Integer, Integer>, Integer>> entropy) {
+        int pos = 0;
+        while (pos < entropy.size())
+        {
+            pos = getBlock(entropy, pos, encodedY, "Y");
+            pos = getBlock(entropy, pos, encodedU, "U");
+            pos = getBlock(entropy, pos, encodedV, "V");
+        }
+    }
+
+    private int getBlock(List<Pair<Pair<Integer, Integer>, Integer>> entropy, int pos, List<BlockStore> encoded, String blockType) {
+        int colum = 1;
+        int row = 0;
+
+        BlockStore block = new BlockStore(8, blockType);
+        double[][] matrix = new double[8][8];
+
+        matrix[0][0] = entropy.get(pos).getValue();
+        pos++;
+
+        do {
+            int amplitude = entropy.get(pos).getValue();
+            int runlength = entropy.get(pos).getKey().getKey();
+
+            if ( amplitude == 0 && runlength == 0) {
+                do {
+                    matrix[row][colum] = 0;
+                    colum++;
+                    if ( colum == 8 ){
+                        colum = 0;
+                        row++;
+                    }
+                } while (colum != 7 && row != 7);
+                pos++;
+                break;
+            }
+
+            while (runlength != 0)
+            {
+                matrix[row][colum] = 0;
+                runlength--;
+                colum++;
+                if ( colum == 8 ){
+                    colum = 0;
+                    row++;
+                }
+            }
+
+            matrix[row][colum] = amplitude;
+            pos++;
+            colum++;
+            if ( colum == 8 ){
+                colum = 0;
+                row++;
+            }
+            if (colum == 7 && row == 7)
+                break;
+        } while (true);
+        block.setgStore(matrix);
+        encoded.add(block);
+        return pos;
     }
 
     private void deQuantizationPhase(List<BlockStore> encoded) {
@@ -52,7 +121,7 @@ public class Decoder {
 
     private void inverseDCT(List<BlockStore> encoded) {
         for (BlockStore block: encoded)
-            block.setgStore(iDCT(block.getgStore()));
+            block.setStore(iDCT(block.getgStore()));
     }
 
     private double[][] iDCT(double[][] matrix) {
@@ -78,7 +147,7 @@ public class Decoder {
     private double innerSum(double[][] matrix, int x, int y, int u) {
         double sum = 0.0;
         for (int v = 0; v < 8; v++)
-            sum += product(matrix[x][y], x, y, u, v);
+            sum += product(matrix[u][v], x, y, u, v);
         return sum;
     }
 
