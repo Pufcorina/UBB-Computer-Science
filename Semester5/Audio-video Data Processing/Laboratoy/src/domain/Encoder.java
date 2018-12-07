@@ -1,7 +1,5 @@
 package domain;
 
-import javafx.util.Pair;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +14,7 @@ public class Encoder {
     private List<BlockStore> encodedU;
     private List<BlockStore> encodedV;
     private HashMap<Integer, List<Integer>> amplitudes = new HashMap<>();
-    private List<Pair<Pair<Integer, Integer>, Integer>> entropy = new ArrayList<>();
+    List<List<Byte>> entropy = new ArrayList<>();
 
     private double[][] Q = {
             {6, 4, 4, 6, 10, 16, 20, 24},
@@ -29,7 +27,7 @@ public class Encoder {
             {29, 37, 38, 39, 45, 40, 41, 40}
     };
 
-    public Encoder(PPM image) {
+    public Encoder(PPM image) throws IOException {
         amplitudes.put(1, Arrays.asList(-1, 1));
         amplitudes.put(2, Arrays.asList(-3, -2, 2, 3));
         amplitudes.put(3, Arrays.asList(-7, -4, 4, 7));
@@ -63,6 +61,13 @@ public class Encoder {
         quantizationPhase(encodedV);
 
         entropyEncoding();
+
+        FileWriter fileWriter = new FileWriter("./data/entropy");
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            printWriter.println(entropy);
+
+        printWriter.close();
     }
 
     private void entropyEncoding() {
@@ -73,26 +78,28 @@ public class Encoder {
         }
     }
 
-    private void addEntropy(double[][] matrix) {
-        int[] amplitude = parcurgereMatrice(matrix);
+    private void addEntropy(int[][] matrix) {
+        int[] lista = parcurgereMatrice(matrix);
 
-        int DC_size = getSize(amplitude[0]);
-        entropy.add(new Pair<>(new Pair<>(-1, DC_size), amplitude[0]));
+        int DC_size = getSize(lista[0]);
+        entropy.add(Arrays.asList((byte)-1, (byte)DC_size, (byte)lista[0]));
 
         for(int i = 1; i < 64; i++)
         {
-            int runlength = 0;
-            while( amplitude[i] == 0) {
-                runlength++;
+            int cnt = 0;
+            while( lista[i] == 0) {
+                cnt++;
                 i++;
                 if ( i == 64 ) {
                     break;
                 }
             }
             if (i == 64 )
-                entropy.add(new Pair<>(new Pair<>(0, 0), 0));
+                entropy.add(Arrays.asList((byte)0, (byte)0, (byte)0));
             else
-                entropy.add(new Pair<>(new Pair<>(runlength, getSize(amplitude[i])), amplitude[i]));
+            {
+                entropy.add(Arrays.asList((byte)cnt, (byte)getSize(lista[i]), (byte)lista[i]));
+            }
         }
     }
 
@@ -114,33 +121,33 @@ public class Encoder {
         return -1;
     }
 
-    private int[] parcurgereMatrice(double[][] matrix) {
+    private int[] parcurgereMatrice(int[][] matrix) {
         int[] lista = new int[64];
         int k = 0;
         int column = 0;
         int row = 0;
-        lista[k] = (int) matrix[row][column];
+        lista[k] = matrix[row][column];
         do {
             k++;
             column++;
-            lista[k] = (int) matrix[row][column];
+            lista[k] = matrix[row][column];
             do {
                 k++;
                 column--;
                 row++;
-                lista[k] = (int) matrix[row][column];
+                lista[k] = matrix[row][column];
             } while (column != 0);
 
             if (row == 7 )
                 break;
             row++;
             k++;
-            lista[k] = (int) matrix[row][column];
+            lista[k] = matrix[row][column];
             do {
                 row--;
                 column++;
                 k++;
-                lista[k] = (int) matrix[row][column];
+                lista[k] = matrix[row][column];
             } while (row != 0);
         } while (true);
 
@@ -148,23 +155,23 @@ public class Encoder {
 
             k++;
             column++;
-            lista[k] = (int) matrix[row][column];
+            lista[k] = matrix[row][column];
             if (column == 7)
                 break;
             do {
                 k++;
                 column++;
                 row--;
-                lista[k] = (int) matrix[row][column];
+                lista[k] = matrix[row][column];
             } while (column != 7);
             row++;
             k++;
-            lista[k] = (int) matrix[row][column];
+            lista[k] = matrix[row][column];
             do {
                 row++;
                 column--;
                 k++;
-                lista[k] = (int) matrix[row][column];
+                lista[k] = matrix[row][column];
             } while (row != 7);
         } while (true);
 
@@ -183,14 +190,14 @@ public class Encoder {
             block.setgStore(fDCT(block.getStore()));
     }
 
-    double[][] fDCT(double[][] matrix) {
-        double[][] G = new double[8][8];
+    int[][] fDCT(double[][] matrix) {
+        int[][] G = new int[8][8];
         double constant = (double) 1 / 4;
 
         for (int u = 0; u < 8; u++)
             for (int v = 0; v < 8; v++)
             {
-                G[u][v] = constant * alpha(u) * alpha(v) * outerSum(matrix, u, v);
+                G[u][v] = (int) (constant * alpha(u) * alpha(v) * outerSum(matrix, u, v));
             }
 
         return G;
@@ -268,19 +275,7 @@ public class Encoder {
         image.setV(matrix);
     }
 
-    public List<Pair<Pair<Integer, Integer>, Integer>> getEntropy() {
+    public List<List<Byte>> getEntropy() {
         return entropy;
-    }
-
-    List<BlockStore> getEncodedY() {
-        return encodedY;
-    }
-
-    List<BlockStore> getEncodedU() {
-        return encodedU;
-    }
-
-    List<BlockStore> getEncodedV() {
-        return encodedV;
     }
 }

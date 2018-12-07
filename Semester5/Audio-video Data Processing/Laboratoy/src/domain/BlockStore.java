@@ -1,12 +1,9 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BlockStore {
     private int size;
+    private int[][] gStore;
     private double[][] store;
-    private double[][] gStore;
     private String storeType;
 
 
@@ -15,6 +12,7 @@ public class BlockStore {
         this.storeType = storeType;
 
         store = new double[size][size];
+        gStore = new int[size][size];
     }
 
     @Override
@@ -22,15 +20,11 @@ public class BlockStore {
         StringBuilder msg = new StringBuilder();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                msg.append((int) store[i][j]).append(" ");
+                msg.append((int) gStore[i][j]).append(" ");
             }
             msg.append("\n");
         }
         return msg.toString();
-    }
-
-    public int getSize() {
-        return size;
     }
 
     double[][] getStore() {
@@ -45,11 +39,11 @@ public class BlockStore {
         store = matrix;
     }
 
-    public double[][] getgStore() {
+    public int[][] getgStore() {
         return gStore;
     }
 
-    public void setgStore(double[][] gStore) {
+    public void setgStore(int[][] gStore) {
         this.gStore = gStore;
     }
 }

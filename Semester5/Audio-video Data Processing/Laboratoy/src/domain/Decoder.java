@@ -1,12 +1,11 @@
 package domain;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Decoder {
     private Encoder encoder;
+    private int pos;
 
     private List<BlockStore> encodedY = new ArrayList<>();
     private List<BlockStore> encodedU = new ArrayList<>();
@@ -28,7 +27,7 @@ public class Decoder {
         decodeEncoded();
     }
 
-    private void decodeEncoded() {
+    private void decodeEncoded(){
         entropyDecoding(encoder.getEntropy());
 
         deQuantizationPhase(encodedY);
@@ -50,68 +49,170 @@ public class Decoder {
 
     }
 
-    private void entropyDecoding(List<Pair<Pair<Integer, Integer>, Integer>> entropy) {
-        int pos = 0;
+    private void entropyDecoding(List<List<Byte>> entropy) {
+        pos = 0;
         while (pos < entropy.size())
         {
-            pos = getBlock(entropy, pos, encodedY, "Y");
-            pos = getBlock(entropy, pos, encodedU, "U");
-            pos = getBlock(entropy, pos, encodedV, "V");
+            BlockStore blockY = new BlockStore(8, "Y");
+            blockY.setgStore(getBlock(entropy));
+            encodedY.add(blockY);
+
+            BlockStore blockU = new BlockStore(8, "U");
+            blockU.setgStore(getBlock(entropy));
+            encodedU.add(blockU);
+
+            BlockStore blockV = new BlockStore(8, "V");
+            blockV.setgStore(getBlock(entropy));
+            encodedV.add(blockV);
         }
     }
 
-    private int getBlock(List<Pair<Pair<Integer, Integer>, Integer>> entropy, int pos, List<BlockStore> encoded, String blockType) {
-        int colum = 1;
+    private int[][] getBlock(List<List<Byte>> entropy) {
+        int column = 0;
         int row = 0;
 
-        BlockStore block = new BlockStore(8, blockType);
-        double[][] matrix = new double[8][8];
+        int[][] matrix = new int[8][8];
 
-        matrix[0][0] = entropy.get(pos).getValue();
-        pos++;
+        matrix[0][0] = entropy.get(pos).get(2);
+
+//        byte amplitude = entropy.get(pos).get(2);
+//        byte runlength = entropy.get(pos).get(0);
+
+        //upper zig-zag
 
         do {
-            int amplitude = entropy.get(pos).getValue();
-            int runlength = entropy.get(pos).getKey().getKey();
-
-            if ( amplitude == 0 && runlength == 0) {
-                do {
-                    matrix[row][colum] = 0;
-                    colum++;
-                    if ( colum == 8 ){
-                        colum = 0;
-                        row++;
-                    }
-                } while (colum != 7 && row != 7);
+            pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
+            column++;
+            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
                 pos++;
-                break;
+                return matrix;
             }
-
-            while (runlength != 0)
-            {
-                matrix[row][colum] = 0;
-                runlength--;
-                colum++;
-                if ( colum == 8 ){
-                    colum = 0;
-                    row++;
+            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+            if (entropy.get(pos).get(0) > 0){
+                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                if (entropy.get(pos).get(0) == 0){
+                    pos--;
                 }
             }
 
-            matrix[row][colum] = amplitude;
-            pos++;
-            colum++;
-            if ( colum == 8 ){
-                colum = 0;
+            do {
+                pos += entropy.get(pos).get(0) == 0 ? 1 : 0;
+                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                    pos++;
+                    return matrix;
+                }
+                column--;
                 row++;
-            }
-            if (colum == 7 && row == 7)
+                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+                if (entropy.get(pos).get(0) > 0){
+                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                    if (entropy.get(pos).get(0) == 0)
+                        pos--;
+                }
+            } while(column != 0);
+
+            if (row == 7)
                 break;
+
+            row++;
+            pos += entropy.get(pos).get(0) == 0 ? 1 : 0;
+            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                pos++;
+                return matrix;
+            }
+            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+            if (entropy.get(pos).get(0) > 0){
+                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                if (entropy.get(pos).get(0) == 0)
+                    pos--;
+            }
+
+            do {
+                row--;
+                column++;
+                pos += entropy.get(pos).get(0) == 0 ? 1 : 0;
+                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                    pos++;
+                    return matrix;
+                }
+                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+                if (entropy.get(pos).get(0) > 0){
+                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                    if (entropy.get(pos).get(0) == 0)
+                        pos--;
+                }
+            } while (row != 0);
         } while (true);
-        block.setgStore(matrix);
-        encoded.add(block);
-        return pos;
+
+        do {
+            column++;
+            pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
+            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                pos++;
+                return matrix;
+            }
+
+            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+            if (entropy.get(pos).get(0) > 0){
+                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                if (entropy.get(pos).get(0) == 0){
+                    pos--;
+                }
+            }
+            if (column == 7)
+                break;
+
+            do {
+                column++;
+                row--;
+                pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
+                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                    pos++;
+                    return matrix;
+                }
+                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+                if (entropy.get(pos).get(0) > 0){
+                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                    if (entropy.get(pos).get(0) == 0){
+                        pos--;
+                    }
+                }
+            } while (column != 7);
+
+            row++;
+            pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
+            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                pos++;
+                return matrix;
+            }
+            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+            if (entropy.get(pos).get(0) > 0){
+                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                if (entropy.get(pos).get(0) == 0){
+                    pos--;
+                }
+            }
+            do {
+                column--;
+                row++;
+                pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
+                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
+                    pos++;
+                    return matrix;
+                }
+                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
+                if (entropy.get(pos).get(0) > 0){
+                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
+                    if (entropy.get(pos).get(0) == 0){
+                        pos--;
+                    }
+                }
+            } while (row != 7);
+        } while (true);
+
+        return matrix;
     }
+
 
     private void deQuantizationPhase(List<BlockStore> encoded) {
         for (BlockStore block: encoded)
@@ -121,30 +222,30 @@ public class Decoder {
 
     private void inverseDCT(List<BlockStore> encoded) {
         for (BlockStore block: encoded)
-            block.setStore(iDCT(block.getgStore()));
+            block.setgStore(iDCT(block.getgStore()));
     }
 
-    private double[][] iDCT(double[][] matrix) {
-        double[][] f = new double[8][8];
+    private int[][] iDCT(int[][] matrix) {
+        int[][] f = new int[8][8];
         double constant = (double) 1 / 4;
 
         for (int x = 0; x < 8; x++)
             for (int y = 0; y < 8; y++)
             {
-                f[x][y] = constant * outerSum(matrix, x, y);
+                f[x][y] = (int) (constant * outerSum(matrix, x, y));
             }
 
         return f;
     }
 
-    private double outerSum(double[][] matrix, int x, int y) {
+    private double outerSum(int[][] matrix, int x, int y) {
         double sum = 0.0;
         for (int u = 0; u < 8; u++)
             sum += innerSum(matrix, x, y, u);
         return sum;
     }
 
-    private double innerSum(double[][] matrix, int x, int y, int u) {
+    private double innerSum(int[][] matrix, int x, int y, int u) {
         double sum = 0.0;
         for (int v = 0; v < 8; v++)
             sum += product(matrix[u][v], x, y, u, v);
@@ -171,7 +272,7 @@ public class Decoder {
         for (BlockStore block: encoded)
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
-                    block.getStore()[i][j] += 128.0;
+                    block.getgStore()[i][j] += 128.0;
     }
 
 
@@ -185,7 +286,7 @@ public class Decoder {
         {
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
-                    matrix[line + i][column + j] = blockStore.getStore()[i][j];
+                    matrix[line + i][column + j] = blockStore.getgStore()[i][j];
             column += 8;
             if (column == encoder.getImage().getWidth())
             {
