@@ -1,0 +1,147 @@
+	Parser - examples
+
+Grammar - site example
+S A B C
+a b
+S aABC A a|bb B a|ε C b|ε
+S
+
+First Set
+{A=[a, b], B=[a, ε], S=[a], C=[b, ε]}
+
+Follow Set
+{A=[a, b, ε], B=[b, ε], S=[ε], C=[ε]}
+
+Parse Table
+M[b,b] = [pop,-1]
+M[A,a] = [a,2]
+M[a,a] = [pop,-1]
+M[a,a] = [pop,-1]
+M[C,b] = [b,6]
+M[$,$] = [acc,-1]
+M[A,a] = [a,2]
+M[B,a] = [a,4]
+M[C,$] = [ε,7]
+M[S,a] = [aABC,1]
+M[$,$] = [acc,-1]
+M[B,$] = [ε,5]
+M[A,b] = [bb,3]
+M[S,a] = [aABC,1]
+M[C,b] = [b,6]
+M[A,b] = [bb,3]
+M[B,a] = [a,4]
+M[b,b] = [pop,-1]
+M[B,b] = [ε,5]
+
+1) w = abbab
+   Pi = [ε, 1, 3, 4, 6]
+
+===================================
+Grammar - ex first seminar
+S T C E R I
+a b c d e f x y
+S aCbIT T ε|cI C ERE E x|y R d|e I xfE
+S
+
+First Set
+{R=[d, e], S=[a], C=[x, y], T=[ε, c], E=[x, y], I=[x]}
+
+Follow Set
+{R=[x, y], S=[ε], C=[b], T=[ε], E=[d, e, b], I=[ε, c]}
+
+Parse Table
+M[c,c] = [pop,-1]
+M[a,a] = [pop,-1]
+M[b,b] = [pop,-1]
+M[f,f] = [pop,-1]
+M[C,y] = [ERE,4]
+M[S,a] = [aCbIT,1]
+M[y,y] = [pop,-1]
+M[T,$] = [ε,2]
+M[E,x] = [x,5]
+M[R,e] = [e,8]
+M[x,x] = [pop,-1]
+M[T,c] = [cI,3]
+M[E,y] = [y,6]
+M[R,d] = [d,7]
+M[I,x] = [xfE,9]
+M[e,e] = [pop,-1]
+M[C,x] = [ERE,4]
+M[d,d] = [pop,-1]
+M[$,$] = [acc,-1]
+
+1) w = axdxbxfy
+   Pi: [ε, 1, 4, 5, 7, 5, 9, 6, 2]
+
+===================================
+Grammar - ex follow seminar
+S A B C D
+a b c d e
+S BA A dBA|ε B DC C eDC|ε D bSc|a
+S
+
+First Set
+{A=[d, ε], B=[b, a], S=[b, a], C=[e, ε], D=[b, a]}
+{A=[+, ε], B=[(, a], S=[(, a], C=[*, ε], D=[(, a]}
+
+Follow Set
+{A=[$, c], B=[d, $, c], S=[$, c], C=[d, $, c], D=[e, d, $, c]}
+{A=[ε, )], B=[+, ε, )], S=[ε, )], C=[+, ε, )], D=[*, +, ε, )]}
+
+Parse Table
+M[C,c] = [ε,6]
+M[D,b] = [bSc,7]
+M[d,d] = [pop,-1]
+M[C,$] = [ε,6]
+M[C,d] = [ε,6]
+M[$,$] = [acc,-1]
+M[S,b] = [BA,1]
+M[A,c] = [ε,3]
+M[B,b] = [DC,4]
+M[S,a] = [BA,1]
+M[C,e] = [eDC,5]
+M[B,a] = [DC,4]
+M[a,a] = [pop,-1]
+M[D,a] = [a,8]
+M[c,c] = [pop,-1]
+M[A,$] = [ε,3]
+M[b,b] = [pop,-1]
+M[e,e] = [pop,-1]
+M[A,d] = [dB,2]
+
+1) w = aea
+   Pi = [ε, 1, 4, 8, 5, 8, 6, 3]
+2) w = baeacda
+   Pi = [ε, 1, 4, 7, 1, 4, 8, 5, 8, 6, 3, 6, 2, 4, 8, 6]
+
+
+===================================
+   Grammar - regular, from original file
+   A B C S
+   a b c
+   S aB|ε A bA|b B cC|a C aA
+   S
+
+   First Set
+   {A=[b], B=[c, a], C=[a], S=[a, ε]}
+
+   Follow set
+   {A=[], B=[], C=[], S=[ε]}
+
+   Parse Table
+   M[S,a] = [aB,1]
+   M[c,c] = [pop,-1]
+   M[b,b] = [pop,-1]
+   M[a,a] = [pop,-1]
+   M[A,b] = [b,4]
+   M[B,c] = [cC,5]
+   M[S,$] = [ε,2]
+   M[A,b] = [bA,3]
+   M[B,a] = [a,6]
+   M[$,$] = [acc,-1]
+   M[C,a] = [aA,7]
+
+   1) w = aa
+      Pi = [ε, 1, 5]
+   2) w = acab
+      Pi = [ε, 1, 5, 7, 4]
