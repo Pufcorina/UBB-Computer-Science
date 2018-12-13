@@ -11,6 +11,8 @@ public class Decoder {
     private List<BlockStore> encodedU = new ArrayList<>();
     private List<BlockStore> encodedV = new ArrayList<>();
 
+    List<Integer> entropy;
+
     private double[][] Q = {
             {6, 4, 4, 6, 10, 16, 20, 24},
             {5, 5, 6, 8, 10, 23, 24, 22},
@@ -28,7 +30,8 @@ public class Decoder {
     }
 
     private void decodeEncoded(){
-        entropyDecoding(encoder.getEntropy());
+        this.entropy = encoder.getEntropy();
+        entropyDecoding();
 
         deQuantizationPhase(encodedY);
         deQuantizationPhase(encodedU);
@@ -49,168 +52,95 @@ public class Decoder {
 
     }
 
-    private void entropyDecoding(List<List<Byte>> entropy) {
+    private void entropyDecoding() {
         pos = 0;
         while (pos < entropy.size())
         {
             BlockStore blockY = new BlockStore(8, "Y");
-            blockY.setgStore(getBlock(entropy));
+            blockY.setgStore(getBlock());
             encodedY.add(blockY);
 
             BlockStore blockU = new BlockStore(8, "U");
-            blockU.setgStore(getBlock(entropy));
+            blockU.setgStore(getBlock());
             encodedU.add(blockU);
 
             BlockStore blockV = new BlockStore(8, "V");
-            blockV.setgStore(getBlock(entropy));
+            blockV.setgStore(getBlock());
             encodedV.add(blockV);
         }
     }
 
-    private int[][] getBlock(List<List<Byte>> entropy) {
-        int column = 0;
-        int row = 0;
-
+    private int[][] getBlock() {
         int[][] matrix = new int[8][8];
 
-        matrix[0][0] = entropy.get(pos).get(2);
+        pos++;
+        matrix[0][0] = entropy.get(pos++);
 
-//        byte amplitude = entropy.get(pos).get(2);
-//        byte runlength = entropy.get(pos).get(0);
+        if (entropy.get(pos) == 0 && entropy.get(pos + 1) == 0) {
+            pos += 2;
+            return matrix;
+        }
 
         //upper zig-zag
 
+        int column = 0;
+        int row = 0;
+
         do {
-            pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
             column++;
-            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                pos++;
-                return matrix;
-            }
-            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-            if (entropy.get(pos).get(0) > 0){
-                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                if (entropy.get(pos).get(0) == 0){
-                    pos--;
-                }
-            }
+            if (setMatrix(row, column, matrix)) return matrix;
 
             do {
-                pos += entropy.get(pos).get(0) == 0 ? 1 : 0;
-                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                    pos++;
-                    return matrix;
-                }
-                column--;
                 row++;
-                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-                if (entropy.get(pos).get(0) > 0){
-                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                    if (entropy.get(pos).get(0) == 0)
-                        pos--;
-                }
-            } while(column != 0);
+                column--;
+                if (setMatrix(row, column, matrix)) return matrix;
+            } while (column != 0);
 
-            if (row == 7)
+            if (row == 7 )
                 break;
-
             row++;
-            pos += entropy.get(pos).get(0) == 0 ? 1 : 0;
-            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                pos++;
-                return matrix;
-            }
-            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-            if (entropy.get(pos).get(0) > 0){
-                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                if (entropy.get(pos).get(0) == 0)
-                    pos--;
-            }
-
+            if (setMatrix(row, column, matrix)) return matrix;
             do {
                 row--;
                 column++;
-                pos += entropy.get(pos).get(0) == 0 ? 1 : 0;
-                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                    pos++;
-                    return matrix;
-                }
-                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-                if (entropy.get(pos).get(0) > 0){
-                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                    if (entropy.get(pos).get(0) == 0)
-                        pos--;
-                }
+                if (setMatrix(row, column, matrix)) return matrix;
             } while (row != 0);
         } while (true);
 
+
         do {
             column++;
-            pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
-            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                pos++;
-                return matrix;
-            }
-
-            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-            if (entropy.get(pos).get(0) > 0){
-                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                if (entropy.get(pos).get(0) == 0){
-                    pos--;
-                }
-            }
+            if (setMatrix(row, column, matrix)) return matrix;
             if (column == 7)
                 break;
-
             do {
-                column++;
                 row--;
-                pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
-                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                    pos++;
-                    return matrix;
-                }
-                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-                if (entropy.get(pos).get(0) > 0){
-                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                    if (entropy.get(pos).get(0) == 0){
-                        pos--;
-                    }
-                }
+                column++;
+                if (setMatrix(row, column, matrix)) return matrix;
             } while (column != 7);
-
             row++;
-            pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
-            if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                pos++;
-                return matrix;
-            }
-            matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-            if (entropy.get(pos).get(0) > 0){
-                entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                if (entropy.get(pos).get(0) == 0){
-                    pos--;
-                }
-            }
+            if (setMatrix(row, column, matrix)) return matrix;
             do {
-                column--;
                 row++;
-                pos += entropy.get(pos).get(0) <= 0 ? 1 : 0;
-                if (entropy.get(pos).get(2) == 0 && entropy.get(pos).get(0) == 0) {
-                    pos++;
-                    return matrix;
-                }
-                matrix[row][column] = entropy.get(pos).get(0) == 0 ? entropy.get(pos).get(2): 0;
-                if (entropy.get(pos).get(0) > 0){
-                    entropy.get(pos).set(0, (byte)(entropy.get(pos).get(0) - 1));
-                    if (entropy.get(pos).get(0) == 0){
-                        pos--;
-                    }
-                }
+                column--;
+                if (setMatrix(row, column, matrix)) return matrix;
             } while (row != 7);
         } while (true);
 
         return matrix;
+    }
+
+    private boolean setMatrix(int row, int column, int[][] matrix) {
+        if (entropy.get(pos) == 0 && entropy.get(pos + 1) == 0) {
+            pos += 2;
+            return true;
+        }
+        matrix[row][column] = entropy.get(pos) == 0 ? entropy.get(pos + 2): 0;
+        if (entropy.get(pos) != 0)
+            entropy.set(pos, entropy.get(pos) - 1);
+        else
+            pos += 3;
+        return false;
     }
 
 

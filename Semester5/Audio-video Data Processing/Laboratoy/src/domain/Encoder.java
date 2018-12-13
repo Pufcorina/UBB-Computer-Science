@@ -14,7 +14,7 @@ public class Encoder {
     private List<BlockStore> encodedU;
     private List<BlockStore> encodedV;
     private HashMap<Integer, List<Integer>> amplitudes = new HashMap<>();
-    List<List<Byte>> entropy = new ArrayList<>();
+    private List<Integer> entropy = new ArrayList<>();
 
     private double[][] Q = {
             {6, 4, 4, 6, 10, 16, 20, 24},
@@ -65,7 +65,7 @@ public class Encoder {
         FileWriter fileWriter = new FileWriter("./data/entropy");
         PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            printWriter.println(entropy);
+        printWriter.println(entropy);
 
         printWriter.close();
     }
@@ -82,7 +82,7 @@ public class Encoder {
         int[] lista = parcurgereMatrice(matrix);
 
         int DC_size = getSize(lista[0]);
-        entropy.add(Arrays.asList((byte)-1, (byte)DC_size, (byte)lista[0]));
+        entropy.addAll(Arrays.asList(DC_size, lista[0]));
 
         for(int i = 1; i < 64; i++)
         {
@@ -95,10 +95,10 @@ public class Encoder {
                 }
             }
             if (i == 64 )
-                entropy.add(Arrays.asList((byte)0, (byte)0, (byte)0));
+                entropy.addAll(Arrays.asList(0, 0));
             else
             {
-                entropy.add(Arrays.asList((byte)cnt, (byte)getSize(lista[i]), (byte)lista[i]));
+                entropy.addAll(Arrays.asList(cnt, getSize(lista[i]), lista[i]));
             }
         }
     }
@@ -275,7 +275,7 @@ public class Encoder {
         image.setV(matrix);
     }
 
-    public List<List<Byte>> getEntropy() {
+    public List<Integer> getEntropy() {
         return entropy;
     }
 }
