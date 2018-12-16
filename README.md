@@ -89,28 +89,28 @@
   </li>
   <li>:open_file_folder: Semester 5
     <ul>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Audio-video%20Data%20Processing">
+      <li> :musical_score:
+        <a href="https://github.com/Pufcorina/Audio-videoDataProcessing">
           Audio-video Data Processing
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Formal%20Languages%20and%20Compiler%20Design">
+      <li> :pencil:
+        <a href="https://github.com/Pufcorina/FormalLanguagesAndCompilerDesign">
           Formal Languages and Compiler Design
         </a>
       </li>
-      <li>
+      <li> :chart_with_downwards_trend:
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Intelligent%20Methods%20for%20solving%20real-world%20problems">
           Intelligent Methods for solving real-world problems
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Mobile%20Application%20Programming">
+      <li> :iphone:
+        <a href="https://github.com/Pufcorina/MobileProgramming">
           Mobile Application Programming
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Parallel%20and%20Distributed%20Programming">
+      <li> :black_joker:
+        <a href="https://github.com/Pufcorina/ParallelAndDistributedProgramming">
           Parallel and Distributed Programming
         </a>
       </li>
@@ -138,7 +138,7 @@
           Numerical Calculus
         </a>
       </li>
-      <li>
+      <li> :mortar_board:
         <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Preparation%20of%20Bachelor%20Thesis">
           Preparation of Bachelor Thesis
         </a>
