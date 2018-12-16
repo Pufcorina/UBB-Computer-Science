@@ -1,5 +1,0 @@
-bugat a1234567=1;
-bugat b=2;
-bugat c=3
-dara (!a&&b||a<=b&c)
-    tzipa_incoa<<"test for \"token\" generator"<<

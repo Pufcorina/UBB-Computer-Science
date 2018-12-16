@@ -1,2 +1,0 @@
-tzipa_incoa << "b = " << b;
-tzipa_incoa << " ";
