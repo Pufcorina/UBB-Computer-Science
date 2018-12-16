@@ -90,12 +90,12 @@
   <li>:open_file_folder: Semester 5
     <ul>
       <li> :musical_score:
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Audio-video%20Data%20Processing">
+        <a href="https://github.com/Pufcorina/Audio-videoDataProcessing">
           Audio-video Data Processing
         </a>
       </li>
       <li> :pencil:
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Formal%20Languages%20and%20Compiler%20Design">
+        <a href="https://github.com/Pufcorina/FormalLanguagesAndCompilerDesign">
           Formal Languages and Compiler Design
         </a>
       </li>
@@ -110,7 +110,7 @@
         </a>
       </li>
       <li> :black_joker:
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester5/Parallel%20and%20Distributed%20Programming">
+        <a href="https://github.com/Pufcorina/ParallelAndDistributedProgramming">
           Parallel and Distributed Programming
         </a>
       </li>
