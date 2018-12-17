@@ -1,4 +1,0 @@
-rootProject.name = 'lab8-10'
-include 'core'
-include 'web'
-

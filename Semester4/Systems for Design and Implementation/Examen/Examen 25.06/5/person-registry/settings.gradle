@@ -1,4 +1,0 @@
-rootProject.name = 'person-registry'
-include 'core'
-include 'web'
-
