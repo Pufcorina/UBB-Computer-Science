@@ -3,17 +3,17 @@
   <li>:open_file_folder: Semester 1
     <ul>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/Algebra"> 
+        <a href="https://github.com/Pufcorina/Algebra"> 
           :clubs:  Algebra 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/Computational%20Logic"> 
+        <a href="https://github.com/Pufcorina/Computational-Logic"> 
           :trollface:  Computational Logic 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester1/Fundamental%20of%20Programming"> 
+        <a href="https://github.com/Pufcorina/Fundamental-of-Programming"> 
           :snake:  Fundamental of Programming 
         </a>
       </li>
@@ -22,12 +22,12 @@
   <li>:open_file_folder: Semester 2
     <ul>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/Data%20Structures%20and%20Algorithms"> 
+        <a href="https://github.com/Pufcorina/Data-Structures-and-Algorithms"> 
           :scissors:  Data Structures and Algorithms 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester2/Object%20Oriented%20Programming"> 
+        <a href="https://github.com/Pufcorina/Object-Oriented-Programming"> 
           :poop:  Object Oriented Programming 
         </a>
       </li>
@@ -36,27 +36,27 @@
   <li>:open_file_folder: Semester 3
     <ul>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Advanced%20Methods%20of%20Programming"> 
+        <a href="https://github.com/Pufcorina/Advanced-Methods-of-Programming"> 
           :santa:  Advanced Methods of Programming 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Computer%20Networks"> 
+        <a href="https://github.com/Pufcorina/Computer-Networks"> 
           :outbox_tray:  Computer Networks 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Databases"> 
+        <a href="https://github.com/Pufcorina/Databases"> 
           :nut_and_bolt:  Databases 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Functional%20and%20Logic%20Programming"> 
+        <a href="https://github.com/Pufcorina/Functional-and-Logic-Programming"> 
           :floppy_disk:  Functional and Logic Programming 
         </a>
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester3/Probability%20and%20Statistics"> 
+        <a href="https://github.com/Pufcorina/Probability-and-Statistics"> 
           :chart_with_upwards_trend:  Probability and Statistics
         </a>
       </li>
