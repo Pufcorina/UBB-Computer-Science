@@ -65,23 +65,23 @@
   <li>:open_file_folder: Semester 4
     <ul>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Database%20Management%20Systems">
+        <a href="https://github.com/Pufcorina/Database-Management-Systems">
           :nut_and_bolt:  Database Management Systems
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Web%20Programming">
+        <a href="https://github.com/Pufcorina/WebProgramming">
           :newspaper:  Web Programming
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Systems%20for%20Design%20and%20Implementation">
+        <a href="https://github.com/Pufcorina/Systems-for-Design-and-Implementation">
           :zap:  Systems for Design and Implementation
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Artificial%20Intelligence">
+        <a href="https://github.com/Pufcorina/Artificial-Intelligence">
           :ferris_wheel:  Artificial Intelligence
       </li>
       <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester4/Software%20Engineering/">
+        <a href="https://github.com/Pufcorina/Software-Engineering">
           :ambulance:  Software Engineering
         </a>
       </li>
