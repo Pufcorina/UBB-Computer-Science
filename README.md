@@ -129,12 +129,12 @@
         </a>
       </li>
       <li> :scroll:
-        <a href="https://github.com/Pufcorina/History-of-Computer-Sciencee">
+        <a href="https://github.com/Pufcorina/History-of-Computer-Science">
           History of Computer Science
         </a>
       </li>
       <li> :sos:
-        <a href="https://github.com/Pufcorina/History-of-Computer-Science">
+        <a href="https://github.com/Pufcorina/Numerical-Calculus">
           Numerical Calculus
         </a>
       </li>
