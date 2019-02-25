@@ -118,33 +118,33 @@
   </li>
   <li>:open_file_folder: Semester 6
     <ul>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Business%20Intelligence">
-          Business Intelligence
+      <li> :anger:
+        <a href="https://github.com/Pufcorina/Android-Things">
+          Android Things
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Design%20Patterns">
+      <li> :grey_question:
+        <a href="https://github.com/Pufcorina/Design-Patterns">
           Design Patterns
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/History%20of%20Computer%20Science">
+      <li> :scroll:
+        <a href="https://github.com/Pufcorina/History-of-Computer-Sciencee">
           History of Computer Science
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Numerical%20Calculus">
+      <li> :sos:
+        <a href="https://github.com/Pufcorina/History-of-Computer-Science">
           Numerical Calculus
         </a>
       </li>
       <li> :mortar_board:
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Preparation%20of%20Bachelor%20Thesis">
+        <a href="https://github.com/Pufcorina/Preparation-of-Bachelor-Thesis">
           Preparation of Bachelor Thesis
         </a>
       </li>
-      <li>
-        <a href="https://github.com/Pufcorina/UBB/tree/master/Semester6/Software%20Systems%20Verification%20and%20Validation">
+      <li> :shipit:
+        <a href="https://github.com/Pufcorina/Software-Systems-Verification-and-Validation">
           Software Systems Verification and Validation
         </a>
       </li>
