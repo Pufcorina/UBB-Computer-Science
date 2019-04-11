@@ -129,7 +129,6 @@
         </a>
       </li>
       <li> :scroll:
-        <a href="https://github.com/Pufcorina/History-of-Computer-Science">
           History of Computer Science
         </a>
       </li>
@@ -139,7 +138,6 @@
         </a>
       </li>
       <li> :mortar_board:
-        <a href="https://github.com/Pufcorina/Preparation-of-Bachelor-Thesis">
           Preparation of Bachelor Thesis
         </a>
       </li>
